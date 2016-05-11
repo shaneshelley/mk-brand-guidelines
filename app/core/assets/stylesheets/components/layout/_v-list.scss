@@ -1,0 +1,121 @@
+/**
+* ## Vertical List
+*
+* ### General Notes
+*
+* The Vertical List layout object is used to add vertical spacing on a set of elements.  Use the `.v-list` class on a parent object to create spacing between child elements, the bottom margin will not be applied to the last child element
+*
+*   @example
+*   ul.v-list
+*      li.camel-bg
+*         p.p--no-margin List item 1
+*      li.camel-bg
+*         p.p--no-margin List item 2
+*      li.camel-bg
+*         p.p--no-margin List item 3
+*/
+.v-list {
+	> * {
+		margin-bottom: 15px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+/**
+* ### Vertical List - All Children
+*
+* Use the `.v-list--all` class to add spacing to all child elements inclusive of the last element in the list
+*
+*   @example
+*   ul.v-list--all
+*      li.light-grey-1-bg
+*         p.p--no-margin List item 1
+*      li.light-grey-1-bg
+*         p.p--no-margin List item 2
+*      li.light-grey-1-bg
+*         p.p--no-margin List item 3
+*/
+.v-list--all {
+	> * {
+		margin-bottom: 15px;
+	}
+}
+
+/**
+* ### Vertical List - Top Spacing
+*
+* Reverse the child spacing from bottom margin to top margin by using the `.v-list--top` class on the parent element
+*
+*   @example
+*   ul.v-list--top
+*      li.dark-gold-1-bg
+*         p.p--no-margin List item 1
+*      li.dark-gold-1-bg
+*         p.p--no-margin List item 2
+*      li.dark-gold-1-bg
+*         p.p--no-margin List item 3
+*/
+.v-list--top {
+	> * {
+		margin-bottom: 0 !important;
+		margin-top: 15px;
+	}
+}
+
+/**
+* ### Vertical List - Sizes
+*
+* Use more or less spacing between child elements by utilizing the `.v-list--lg` or `.v-list--sm` classes on a parent element
+*
+*   @example
+*   ul.v-list--lg
+*      li.camel-bg
+*         p.p--no-margin List item 1 - Large
+*      li.camel-bg
+*         p.p--no-margin List item 2 - Large
+*      li.camel-bg
+*         p.p--no-margin List item 3 - Large
+*   ul.v-list--sm
+*      li.light-grey-2-bg
+*         p.p--no-margin List item 1 - Small
+*      li.light-grey-2-bg
+*         p.p--no-margin List item 2 - Small
+*      li.light-grey-2-bg
+*         p.p--no-margin List item 3 - Small
+*/
+.v-list--lg {
+	> * {
+		margin-bottom: 25px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.v-list--sm {
+	> * {
+		margin-bottom: 5px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.v-list--lg-all {
+	> * {
+		margin-bottom: 25px;
+	}
+
+}
+
+.v-list--top-lg {
+	> * {
+		margin-bottom: 0 !important;
+		margin-top: 25px;
+	}
+}

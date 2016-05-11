@@ -1,0 +1,110 @@
+@media print {
+
+  /* Utility classes */
+  .no-print {
+    display: none;
+  }
+
+  .print-clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+  }
+
+  .print-inline {
+    display: inline !important;
+  }
+
+  .col-print-full-width {
+    width: 100%;
+  }
+
+  .col-print-3 {
+    width: 25%;
+    float: left;
+  }
+
+  .col-print-4 {
+    width: 33%;
+    float: left;
+  }
+
+  .row-print-no-margin {
+    margin: 0 !important;
+  }
+
+  .print-h2 {
+    font-size: 24px;
+    margin-top: 10px !important;
+  }
+
+  .print-h3 {
+    font-size: 12px;
+    margin: 10px 0 5px !important;
+  }
+
+  .print-push-30 {
+    margin-top: 30px;
+  }
+
+  .print-text-center {
+    text-align: center !important;
+  }
+
+  .print-text-left {
+    text-align: left !important;
+  }
+
+  .print-break {
+    display: block;
+    page-break-before: always;
+  }
+
+  body, html {
+    overflow-y: visible;
+    overflow-x: visible;
+  }
+
+  /* Page adjustments */
+  .confirmation {
+    .checkout-header {
+      margin: 0 !important;
+      padding: 5px 0 !important;
+      height: 45px;
+      border: 0 !important;
+
+      .confirmation-header-container {
+        height: 35px;
+
+        h1 {
+          font-size: 32px;
+        }
+      }
+    }
+
+    .row--big-margin,
+    .row--extra-margin,
+    .row--small-margin,
+    .row--normal-margin {
+      margin-top: 5px !important;
+      margin-bottom: 0 !important;
+    }
+
+    address {
+      margin-bottom: 5px !important;
+    }
+
+    .box {
+      padding: 0 !important;
+      margin-bottom: 10px !important;
+      border: 0 !important;
+    }
+
+    h4 {
+      margin: 15px 0 5px !important;
+    }
+  }
+}

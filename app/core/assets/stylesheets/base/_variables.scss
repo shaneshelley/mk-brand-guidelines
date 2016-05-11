@@ -1,0 +1,98 @@
+//bootstrap overrides
+$screen-xs-max: 700px;
+$screen-sm-min: ($screen-xs-max + 1);
+$screen-sm-max: 1020px;
+$screen-md-min: ($screen-sm-max+1);
+$screen-md-max: 1440px;
+$screen-lg-min: ($screen-md-max+1);
+$border-radius-base: 0;
+$font-path: '/css/fonts/';
+
+// intermediate breakpoints for fine-tuning
+$screen-1279-max: 1279px;
+
+//sizes
+$row-buffer: 30px;
+
+//colors
+$black: #000;
+$white: #fff;
+
+$gold : #bda06c;
+$dark-gold-1 : #ac8c53; /* AA Large Gold, Use with white text â‰¥18px */
+$dark-gold-2 : #8a734a; /* AA Normal Gold, Use with white text â‰¥14px */
+$camel : #e7d2ac;
+$camel-transparent: rgba(231, 210, 172, 0.6);
+
+$dark-grey: #363636;
+$grey: #565656;
+$light-grey-1: #909090; /* Used for greyed-out buttons */
+$light-grey-1-5: #707070; /* Used for any readable items, WCAG AA Normal Text contrast ratio */
+$light-grey-2: #ddd; /* Used for HR, Form Borders, & Baground of tablet/desktop Accepted Payment area */
+$placeholder-grey: #707070;
+
+$red: #df0000;
+$green: green;
+$alert : #bb1100;
+
+$list-colours:
+  ('black' $black)
+  ('white' $white)
+  ('gold' $gold)
+  ('dark-gold-1' $dark-gold-1)
+  ('dark-gold-2' $dark-gold-2)
+  ('grey' $grey)
+  ('dark-grey' $dark-grey)
+  ('light-grey-1' $light-grey-1)
+  ('light-grey-2' $light-grey-2)
+  ('light-grey-1-5' $light-grey-1-5)
+  ('red' $red)
+  ('green' $green)
+  ('camel' $camel);
+
+//font weights
+$normal: 300;
+$bold: 700;
+
+//font sizes
+$h1-font-sizes: (
+  null: 14px,
+  $screen-sm-min: 18px,
+  $screen-md-min: 22px
+);
+
+$h2-font-sizes: (
+  null: 15px,
+  $screen-sm-min: 15px,
+  $screen-md-min: 15px
+);
+
+$h3-font-sizes: (
+  null: 12px,
+  $screen-sm-min: 12px,
+  $screen-md-min: 12px
+);
+
+$h4-font-sizes: (
+  null: 12px,
+  $screen-sm-min: 12px,
+  $screen-md-min: 12px
+);
+
+$h5-font-sizes: (
+  null: 14px,
+  $screen-sm-min: 14px,
+  $screen-md-min: 12px
+);
+
+//font families
+$font-family-sans-serif       : "Gotham 4r", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif-heavy : "Gotham 7r", Helvetica, Arial, sans-serif !default;
+$font-family-sans-serif-light : "Gotham 3r", Helvetica, Arial, sans-serif !default;
+$font-family-serif            : "Caslon 540 LT W01 Roman", Georgia, serif !default;
+$font-family-serif-italic     : "Caslon540LTW01-Italic", Georgia, serif !default;
+$font-family-serif-light      : "Caslon #540 W01SC Rm SC", Georgia, serif !default;
+$font-family-men-headline     : "DinDot", Helvetica, sans-serif !default;
+
+$icon-xs: 24px;
+$icon-sm: 36px;

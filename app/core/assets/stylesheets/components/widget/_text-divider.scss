@@ -1,0 +1,44 @@
+/**
+* ## Text Divider
+*
+* ### General Notes
+*
+* Use the Text Divider object to achieve the effect of a horizontal rule line with text vertically and horizontally aligned over the middle of the line.
+*
+* To create the Text Divider object, use the `.text-divider` class, then the hierarchy in this order: `.text-divider__text-wrapper`, followed by `.text-divider__text-wrapper-fixer` and lastly the text element: `.text-divider__text-wrapper-text`.  This last element should then wrap whatever text you want to appear over the horizontal rule
+*
+*   @example
+*   div.text-divider
+*      div.text-divider__text-wrapper
+*         div.text-divider__text-wrapper-fixer
+*            p.text-divider__text-wrapper-text.p--no-margin.uppercase Line Break Text
+*/
+.text-divider {
+    width: 100%;
+    border-bottom: 1px solid $black;
+    padding-bottom: 13px;
+    margin-bottom: 13px;
+}
+
+@each $colour in $list-colours {
+  .text-divider--#{nth($colour, 1)} {
+      border-color: nth($colour, 2);
+  }
+}
+
+.text-divider__text-wrapper {
+    float: left;
+    left: 50%;
+    position: relative;
+}
+
+.text-divider__text-wrapper-fixer {
+    float: left;
+    left: -50%;
+    position: relative;
+}
+
+.text-divider__text-wrapper-text {
+    padding: 5px 10px;
+    background-color: $white;
+}

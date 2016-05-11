@@ -1,0 +1,30 @@
+@mixin windowShade($duration: 0.5s) {
+  height: 1px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: visibility $duration, opacity $duration, height $duration;
+  -moz-transition: visibility $duration, opacity $duration, height $duration;
+  transition: visibility $duration, opacity $duration, height $duration;
+
+  @include mkEasing(0.5);
+}
+
+@mixin mkEasing($duration: .4) {
+  -webkit-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, $duration);
+   -moz-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, $duration);
+     -o-transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, $duration);
+        transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, $duration); /* ease-out */
+}
+
+%menuClosed {
+  background: #fff;
+  border: solid $color-menu-border;
+  border-width: 0 1px 1px 1px;
+  overflow: hidden;
+  @include windowShade;
+}
+
+%menuOpen {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,39 @@
+.order-summary {
+
+  ul {
+    margin: 0;
+    li {
+      list-style-type: none;
+
+      &.total {
+        border-top: 1px solid $light-grey-2;
+        padding-top: 15px;
+        font-weight: $bold;
+        .subtext {
+          display: block;
+          font-weight: normal;
+          font-size: 11px;
+          padding-top: 1px;
+        }
+      }
+    }
+  }
+
+  @media (min-width: $screen-sm-min){
+    .collapse {
+      display: block;
+    }
+  }
+}
+
+.order-summary__prices {
+}
+
+.order-summary__prices-toggle {
+  position: relative;
+
+  .icon-expand,
+  .icon-collapse {
+    font-size: 11px;
+  }
+}

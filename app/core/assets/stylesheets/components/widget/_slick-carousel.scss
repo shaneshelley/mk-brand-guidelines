@@ -1,0 +1,111 @@
+@import "bower_components/slick-carousel/slick/slick.scss";
+
+/*
+*	Slick Carousel Overrides
+*/
+.slick-arrow {
+	height: 50px;
+	width: 35px;
+}
+
+.slick-prev,
+.slick-next {
+    top: 20%;
+	z-index: 100;
+}
+
+.slick-prev:before,
+.slick-next:before
+{
+	font-family: 'icomoon';
+	font-size:42px;
+	color: $black;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.slick-prev {
+    left: 0;
+    [dir="rtl"] & {
+        left: auto;
+        right: 0;
+    }
+    &:before {
+        content: "\e610";
+        [dir="rtl"] & {
+            content: "\e611";
+        }
+    }
+}
+
+.slick-next {
+    right: 0;
+    [dir="rtl"] & {
+        left: 0;
+        right: auto;
+    }
+    &:before {
+        content: "\e611";
+        [dir="rtl"] & {
+            content: "\e610";
+        }
+    }
+}
+/* END Slick Carousel Overrides */
+
+.products-carousel-item {
+    padding: 0 30px;
+    height: 320px;
+
+    .carousel-img-container {
+        height: 160px;
+
+        img {
+            max-width: 100%;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+            //autoprefixer doesn't seem to provide us with -ms tag here so adding it here explicitly
+            -ms-transform: translateY(-50%);
+            margin: 0 auto;
+        }
+    }
+
+    .carousel-title-container {
+        height: 67px;
+        overflow: hidden;
+        .product-title {
+            line-height: 1.25em;
+        }
+    }
+
+    @media (min-width: $screen-md-min) {
+        .carousel-title-container {
+            height: 57px;
+        }
+    }
+
+    .carousel-price-container {
+        height: 35px;
+        margin-top: 12px;
+        p {
+            text-transform: uppercase;
+
+            &.old-price {
+                color: $light-grey-1-5;
+                margin: 0;
+            }
+        }
+    }
+
+    .carousel-link-container {
+        margin-top: 6px;
+    }
+}

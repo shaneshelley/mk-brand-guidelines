@@ -1,0 +1,314 @@
+/*
+* Reset Styles
+*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+* Accessibility Styles
+*/
+
+/*  Use .element-invisible for hiding an element
+*   from the DOM while still making it readable
+*   for screen readers
+*/
+.element-invisible {
+  position: absolute !important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+/**
+* ## Colors
+*
+* ### Background Colors
+*
+* To add a custom background color to any element, add the color name followed by `-bg`, so for a red background add this class to an element: `.red-bg`.  The table of all background class options follows:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .red-bg
+*       td
+*         div.red-bg
+*           p.white #df0000
+*     tr
+*       td
+*         code .green-bg
+*       td
+*         div.green-bg
+*           p.white green
+*     tr
+*       td
+*         code .camel-bg
+*       td
+*         div.camel-bg
+*           p.white #e7d2ac
+*     tr
+*       td
+*         code .black-bg
+*       td
+*         div.black-bg
+*           p.white #000000
+*     tr
+*       td
+*         code .white-bg
+*       td
+*         div.white-bg
+*           p #ffffff
+*     tr
+*       td
+*         code .gold-bg
+*       td
+*         div.gold-bg
+*           p.white #bda06c
+*     tr
+*       td
+*         code .dark-gold-1-bg
+*       td
+*         div.dark-gold-1-bg
+*           p.white #ac8c53
+*     tr
+*       td
+*         code .dark-gold-2-bg
+*       td
+*         div.dark-gold-2-bg
+*           p.white #8a734a
+*     tr
+*       td
+*         code .grey-bg
+*       td
+*         div.grey-bg
+*           p.white #565656
+*     tr
+*       td
+*         code .dark-grey-bg
+*       td
+*         div.dark-grey-bg
+*           p.white #363636
+*     tr
+*       td
+*         code .light-grey-1-bg
+*       td
+*         div.light-grey-1-bg
+*           p.white #909090
+*     tr
+*       td
+*         code .light-grey-2-bg
+*       td
+*         div.light-grey-2-bg
+*           p.white #dddddd
+*
+*/
+
+/**
+* ### Font Colors
+*
+* To add a custom font color to any element, add the color name as a class, i.e. `.red`.  The table of all color class options follows:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .red
+*       td
+*          p.red #df0000
+*     tr
+*       td
+*         code .green
+*       td
+*          p.green green
+*     tr
+*       td
+*         code .camel
+*       td
+*         p.camel #e7d2ac
+*     tr
+*       td
+*         code .black
+*       td
+*         p.black #000000
+*     tr
+*       td
+*         code .white
+*       td
+*         div.black-bg
+*           p.white #ffffff
+*     tr
+*       td
+*         code .gold
+*       td
+*         p.gold #bda06c
+*     tr
+*       td
+*         code .dark-gold-1
+*       td
+*         p.dark-gold-1 #ac8c53
+*     tr
+*       td
+*         code .dark-gold-2
+*       td
+*         p.dark-gold-2 #8a734a
+*     tr
+*       td
+*         code .grey
+*       td
+*         p.grey #565656
+*     tr
+*       td
+*         code .dark-grey
+*       td
+*         p.dark-grey #363636
+*     tr
+*       td
+*         code .light-grey-1
+*       td
+*         p.light-grey-1 #909090
+*     tr
+*       td
+*         code .light-grey-2
+*       td
+*         p.light-grey-2 #dddddd
+*
+*/
+@each $colour in $list-colours {
+  .#{nth($colour, 1)}-bg {
+      background: nth($colour, 2) !important;
+  }
+  .#{nth($colour, 1)} {
+      color: nth($colour, 2) !important;
+  }
+}
+
+.pull-right {
+  float: right;
+}
+
+@media (max-width: $screen-xs-max){
+  .pull-right-xs {
+    float: right;
+  }
+}
+
+.pull-left {
+  float: left;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.vertical-top {
+  vertical-align: top;
+}
+
+.vertical-middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+hr {
+  border-color: $light-grey-2;
+}
+
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+  height: auto;
+  min-height: 100%;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+ul.inline-items{
+  text-align: center;
+  li {
+    display: inline;
+  }
+}
+
+.row--small-margin {
+  margin-top: 15px;
+}
+
+.label--no-margin, .p--no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: $screen-md-min) and (max-width: $screen-md-max){
+  .text-center-md {
+    text-align: center;
+  }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max){
+  .text-center-sm {
+    text-align: center;
+  }
+}
+
+@media (max-width: $screen-xs-max){
+  .text-center-xs {
+    text-align: center;
+  }
+}
+
+.link-primary {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.opacity-hidden {
+  opacity: 0;
+}
+
+.opacity-visible {
+  opacity: 1;
+}
+
+@media (min-width: $screen-sm-min){
+  .grey-sm {
+    color: $grey;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center-margin {
+  margin: 0 auto;
+}

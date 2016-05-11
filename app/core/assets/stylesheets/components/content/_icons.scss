@@ -1,0 +1,297 @@
+$input-height: 48px;
+/**
+* ## Icons
+*/
+@font-face {
+  font-family: 'icomoon';
+  src:url($font-path +'icomoon.eot?81kob4');
+  src:url($font-path +'icomoon.eot?#iefix81kob4') format('embedded-opentype'),
+    url($font-path +'icomoon.ttf?81kob4') format('truetype'),
+    url($font-path +'icomoon.woff?81kob4') format('woff'),
+    url($font-path +'icomoon.svg?81kob4#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/**
+*
+* ### Card Icons
+*
+* Use the following classes for card icons:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .icon-visa
+*       td
+*         i.icon-visa
+*     tr
+*       td
+*         code .icon-mastercard
+*       td
+*         i.icon-mastercard
+*     tr
+*       td
+*         code .icon-american-express
+*       td
+*         i.icon-american-express
+*     tr
+*       td
+*         code .icon-discover
+*       td
+*         i.icon-discover
+*     tr
+*       td
+*         code .icon-gift-card
+*       td
+*         i.icon-gift-card
+*     tr
+*       td
+*         code .icon-paypal
+*       td
+*         i.icon-paypal
+*     tr
+*       td
+*         code .icon-generic-card
+*       td
+*         i.icon-generic-card
+*
+*/
+.icon-visa:before {
+  content: "\e600";
+}
+.icon-mastercard:before {
+  content: "\e601";
+}
+.icon-american-express:before {
+  content: "\e602";
+}
+.icon-discover:before {
+  content: "\e603";
+}
+.icon-gift-card:before {
+  content: "\e604";
+}
+.icon-paypal:before {
+  content: "\e605";
+}
+.icon-generic-card:before {
+  content: "\e606";
+}
+
+/**
+*
+* ### Social Icons
+*
+* Use the following classes for social icons:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .icon-facebook
+*       td
+*         i.icon-facebook
+*     tr
+*       td
+*         code .icon-twitter
+*       td
+*         i.icon-twitter
+*     tr
+*       td
+*         code .icon-pinterest
+*       td
+*         i.icon-pinterest
+*
+*/
+.icon-facebook:before {
+  content: "\e607";
+}
+.icon-twitter:before {
+  content: "\e608";
+}
+.icon-pinterest:before {
+  content: "\e609";
+}
+.icon-youtube:before {
+  content: "\e60a";
+}
+.icon-instagram:before {
+  content: "\e60b";
+}
+
+/**
+*
+* ### Functional Icons
+*
+* Use the following classes for functional icons:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .icon-back
+*       td
+*         i.icon-back
+*     tr
+*       td
+*         code .icon-next
+*       td
+*         i.icon-next
+*     tr
+*       td
+*         code .icon-collapse
+*       td
+*         i.icon-collapse
+*     tr
+*       td
+*         code .icon-expand
+*       td
+*         i.icon-expand
+*     tr
+*       td
+*         code .icon-open
+*       td
+*         i.icon-open
+*     tr
+*       td
+*         code .icon-close-
+*       td
+*         i.icon-close-
+*     tr
+*       td
+*         code .icon-close-x
+*       td
+*         i.icon-close-x
+*     tr
+*       td
+*         code .icon-checkmark
+*       td
+*         i.icon-checkmark
+*     tr
+*       td
+*         code .icon-carat
+*       td
+*         i.icon-carat
+*
+*/
+.icon-back:before {
+  content: "\e610";
+}
+.icon-next:before {
+  content: "\e611";
+}
+.icon-collapse:before {
+  content: "\e612";
+}
+.icon-expand:before {
+  content: "\e613";
+}
+.icon-open:before {
+  content: "\e614";
+}
+.icon-close-:before {
+  content: "\e615";
+}
+.icon-close-x:before {
+  content: "\e616";
+}
+.icon-checkmark:before {
+  content: "\e617";
+}
+.icon-carat:before {
+  content: "\e618";
+}
+
+/**
+*
+* ### Miscellaneous Icons
+*
+* Use the following classes for miscellaneous icons:
+*
+*   @example
+*   table.table
+*     tr
+*       td
+*         code .icon-alert
+*       td
+*         i.icon-alert
+*     tr
+*       td
+*         code .icon-more-info
+*       td
+*         i.icon-more-info
+*     tr
+*       td
+*         code .icon-shopping-bag
+*       td
+*         i.icon-shopping-bag
+*     tr
+*       td
+*         code .icon-usa
+*       td
+*         i.icon-usa
+*
+*/
+.icon-more-info:before {
+  content: "\e60e";
+}
+.icon-alert:before {
+  content: "\e60f";
+}
+.icon-shopping-bag:before {
+  content: "\e61b";
+}
+.icon-usa:before {
+  content: "\e60c";
+}
+.icon-canada:before {
+  content: "\e60d";
+}
+.icon-account:before {
+  content: "\e61a";
+}
+
+.icon-xs {
+  font-size: $icon-xs;
+}
+
+@media (max-width: $screen-xs-max){
+  .icon-xs-xs {
+    font-size: $icon-xs;
+  }
+}
+
+@media (min-width: $screen-sm-min){
+  .icon-sm-sm {
+    font-size: $icon-sm;
+  }
+}
+
+//for ease of use with card detection library
+.icon-amex {
+  @extend .icon-american-express;
+}
+
+.input-info-icon {
+  font-size: 17px;
+  position: absolute;
+  line-height: $input-height;
+  top: -44px;
+  right: -12px;
+}

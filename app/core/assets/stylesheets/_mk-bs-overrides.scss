@@ -1,0 +1,123 @@
+.bootstrap-select {
+  &.form-control {
+    height: auto;
+  }
+  
+  &.btn-group:not(.input-group-btn) {
+    font-size: 12px;
+    width: 100%;
+
+    .btn {
+      @include form-control;
+
+      .caret {
+        border: 0;
+        color: #000;
+        font-family: 'Glyphicons Halflings';
+
+        &::before {
+          content: "\e259";
+          font-size: 9px;
+          left: -8px;
+          position: absolute;
+          top: -16px;
+        }
+      }
+    }
+
+    .dropdown-toggle {
+      .filter-option {
+        font-size: 1em;
+      }
+    }
+
+    .dropdown-menu {
+      border-top: none;
+      font-size: 1em;
+      padding: 0;
+
+      &.open {
+        margin-top: -1px;
+      }
+
+      &> li > a {
+        color: #000;
+        line-height: 275%;
+        padding: 0 1em;
+
+        &:hover {
+          background: #fff;
+        }
+
+        span.text {
+          letter-spacing: 1px;
+        }
+      }
+    }
+  }
+
+  &.open {
+    .caret {
+      &::before {
+        -webkit-transform: rotate(180deg);     /* Chrome and other webkit browsers */
+        -moz-transform: rotate(180deg);        /* FF */
+        -o-transform: rotate(180deg);          /* Opera */
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.nav-tabs {
+  border-bottom: 0;
+  margin: 1.666em 0 3px 0;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+  color: #000;
+  font-size: .84em;
+  letter-spacing: .09em;
+  text-decoration: none;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+  color: #000;
+  border: 0;
+
+  span {
+    padding-bottom: 2px;
+    border-bottom: 1px solid #000;
+  }
+}
+
+/* color options */
+/* option 1 */ // also see size-guide.scss
+.bootstrap-select {
+  &.btn-group:not(.input-group-btn) {
+    .btn-default {
+      background: $grey-2;
+    }
+
+    .dropdown-menu {
+      background: $grey-2;
+      border-color: $grey-5;
+    }
+  }
+
+  .btn-default {
+    border: 1px solid $grey-5;
+
+    &:active,
+    &:focus,
+    &:hover {
+      border: 1px solid $grey-5 !important;
+    }
+  }
+}

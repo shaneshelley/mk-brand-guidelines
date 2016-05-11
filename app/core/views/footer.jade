@@ -1,0 +1,317 @@
+footer#page-footer.no-print
+  .container-fluid.relative
+    // desktop tablet footer
+    .row.hidden-xs.row--push-25
+      .col-md-8.col-md-offset-2
+        .row
+          .col-md-6.col-sm-6
+            form#footer_complete_account.js-footer-email-signup-form(name='footer_complete_account', action='/checkout/checkout.jsp?_DARGS=/checkout/includes/footer.jsp', method='post')
+              .h2.text-center
+                | Sign up
+                span.calson-italic
+                  | &nbsp;for&nbsp;
+                | our e-mails
+              
+              .mk-input-group.form-group
+                input.form-control.footer_email(data-parsley-trigger="blur", data-parsley-required-message="Email is missing.", placeholder="Enter your email address...", name="email", data-parsley-type="email", value="", type="text", data-parsley-required="true" data-parsley-type-message="Please enter a valid Email.")
+                input#Join.addon-right.link--clean-h2(type="submit", name="Join",value="Join",title="Join")
+          
+          .col-md-6.col-sm-6.hidden-xs
+            form#js-store-finder-formz(name="js-store-finder-form", action="/stores/?_DARGS=/checkout/includes/footer.jsp.js-store-finder-form", method="post")
+              .h2.text-center
+                a.visitAStoreLink(href="/stores/")
+                  | visit a store
+                  span.calson-italic
+                    |  in
+                  |your area
+              
+              .mk-input-group.form-group
+                input#footer-zip.form-control(data-parsley-trigger="blur", data-parsley-required-message="Zip Code is missing.", maxlength="20", placeholder="Enter your postal code...", name="zip-code", value="", type="text", autocomplete="off" data-parsley-pattern-message="Please enter a valid Zip Code.")
+                input#find.addon-right.link--clean-h2(type="submit", name="find", value="find", title="find")
+        
+        hr.hr-grey
+    
+    .row.hidden-xs.relative
+      .col-md-8.col-md-offset-2
+        .row
+          .col-md-3.col-sm-3
+            .footer-company
+              span.h4 Company
+    
+          .col-md-3.col-sm-3
+            .footer-customer-service
+              span.h4 Customer Service
+    
+          .col-md-3.col-sm-3
+            .footer-my-account
+              span.h4 My Account          
+    
+          .col-md-3.col-sm-3.follow-us
+            .footer-follow-us
+              span.h4 Follow Us
+    
+          .col-md-3.col-sm-3.social-summmary.hidden.text-left
+            .footer-follow-us
+              .text-center.social-icons
+                a.footer-link(href="https://www.facebook.com/michaelkors", title='Facebook')
+                a.footer-link(href="https://twitter.com/michaelkors", title='Twitter')
+                a.footer-link(href="http://instagram.com/michaelkors", title='Instagram')
+                a.footer-link(href="http://www.pinterest.com/michaelkors/", title='Pinterest')
+                a.footer-link(href="http://www.youtube.com/user/michaelkors", title='YouTube')
+    
+        .row.nav-links-detail.collapse.in
+          ul
+            li.col-md-3.col-sm-3.col--sm-push-20
+              ul.v-list--sm.footer-company
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=400005") About Us
+                li
+                  a.footer-link(href="/stores/") Store Locator
+                li
+                  a.footer-link(href="http://destinationkors.michaelkors.com/kors-cares/watch-hunger-stop/") KORS cares
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=4500008") careers
+                li
+                  a.footer-link(href="http://investors.michaelkors.com/") investor relations
+                li
+                  a.footer-link(href="http://investors.michaelkors.com/resources/supply-chain-disclosure/default.aspx") supply chain disclosure
+    
+            li.col-md-3.col-sm-3.col--sm-push-20
+              ul.v-list--sm.footer-customer-service
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=400007") FAQ
+                li
+                  a.footer-link(href="/myaccount/trackMyOrder.jsp") Track My Order
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=400008") Returns &amp; Exchanges
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=2200017") Shipping Terms
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=2800029") Payment Information
+                li
+                  a.footer-link(href="/browse/giftcard/giftCardLandingPage.jsp") Gift Cards
+                li
+                  a.footer-link(href="/browse/common/contactUs.jsp") Contact Us
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=3100002") Warranty &amp; Repair
+    
+            li.col-md-3.col-sm-3.col--sm-push-20
+              ul.v-list--sm.footer-my-account
+                li
+                  a.footer-link(href="/myaccount/createAccount.jsp") Register
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=3800001") Accounts
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=2200002") Privacy Policy
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=2000006") Terms &amp; Conditions
+                li
+                  a.footer-link(href="/browse/common/staticContent.jsp?slotId=2400006") Cookies/Ad Choices
+    
+            li.col-md-3.col-sm-3.col--sm-push-20
+              ul.v-list.social-icons.footer-follow-us
+                li
+                  a.footer-link(href="https://www.facebook.com/michaelkors")
+                    .row
+                      .col-md-1.col-sm-1
+                      .col-md-9.col-sm-9 Facebook
+    
+                li.row--push-10
+                  a.footer-link(href="https://twitter.com/michaelkors")
+                    .row
+                      .col-md-1.col-sm-1
+                      .col-md-9.col-sm-9 Twitter
+    
+                li.row--push-10
+                  a.footer-link(href="http://instagram.com/michaelkors")
+                    .row
+                      .col-md-1.col-sm-1
+                      .col-md-9.col-sm-9 Instagram
+    
+                li.row--push-10
+                  a.footer-link(href="http://www.youtube.com/user/michaelkors")
+                    .row
+                      .col-md-1.col-sm-1
+                      .col-md-9.col-sm-9 Youtube
+    
+                li.row--push-10
+                  a.footer-link(href="http://www.pinterest.com/michaelkors/")
+                    .row
+                      .col-md-1.col-sm-1
+                      .col-md-9.col-sm-9 Pinterest
+    
+        .row.row--push-25.row--pull-25
+          .col-md-12.text-center.font-3r-10px &copy; 2015 MICHAEL KORS
+    
+      form#selectedViewForm.submitFormAjax.hidden(name="selectedViewForm", action="/checkout/checkout.jsp?_DARGS=/checkout/includes/footer.jsp.selectedViewForm", method="post", autocomplete="off")
+        input(name="selectedViewForm", value="")
+    
+      a.icon-collapse.absolute.desktop-footer-toggle-icon(data-toggle='collapse', data-target='.nav-links-detail', data-icon-href='.desktop-footer-toggle-icon', tabindex="0", href="#toggle-nav", title='toggle nav')
+    // end desktop tablet footer
+    
+    // mobile footer
+    div#change-country-confirm-modal.kor-modal.kor-modal--thin.modal.fade.js-korModal(tabindex="-1", role="dialog", aria-labelledby="change-country-confirm-modal__label", style="display: none;")
+      div.modal-dialog.kor-modal__dialog(role="document")
+        div
+          div.changing_country_content
+            div.modal-content.kor-modal__content
+              div.modal-header.kor-modal__content-header
+                button.close kor-modal__content-header-close(aria-label="Close", data-dismiss="modal", type="button")
+                  span(aria-hidden="true") ×
+                p#change-country-confirm-modal__label.modal-title.kor-modal__content-header-title.h2.h--no-margin.text-center Changing Country?
+    
+              div.modal-body.kor-modal__content-body
+                p.font-3r-15px.text-center
+                  On changing the country, your session will expire and you will need to Sign-in again using your credentials. Please note – Your address book, payment details, order history and favorite list will not be shared across different countries.
+                p.row--push-20.font-3r-15px.text-center
+                  Would you still like to continue?
+                div.row row--push-30
+                  div.col-sm-4.col-sm-offset-2.col-xs-6
+                    input.change_yes.btn.btn-primary.full-width(type="button", value="Yes")
+                  div.col-sm-4.col-xs-6
+                    input.change_no.btn.btn-primary.full-width(type="button", value="No")
+    
+    div.row.hidden-sm.hidden-md.hidden-lg
+      div.col-xs-12
+        div.row.row--push-20.relative
+          div.col-md-12.text-center
+            icon.icon-US.country-selector-toggle
+            icon.icon-expand(data-icon-href='#country-selector')
+          span.link--block.js-boxToggle(data-toggle='collapse', data-target='#country-selector', href='#country-selector', title="Toggle Country Selector", tabindex="0")
+    
+        div#country-selector.row.collapse.country-selector
+          div.row--push-20
+            h2.text-center Select a country and currency
+            div.col-md-12.country-selector-mobile
+              div.row
+                div.col-xs-12.vertical-middle.uppercase.text-center
+                  div.relative.inline-block
+                    div.text-center.country-selected
+                      icon.icon-US
+                      a#en_US.link-primary(data-country="US", data-countrycode="US", data-produrl="www.michaelkors.com", data-locale="en_US", data-currenturi="/checkout/checkout.jsp") English USD
+    
+            div.col-md-12.country-selector-mobile
+              div.row
+                div.col-xs-12.vertical-middle.uppercase.text-center
+                  div.relative.inline-block
+                    div.text-center
+                      icon.icon-CA
+                      a#en_CA.link-primary(data-country="US", data-countrycode="CA", data-produrl="www.michaelkors.ca", data-locale="en_CA", data-currenturi="/checkout/checkout.jsp") English CAD
+    
+            div.col-md-12.country-selector-mobile
+              div.row.row--push-15
+                div.col-xs-12.vertical-middle.uppercase.text-center
+                  div.relative.inline-block
+                    div.text-center
+                      icon.icon-CA
+                      a#fr_CA.link-primary(data-country="US", data-countrycode="CA", data-produrl="www.michaelkors.ca", data-locale="fr_CA", data-currenturi="/checkout/checkout.jsp") Français CAD
+    
+        div.row.row--push-10
+          div.col-md-12.text-center
+            ul.nav-links
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/account/account_landing.jsp") My Account
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/stores/") Store Locator
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/browse/common/staticContent.jsp?slotId=1700012") Customer Service
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/contact_us.jsp") Contact Us
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/browse/giftcard/gift_card_landing.jsp") Gift Cards
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/browse/common/staticContent.jsp?slotId=2800511") Careers
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/account/order_status.jsp") Order Status
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="http://investors.michaelkors.com/") Investor Relations
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="http://investors.michaelkors.com/resources/supply-chain-disclosure/default.aspx") Supply Chain Disclosure
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/browse/common/staticContent.jsp?slotId=1700021") Terms &amp; Conditions
+    
+              li
+                hr
+    
+              li
+                a.footer-link(href="/mobile/browse/common/staticContent.jsp?slotId=1700017") Privacy Policy
+    
+              li
+                hr
+    
+        div.row.row--push-15
+          div.col-md-12
+            form#footer_complete_account.js-footer-email-signup-form(name="footer_complete_account", action="/checkout/checkout.jsp?_DARGS=/checkout/includes/footer.jsp.1", method="post")
+              div.h2.text-center
+                Sign up
+                span.calson-italic
+                  for
+                our e-mails
+    
+              div.mk-input-group.form-group
+                input.form-control.footer_email(data-parsley-trigger="blur", data-parsley-required-message="Email is missing.", placeholder="Enter your email address...", name="email", data-parsley-type="email", value="", type="text", data-parsley-required="true", data-parsley-type-message="Please enter a valid Email.")
+                input#Join.addon-right.link--clean-h2(type="submit", name="Join", value="Join", title="Join")
+    
+        div.row.row--push-25
+          div.col-md-12.text-center
+            div.text-center.social-icons
+              a.footer-link(href="https://www.facebook.com/michaelkors", title='Facebook')
+              a.footer-link(href="https://twitter.com/michaelkors", title='Twitter')
+              a.footer-link(href="http://instagram.com/michaelkors", title='Instagram')
+              a.footer-link(href="http://www.pinterest.com/michaelkors/", title='Pinterest')
+              a.footer-link(href="http://www.youtube.com/user/michaelkors", title='YouTube')
+    
+        div.row.row--push-20.row--pull-20
+          div.col-md-12.text-center
+            ul.nav-links
+              li
+                a#viewFullSiteLink.footer-link(href="#") VIEW FULL SITE
+    
+              li
+                a.footer-link(href="/mobile/sitemap/siteMap.jsp") SITE MAP
+  
+  div.hidden-sm.hidden-md.hidden-lg.mobile-scroll-to-top.light-grey-2-bg.opacity-hidden
+    div.full-width.text-center
+      icon.icon-collapse
+  
+    div.full-width.text-center.font-7r-15px-uppercase
+      | TOP

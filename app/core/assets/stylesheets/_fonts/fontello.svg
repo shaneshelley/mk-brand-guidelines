@@ -1,0 +1,14 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg">
+<metadata>Copyright (C) 2015 by original authors @ fontello.com</metadata>
+<defs>
+<font id="fontello" horiz-adv-x="1000" >
+<font-face font-family="fontello" font-weight="400" font-stretch="normal" units-per-em="1000" ascent="850" descent="-150" />
+<missing-glyph horiz-adv-x="1000" />
+<glyph glyph-name="magnifying-glass-02-01" unicode="&#xe800;" d="m699 266l0 0c33 58 57 132 57 206 0 205-172 378-378 378s-378-173-378-378 165-378 378-378c66 0 124 16 181 49l2 2 295-295 130 129-287 287z m-321-24c-131 0-238 107-238 238 0 123 115 230 238 230s239-98 239-230-107-238-239-238z" horiz-adv-x="986" />
+<glyph glyph-name="stop-outline" unicode="&#xe801;" d="m521 559l-417 0 0-418 417 0 0 418z m0 104q44 0 74-30t30-74l0-418q0-43-30-73t-74-30l-417 0q-44 0-74 30t-30 73l0 418q0 44 30 74t74 30l417 0z" horiz-adv-x="625" />
+<glyph glyph-name="stop" unicode="&#xe802;" d="m521 663q44 0 74-30t30-74l0-418q0-43-30-73t-74-30l-417 0q-44 0-74 30t-30 73l0 418q0 44 30 74t74 30l417 0z" horiz-adv-x="625" />
+</font>
+</defs>
+</svg>

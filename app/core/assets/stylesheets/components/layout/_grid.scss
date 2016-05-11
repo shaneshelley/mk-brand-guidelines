@@ -1,0 +1,195 @@
+/**
+* ## Grid
+* ### General Notes
+*
+* The grid system is based on the Twitter Bootstrap Grid.  <a href="http://getbootstrap.com/css/#grid" target="_blank">Documentation here</a>.
+*
+* The responsive breakpoints have been changed to the following:
+* <ul>
+*   <li><b>Extra Small (xs)</b> - Less than or equal to 700 pixels</li>
+*   <li><b>Small (sm)</b> - Greater than 700 pixels and less than or equal to 1020 pixels</li>
+*   <li><b>Medium (md)</b> - Greater than 1020 pixels and less than or equal to 1440 pixels</li>
+*   <li><b>Large (lg)</b> - Not used</li>
+* </ul>
+*
+*/
+.container-fluid {
+  max-width: $screen-md-max;
+  padding: 0 5%;
+}
+
+.top-buffer {
+  margin-top: $row-buffer;
+}
+
+/*
+* Use a display:table row rather than float
+*/
+.row--table {
+  display: table;
+  width: 100%;
+
+  > .col--table {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  > .col--table-padded {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  > .col--table-push-20 {
+    padding-top: 20px;
+  }
+
+  > .col--table-md-2 {
+    width: 16.66%;
+  }
+
+  > .col--table-md-3 {
+    width: 25%;
+  }
+
+  > .col--table-md-4 {
+    width: 33.3%;
+  }
+
+  > .col--table-md-6 {
+    width: 50%;
+  }
+
+  > .col--table-md-8 {
+    width: 66.6%;
+  }
+
+  > .col--table-md-10 {
+    width: 83.33%;
+  }
+}
+
+/*
+* Remove gutters from Bootstrap Grid columns
+*/
+.col--no-gutters {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/*
+* Remove negative margin in combination with the above "no gutters" fix
+*/
+.row--no-gutter-margin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.col--border-right {
+  border-right: 1px solid $light-grey-1;
+}
+
+.row--border-top {
+  border-top: 1px solid $light-grey-1;
+}
+
+.row--border-bottom {
+  border-bottom: 1px solid $light-grey-1;
+}
+
+/*
+* This is a special use case when the .row has no
+* negative margins and the columns need to retain padding
+* but the last column needs to be right-aligned as a block element
+*/
+.col--justify-right {
+  padding-right: 0;
+  padding-left: 23px; /* this is (row margin * 0.5) + column gutter size */
+}
+
+/*
+* Column and Row border colors for all colors in the style guide
+*/
+@each $colour in $list-colours {
+  .col--border-#{nth($colour, 1)} {
+      border-color: nth($colour, 2);
+  }
+  .row--border-#{nth($colour, 1)} {
+      border-color: nth($colour, 2);
+  }
+}
+
+/*
+* Row/Column margin and padding from 10 to 90, i.e. .row--push-30 = margin-top:30px
+*/
+@include column-margins("","push", "top");
+@include column-margins("","pull", "bottom");
+
+@media (min-width: $screen-sm-min){
+  /*
+  * Row/Column margin on tablet and desktop resolutions, 10 to 90, i.e. .col--xs-push-20 = margin-top: 20px
+  */
+  @include column-margins("sm-","push", "top");
+  @include column-margins("sm-","pull", "bottom");
+}
+
+@media (min-width: $screen-md-min){
+  /*
+  * Row/Column margin on tablet and desktop resolutions, 10 to 90, i.e. .col--xs-push-20 = margin-top: 20px
+  */
+  @include column-margins("md-","push", "top");
+  @include column-margins("md-","pull", "bottom");
+}
+
+@media (max-width: $screen-xs-max) {
+
+  .row--xs-border-bottom {
+    border-bottom: 1px solid $light-grey-1;
+  }
+
+  /*
+  * Row/Column margin on mobile resolutions, 10 to 90, i.e. .col--xs-push-20 = margin-top: 20px
+  */
+  @include column-margins("xs-", "push", "top");
+  @include column-margins("xs-","pull", "bottom");
+  .row.reorder-xs {
+    transform: rotate(180deg);
+    direction: rtl; /* Fix the horizontal alignment */
+  }
+
+  .row.reorder-xs > [class*="col-"] {
+    transform: rotate(-180deg);
+    direction: ltr; /* Fix the horizontal alignment */
+  }
+
+  .row {
+    margin-left: -8px;
+    margin-right: -8px;
+  }
+
+  .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12
+  {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .container-fluid {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .no-container-fluid-xs {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+
+
+@media (min-width: $screen-sm-min){
+
+}
+
+@media (min-width: $screen-md-min){
+
+}

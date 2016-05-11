@@ -1,0 +1,59 @@
+/**
+* ## Image Link Grid
+*
+* ### Usage
+*
+* Use the `.image-link-grid` class to create an object to hold a grid of equal-width box links with image content in each.
+*
+* For every four items in the grid, you must contain the elements with a `.image-link-grid-row` class element as demonstrated in this example.
+*
+* Each image in the grid should retain an equal aspect ratio in order to avoid height differences in the boxes of the grid
+*
+*   @example
+*   div.image-link-grid
+*      div.image-link-grid-row
+*         div.image-link-grid__item
+*             a.image-link-grid__item-link.image-link-grid__item-link-active(href='#')
+*               img.image-link-grid__item-img(src='images/purse.jpg')
+*         div.image-link-grid__item
+*            a.image-link-grid__item-link(href='#')
+*               img.image-link-grid__item-img(src='images/purse_alt-1.jpg')
+*         div.image-link-grid__item
+*            a.image-link-grid__item-link(href='#')
+*               img.image-link-grid__item-img(src='images/purse_alt-2.jpg')
+*         div.image-link-grid__item
+*            a.image-link-grid__item-link(href='#')
+*               img.image-link-grid__item-img(src='images/purse_alt-3.jpg')
+*      div.image-link-grid-row
+*         div.image-link-grid__item
+*            a.image-link-grid__item-link(href='#')
+*               img.image-link-grid__item-img(src='images/purse_alt-2.jpg')
+*         div.image-link-grid__item
+*            a.image-link-grid__item-link(href='#')
+*               img.image-link-grid__item-img(src='images/purse_alt-3.jpg')
+*/
+.image-link-grid {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+.image-link-grid-row {
+    display: table-row;
+}
+.image-link-grid__item {
+    display: table-cell;
+    width: 25%;
+}
+.image-link-grid__item-link {
+	display: block;
+	height: 100%;
+	width: 100%;
+	border: 1px solid $light-grey-2;
+}
+.image-link-grid__item-link-active {
+	border: 1px solid $black;
+}
+.image-link-grid__item-img {
+    width: 100%;
+    height: auto;
+}

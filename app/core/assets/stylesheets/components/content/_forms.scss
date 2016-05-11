@@ -1,0 +1,317 @@
+@import "./app/core/assets/stylesheets/variables";
+
+/**
+* ## Forms
+*
+* ### Validation
+*
+* The base container for all form fields is a `.form-group`.  It should contain a label and a `.input-validation-container`, which itself is a container for the actual input, as well as the success and error validation icons.  This, for example is a text input.
+*
+* To turn on validation, call `$('#form-id').parsley()`.  After this, `.parsley-error` and `.parsley-success` classes will be applied to form group elements automatically by the parsley.
+*
+* All of the other form elements listed below can be validated the same way.
+*
+*   @example
+*   <div class="form-group">
+*     <label for="first-name" name="first-name"><span class="asterisk">*</span> First Name</label>
+*     <div class="input-validation-container">
+*       <input class="form-control" placeholder="First Name" data-parsley-trigger="blur" name="first-name" data-parsley-required="true" >
+*       <i class="icon-checkmark validation-icon valid-input"></i>
+*       <i class="icon-alert validation-icon invalid-input"></i>
+*     </div>
+*   </div>
+*   <div class="form-group parsley-error">
+*     <label for="first-name" name="first-name"><span class="asterisk">*</span> First Name</label>
+*     <div class="input-validation-container">
+*       <input class="form-control" placeholder="First Name" data-parsley-trigger="blur" name="first-name" data-parsley-required="true" >
+*       <i class="icon-checkmark validation-icon valid-input"></i>
+*       <i class="icon-alert validation-icon invalid-input"></i>
+*     </div>
+*   </div>
+*   <div class="form-group parsley-success">
+*     <label for="first-name" name="first-name"><span class="asterisk">*</span> First Name</label>
+*     <div class="input-validation-container">
+*       <input class="form-control" placeholder="First Name" data-parsley-trigger="blur" name="first-name" data-parsley-required="true" >
+*       <i class="icon-checkmark validation-icon valid-input"></i>
+*       <i class="icon-alert validation-icon invalid-input"></i>
+*     </div>
+*   </div>
+*
+*
+*
+*
+* ### Selects
+*
+* Selects should be nested inside a `.input-validation-container` which itself is nested in a `.form-group .select-container`.
+*
+*   @example
+*   <div class="form-group select-container">
+*     <div class="input-validation-container">
+*       <select class="form-control"><option value="0">65 W. BROADWAY, APT  2</option><option value="add_new">Add a new address</option></select>
+*       <i class="icon-checkmark validation-icon valid-input"></i>
+*       <i class="icon-alert validation-icon invalid-input"></i>
+*     </div>
+*   </div>
+*
+* ### Checkboxes
+*
+* Checkboxes consisft of a `input` and `label`, nested inside a `.checkbox` container, which itself is nested in a `.form-group`.  The input must have an `id`, and the checkbox must have a `for` attribute that points to that id.
+*
+*To have a label be vertically centered, add `.vertical-center` to the `div.checkbox`.  To have a checkbox that is verticaly centered on tablet and desktop, but top aligned on mobile (common when a text is only a single line on tablet/desktop, but breaks to multiple lines on mobile), add '.vertical-center-sm' instead of '.vertical-center'
+*
+*   @example
+*   <div class="form-group">
+*     <div class="checkbox">
+*       <input type="checkbox" id="gift-wrapping-checkbox">
+*       <label for="gift-wrapping-checkbox">
+*          This checkbox has a huge text.  This text will probably break onto multiple lines.  Therefore, this huge text is not vertically aligned with the checkbox, it is top aligned.  We thought it looked better this way :)
+*       </label>
+*     </div>
+*   </div>
+*   <div class="form-group row--push-20">
+*     <div class="checkbox vertical-center">
+*       <input type="checkbox" id="gift-wrapping-checkbox">
+*       <label for="gift-wrapping-checkbox">
+*          This checkbox is vertically centered
+*       </label>
+*     </div>
+*   </div>
+*
+* ### Radios
+*
+* Radios consist of a `input` of type `radio` and a `label` nested inside a `.radio` container.
+*
+*   @example
+*   <div class="row">
+*      <div class="col-md-12">
+*          <div class="radio">
+*            <input type="radio" checked="true" name="shipping" id="ground-shipping">
+*            <label for="ground-shipping">
+*              Radio 1
+*            </label>
+*          </div>
+*        </div>
+*      </div>
+*      <div class="row row--push-20">
+*        <div class="col-md-12">
+*          <div class="radio">
+*            <input type="radio" name="shipping" id="standard-shipping">
+*            <label for="standard-shipping"> Radio 2
+*            </label>
+*          </div>
+*        </div>
+*      </div>
+*
+*/
+
+
+$validation-icon-top: 17px;
+$validation-icon-right-text-input: 10px;
+$validation-icon-right-select-input: 35px;
+$checkbox-size: 20px;
+$radio-outer-radius: $checkbox-size;
+$radio-inner-radius: 14px;
+$radio-inner-offset-left: 3px;
+$radio-inner-offset-top: 5px;
+
+$input-height: 48px;
+
+button:active,
+input:active,
+select:active,
+textarea:active,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 1px solid #949494;
+  -moz-outline: 1px solid #949494;
+  -webkit-outline: 1px solid #949494;
+}
+
+.validation-icon {
+  display: none;
+  z-index: 100;
+}
+
+input.form-control, select.form-control, textarea {
+  @include form-control;
+}
+
+.input-validation-container {
+  position: relative;
+}
+
+.asterisk {
+  vertical-align: middle;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 0px;
+
+  ::-ms-clear, ::-ms-reveal {
+    display: none;
+  }
+
+  .form-control--thin {
+    width: 70px;
+  }
+
+  .form-control--center {
+    margin: 0 auto;
+  }
+}
+
+/* TODO: merge bootstrap overrides with these files and promote to core
+/*
+* Fixing <select> appearance with bootstrap-select JS plugin
+*/
+.bootstrap-select {
+  .btn {
+    &:focus {
+      outline: none;
+      border: 2px solid $black;
+    }
+  }
+
+  li {
+    outline: none;
+    a {
+      outline: none;
+    }
+    &.selected {
+      border: 1px solid $black;
+    }
+  }
+}
+
+.validation-icon {
+  position: absolute;
+  right: $validation-icon-right-text-input;
+  top: $validation-icon-top;
+}
+.select-container {
+  .validation-icon {
+    right: $validation-icon-right-select-input;
+    top: 10px;
+  }
+}
+
+
+.checkbox input[type=checkbox]:checked + label:after {
+  font-family: 'icomoon';
+  content: "\e617";
+}
+
+.checkbox label::before{
+  height: $checkbox-size;
+  width: $checkbox-size;
+  border-radius: 0;
+}
+
+.checkbox label:after {
+  padding-left: .4em;
+  padding-top: .45em;
+  font-size: 1em;
+}
+
+
+.radio {
+  label:before {
+    border-color: $light-grey-2;
+    width: $radio-outer-radius;
+    height: $radio-outer-radius;
+    top: 2px;
+  }
+
+  label:after {
+    width: $radio-inner-radius;
+    height: $radio-inner-radius;
+    top: $radio-inner-offset-top;
+    left: $radio-inner-offset-left;
+    background-color: $dark-grey;
+  }
+}
+
+.checkbox {
+  label {
+    position: relative;
+    margin-bottom: 0px;
+  }
+
+  label:before, label:after {
+    margin-top: 3px;
+  }
+
+  &.vertical-center {
+    @include vertical-center-checkboxes;
+  }
+
+  @media (min-width: $screen-sm-min){
+    &.vertical-center-sm {
+      @include vertical-center-checkboxes;
+    }
+  }
+}
+
+/*
+* Use .checkbox-indent to format any items at the same indented left alignment as a .checkbox label
+*/
+.checkbox-indent {
+  padding-left: 40px;
+}
+
+.radio, .radio + .radio, .checkbox + .checkbox {
+  margin-left: 2px;
+}
+
+.checkbox input[type="checkbox"]:focus + label::before , .radio input[type="radio"]:focus + label::before{
+  outline: none;
+  border: 2px solid $black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+//using !important here to prevent default IOS behaviour of zooming in when focusing on an input
+@media screen and (-webkit-min-device-pixel-ratio:0) and (max-width: $screen-xs-max) {
+  input,select,textarea {
+    font-size: 16px !important;
+  }
+}
+
+.radio, .checkbox {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.payment-card-ccv {
+  -webkit-text-security: disc;
+  text-security: disc;
+}
+
+.mk-input-group {
+  position: relative;
+  .addon-right {
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    line-height: $input-height;
+  }
+}
+
+.tooltip {
+  opacity: 1 !important;
+  .tooltip-inner {
+    white-space: nowrap;
+  }
+}
+
+textarea {
+  outline: none !important;
+  resize: none;
+}

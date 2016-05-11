@@ -1,0 +1,28 @@
+.payment-methods {
+  ul {
+    padding: 0;
+    li {
+      list-style-type: none;
+      display: inline-block;
+      text-indent: -5000px;
+    }
+
+    ul {
+      margin: 0 auto;
+    }
+  }
+
+  .cc-icons{
+    margin-top: 10px;
+    .icon-xs:not(:last-child) {
+      margin-right: 2px;
+    }
+  }
+  @media (min-width: $screen-sm-min){
+    background-color: $light-grey-2;
+    .icon-xs {
+      background-color: white;
+      border-radius: 6px;
+    }
+  }
+}

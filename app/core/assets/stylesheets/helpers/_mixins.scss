@@ -1,0 +1,67 @@
+@mixin font-size($fs-map) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+@mixin placeholder-font {
+  font-family: $font-family-sans-serif;
+  font-weight: normal;
+  font-size: 12px !important;
+  color: $placeholder-grey !important;
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin column-margins($prefix, $direction, $orientation){
+  $digits: 0 5;
+  @for $i from 0 through 9 {
+    @each $k in $digits {
+      .row--#{$prefix}#{$direction}-#{$i}#{$k},
+      .col--#{$prefix}#{$direction}-#{$i}#{$k}{
+        margin-#{$orientation}: (10px * $i) + $k;
+      }
+
+      .row--#{$prefix}pad-#{$orientation}-#{$i}#{$k} {
+        padding-#{$orientation}: (10px * $i) + $k;
+      }
+    }
+  }
+}
+
+@mixin vertical-center-checkboxes {
+  label:before {
+    margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  label:after {
+    margin-top: 0px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateY(-4px);
+  }
+
+  label {
+    margin-bottom: 0px;
+  }
+}

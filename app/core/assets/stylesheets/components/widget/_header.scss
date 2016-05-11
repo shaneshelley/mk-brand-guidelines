@@ -1,0 +1,150 @@
+#page-header {
+  box-shadow: 1px 8px 9px -9px rgba(50,50,50,.2);
+  margin: 0 0 .5em 0;
+  text-transform: uppercase;
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  nav {
+    padding: 20px 0;
+    position: relative;
+    text-align: center;
+    width: 100%;
+
+    .back-link-container,
+    .checkout-back-link-container {
+      position: absolute;
+      left: 15px;
+      text-align: left;
+      width: 100px;
+
+      a {
+        line-height: 34px;
+      }
+    }
+
+    &:nth-child(2) {
+      display: inline-block;
+    }
+
+    .cart-link-container,
+    .account-link-container {
+      position: absolute;
+      right: 0;
+      text-align: right;
+      top: 20px;
+      width: 100px;
+    }
+
+    a {
+      vertical-align: middle;
+
+      &.back {
+        font-size: 12px;
+        i.icon-back {
+          display: none;
+        }
+      }
+
+      &.cart {
+        position: relative;
+
+        i.icon-shopping-bag {
+          font-size: 22px;
+          width: 33px; /* HARD CODING THIS FOR CROSS-BROWSER COMPATIBILITY */
+          display: inline-block;
+          text-align: center;
+        }
+        .shopping-bag-count {
+          color: #fff;
+          font-weight: 100;
+          left: 0;
+          line-height: 11px;
+          font-size: 9px;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 33px; /* HARD CODING THIS FOR CROSS-BROWSER COMPATIBILITY */
+        }
+      }
+    }
+    .logo {
+      width: 256px;
+    }
+  }
+
+  .my-account-link > i, .locale-icon {
+    font-size: 22px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 22px;
+  }
+
+  .my-account-link > span {
+    line-height: 22px;
+    display: block;
+    padding-left: 5px;
+  }
+
+  .locale-icon {
+    margin-right: 30px;
+  }
+
+  @media (max-width: $screen-sm-max){
+    .locale-icon {
+      margin-right: 15px;
+    }
+  }
+  @media (max-width: $screen-xs-max){
+    .my-account-link > i{
+      font-size: 19px;
+    }
+
+    .locale-icon {
+      margin-right: 6px;
+      font-size: 15px;
+    }
+
+    .logo, .back {
+      display: table-cell;
+    }
+  }
+
+  .js-country-selector-desktop,  .js-country-selector-tablet{
+    .tooltip {
+      width: 266px;
+    }
+
+    .tooltip-inner {
+      max-width: 256px;
+      width: 256px;
+    }
+  }
+
+  .country-container {
+    margin-left: 10px;
+  }
+}
+
+
+
+@media (min-width: $screen-sm-min) {
+  #page-header {
+    nav {
+      a {
+        &.back {
+          i.icon-back {
+            display: inline;
+          }
+        }
+      }
+    }
+  }
+}
+
+#change-country-confirm-modal__label{
+  width: 100%;
+}

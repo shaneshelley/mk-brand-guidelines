@@ -1,0 +1,8 @@
+{
+  "name" : "mk-ui-prototypes",
+  "version" : "0.0.0",
+  "dependencies" : {
+    "bootstrap": "4.0.0-alpha.2",
+    "jquery": "2.1.4"
+  }
+}

@@ -1,0 +1,276 @@
+.checkout-header {
+  border-top: 1px solid $dark-grey;
+  border-bottom: 1px solid $dark-grey;
+  margin: 0 0 20px 0;
+  padding: 25px 0;
+  h1 {
+    margin: 0 0 10px -15px;
+  }
+  p {
+    margin: 0 0 0 -15px;
+  }
+}
+
+.place-order-button {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.checkout {
+  hr.hr--no-margin {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  @media (min-width: $screen-sm-min){
+    hr {
+      margin-right: 15px;
+    }
+  }
+  label {
+    margin-bottom: 8px;
+  }
+
+  .shopping-bag-cart {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+
+  .panel-group, .slick-slider {
+    margin-bottom: 0px;
+  }
+  .label--no-margin, .p--no-margin {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .checkbox-no-margin {
+    label {
+      margin-bottom: 0px;
+    }
+  }
+
+  @media (max-width: $screen-xs-max){
+    .row--tiny-margin-xs {
+      margin-top: 8px;
+    }
+  }
+
+  .complete {
+    .padded-content {
+      padding: 0px 0px 30px 15px;
+    }
+
+    .panel-body.complete {
+      border-left: 1px solid $light-grey-2 !important;
+      border-right: 1px solid $light-grey-2 !important;
+      border-bottom: 1px solid $light-grey-2 !important;
+    }
+  }
+
+  .box-shopping-bag {
+    font-weight: $bold;
+    span {
+      margin-right: 15px;
+      &.pull-right {
+        margin: 0;
+      }
+    }
+
+    .edit-link {
+      right: 8px;
+      top: -2px;
+    }
+  }
+
+  .box-help {
+    position: relative;
+    .subtext {
+      display: block;
+      font-size: 10px;
+      padding: 5px;
+    }
+    .buttons {
+      margin: 5px 0 -15px 0;
+      border-top: 1px solid $light-grey-2;
+      padding: 15px 0;
+      .btn-group {
+        .btn-group {
+          margin: 15px 0;
+          a {
+            color: $black;
+            padding: 0;
+          }
+          &:first-child {
+            border-right: 1px solid $light-grey-2;
+          }
+        }
+      }
+    }
+  }
+
+  .credit-edit-collection-link, .credit-add-collection-link, .address-edit-collection-link, .address-add-collection-link {
+    line-height: 48px;
+    @media (max-width: $screen-xs-max){
+      font-size: 11px;
+    }
+  }
+
+  #payment-form, #saved-cards {
+    .card-type-icon {
+      bottom: -58px;
+      position: absolute;
+    }
+
+    @media (max-width: $screen-xs-max){
+      .card-type-icon {
+        bottom: -78px;
+      }
+    }
+
+    .gift-card-link {
+      display: block;
+      padding: .333em 0 0 20px;
+      font-family: $font-family-sans-serif-heavy;
+      font-size: .92em;
+      text-decoration: none;
+      text-transform: uppercase;
+      float: none !important;
+      margin-left: 5em;
+    }
+
+    .remove-link {
+      &:hover, &:focus {
+        color: $dark-grey;
+      }
+    }
+
+    .applied-gift-cards {
+      li {
+        line-height: 12px;
+        &:last-child {
+          margin-top: 3px;
+        }
+      }
+
+      .gift-card-number {
+        margin-left: 15px;
+      }
+
+      .gift-card-balance {
+        margin-left: 15px;
+      }
+    }
+
+    .billing-add-collection-link {
+      margin-left: 20px;
+    }
+
+    .billing-address-display {
+      address:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    .cvv-wrapper {
+      margin-top: -10px;
+    }
+
+    .credit-cards {
+      span {
+        margin-right: 10px;
+      }
+    }
+  }
+
+
+  #paypal-form {
+    .btn-primary {
+      margin-top: 30px;
+    }
+  }
+
+  #shipping-form {
+    .address-display {
+      .title {
+        margin-right: 3px;
+      }
+    }
+
+    .shipping-country {
+      .shipping-country-flag {
+        font-size: 20px;
+        margin-right: 5px;
+      }
+      text-transform: uppercase;
+    }
+
+    .shipping-methods {
+      .shipping-name {
+        font-family: $font-family-sans-serif-heavy;
+        font-weight: normal;
+        font-size: 11px;
+        color: $dark-grey;
+      }
+    }
+  }
+
+  #order-review {
+    address {
+      margin-bottom: 18px;
+    }
+    address.phone {
+      margin-bottom: 8px;
+    }
+
+    .address-no-margin {
+      margin-bottom: 0px;
+    }
+  }
+
+  #mobile-place-order {
+    margin-top: 15px;
+  }
+}
+
+#gift-wrap-modal {
+  .product-checkbox-desktop {
+    label {
+      @extend .h4;
+    }
+  }
+
+  textarea {
+    height: 85px;
+  }
+
+  @media(min-width: $screen-sm-min){
+    .product-attribute {
+      margin-left: 40px;
+    }
+  }
+
+  .remaining {
+    margin-left: 3px;
+  }
+
+  .character-count {
+    width: 19px;
+  }
+
+  .divider-action-bar {
+    position: absolute;
+    left: -10px;
+    line-height: 0px;
+  }
+
+  .js-add-note-container {
+    @media(max-width: $screen-xs-max){
+      display: block !important;
+    }
+  }
+}
+
+#saved-cards-container {
+  transition:all 0.3s ease-in-out;
+}

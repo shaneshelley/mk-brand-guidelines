@@ -1,0 +1,59 @@
+/**
+* ## Tabs Panel
+*
+* ### Usage
+*
+* Use the Tabs Panel object to toggle between two or more tabs of content in one space.
+*
+* To create the Tabs Panel object, use the `.tabs-panel` class as well as the `.js-tabsPanel` class to activate the javascript portion of the widget.  See the HTML example here for detailed hierarchy.
+*
+*   @example
+*   div.tabs-panel.js-tabsPanel
+*      ul.tabs-panel__nav.js-tabsPanelNav
+*         li.tabs-panel__nav-item.tabs-panel__nav-item--active
+*            a.tabs-panel__nav-item-link(href='#tabs-1') Tab 1
+*         li.tabs-panel__nav-item
+*            a.tabs-panel__nav-item-link(href='#tabs-2') Tab 2
+*         li.tabs-panel__nav-item
+*            a.tabs-panel__nav-item-link(href='#tabs-3') Tab 3
+*      div.tabs-panel__body.js-tabsPanelBody
+*         div#tabs-1.tabs-panel__body-item.tabs-panel__body-item--active
+*            p Tab 1 Content!!
+*         div#tabs-2.tabs-panel__body-item
+*            p Tab 2 Content!!
+*         div#tabs-3.tabs-panel__body-item
+*            p Tab 3 Content!!
+*/
+.tabs-panel {
+
+}
+
+.tabs-panel__nav {
+    @extend .h-list--right;
+}
+
+.tabs-panel__nav-item {
+    display: inline-block;
+}
+
+.tabs-panel__nav-item--active {
+    border-bottom: 1px solid $black;
+}
+
+.tabs-panel__nav-item-link {
+    @extend .link-primary;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.tabs-panel__body {
+    margin-top: 5px;
+}
+
+.tabs-panel__body-item {
+    display: none;
+}
+
+.tabs-panel__body-item--active {
+    display: block;
+}

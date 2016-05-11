@@ -1,0 +1,33 @@
+/**
+* ## Box Toggle
+*
+* ### General Notes
+*
+* Use the `.box-toggle` class to create a Box Toggle widget.  Designate the header section of the toggle with the `.box-toggle__header-toggle` class.  This element should contain a link with the property `data-toggle="collapse"` and `href` property set to a unique #id.  Optionally, this element can also contain an icon element with the attribute `data-icon-href` set to the unique #id.  The collapsible section should have a `.collapse` class and an id attribute set to the unique #id.
+*
+*   @example
+*   div.box-toggle
+*      div.box-toggle__header-toggle
+*         div.table-cols
+*            div.table-cols__col.table-cols__col--text-center Box Toggle Button
+*            div.table-cols__col.table-cols__col--text-right.table-cols__col--xs-anchor-right
+*               i.icon-open(data-icon-href='#unique-id')
+*         a.link--block.js-boxToggle(data-toggle='collapse',href='#unique-id',title='Toggle Promo Code Form')
+*      div.collapse.form-group#unique-id
+*         div.padded-box.padded-box--border-dark-gold-1.padded-box--sm-skinny
+*            p.p--no-margin Box Toggle Content!
+*/
+.box-toggle {
+	i.icon-open,
+	i.icon-close- {
+		font-size: 14px;
+	}
+}
+
+.box-toggle__header-toggle {
+	position: relative;
+	@extend .btn;
+	@extend .btn-secondary;
+	@extend .btn--full-width;
+	@extend .btn--toggle;
+}

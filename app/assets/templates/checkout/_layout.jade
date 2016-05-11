@@ -1,0 +1,945 @@
+extends ../_layout.jade
+
+block head
+  link(rel='stylesheet', href='/css/checkout/vendor.css')
+  link(rel='stylesheet', href='/css/checkout.css')
+  script(src='/js/vendor/modernizr.js')
+  
+  | <!--[if IE 9]>
+  |  <link rel="stylesheet" type="text/css" href="styles/ie9.css">
+  | <![endif]-->
+
+block body
+  .container-fluid
+    #generic-error-message-container.row.row--pull-10.hidden
+      .col-md-12
+        .alert-message.alert-message--error.row--pull-10(role="alert")
+          .alert-message__icon
+            i.icon-alert
+          
+          .alert-message__text
+            p#generic-error-message.p--no-margin
+    
+    header.checkout-header.row.hidden-xs.row--normal-margin
+      block header_content
+        | header content here
+      
+    .row.checkout.row--push-05
+      .col-sm-9
+        .row.hidden-xs.hidable-place-order.row--pull-25
+          .col-md-8
+            p
+              | Please review all the information and confirm that it is accurate.
+              br 
+              | Your order will not be placed until you click the PLACE ORDER button.
+    
+            .gift-reciept-container
+              .form-group
+                .checkbox.vertical-center
+                  input#gift-checkbox-top(type="checkbox")
+                  label(for="gift-checkbox-top") 
+                    | Yes, I would like a gift receipt with this order.
+          
+          .col-md-4
+            a.btn.btn-primary.full-width.place-order-button.order-review-dummy-button(href="#")
+              | Place Order
+        
+        .wizard
+          .mobile-nav.visible-xs(role="group")
+            .row.row--push-25
+              .col-xs-4.relative.arrow-container
+                button.btn.btn-default.pull-left.full-width.first.mobile-nav-button(type="button", data-toggle="wizard" href="#shipping")
+                  h3.ckout_headingmobile
+                    span.num 1
+                    span.underline-complete
+                      | SHIPPING
+        
+                .arrow
+        
+              .col-xs-4.relative.arrow-container
+                .arrow-tail-top
+                .arrow-tail-bottom
+                button.btn.btn-default.pull-left.mobile-nav-button(type="button", data-toggle="wizard", href="#payment")
+                  h3.ckout_headingmobile
+                    span.num 2
+                    span.underline-complete
+                      | PAYMENT
+        
+                .arrow
+        
+              .col-xs-4.relative.arrow-container
+                .arrow-tail-top
+                .arrow-tail-bottom
+                button.btn.btn-default.pull-left.last.mobile-nav-button(type="button", data-toggle="wizard", href="#review")
+                  h3.ckout_headingmobile
+                    span.num 3
+                    | Review
+        
+          #wizardPanels.panel-group(role="tablist", aria-multiselectable="true")
+            #shippingContainer.panel.panel-default(data-submitvalidate="false")
+              #headingOne.panel-heading.hidden-xs(role="tab")
+                h2.element-invisible
+                  | Step 1 of 3 - Shipping
+                
+                .panel-title.h4
+                  a.js-tab-index-focus(href="#" title='Step 1: Shipping')
+                  a.step-link-click(data-toggle="wizard", role="button", data-parent="#wizardPanels", href="#shipping", aria-expanded="true", aria-controls="shipping")
+                    | 1. Shipping
+        
+                  h3.h4.step-link-no-click.ckout_headingthree
+                    | 1. Shipping
+        
+                  a.pull-right.step-number.no-text-transform(href="#")
+                    | Step 1 of 3
+              
+              #shipping-step.kor-panel-collapse(role="tabpanel", aria-labelledby="headingOne", aria-expanded="false")
+                .panel-body.editable
+                  block shipping_content
+                    | shipping content here
+                  
+                  form#shipping-form(name="shipping_form", action="/checkout/includes/?_DARGS=/checkout/includes/containerShippingForm.jsp#", method="post")
+                    .row.row--push-05.row--xs-push-25
+                      .col-md-8
+                        h1.h2.h--no-margin Shipping Address
+                        .row.row--sm-push-20
+                          .col-md-12
+                            label.label--no-margin
+                              span.asterisk *
+                              | Required Fields
+                        
+                        .row.row--extra-margin.row--sm-push-20
+                          .col-md-12
+                            label.label--no-margin
+                              | Shipping to
+
+                        block shipping_form
+                          | shipping form Here
+                        
+                        .row.row--extra-margin.row--sm-push-25
+                    
+                    .row
+                      .col-md-12
+                        .bottom-divider
+                    
+                    .row
+                      .col-md-8
+                        .row.row--push-25.row--last-after-label-extra-margin.shipping-methods
+                          #shippingMethodsContainer.col-md-8
+                            h3.h2 Shipping method
+                            .row.row--after-label-normal-margin
+                              .col-md-12
+                                .radio
+                                  input#standard-shipping-0.shipping-method(type='radio', name='shipping', value='USAG::0.0', checked='true')
+                                  label(for='standard-shipping-0')
+                                    span.shipping-name Ground Shipping
+                                    | - $0.00 
+                                    br
+                                    | 8- 10 Business Days
+                              
+                            .row.row--after-label-normal-margin
+                              .col-md-12
+                                .radio
+                                  input#standard-shipping-1.shipping-method(type='radio', name='shipping', value='USA2::20.0')
+                                  label(for='standard-shipping-1')
+                                    span.shipping-name 2 Day Shipping
+                                    | - $20.00 
+                                    br
+                                    | 2 Business Days
+
+                            .row
+                              .col-md-12
+                                .radio
+                                  input#standard-shipping-2.shipping-method(type='radio', name='shipping', value='USAO::30.0')
+                                  label(for='standard-shipping-2')
+                                    span.shipping-name Next Day Delivery
+                                    | - $30.00 
+                                    br
+                                    | 1 Business Day
+
+                    .row
+                      .col-md-12
+                        .bottom-divider
+
+                    #gift_wrap_note
+                      .row.row--push-25
+                        .col-md-12
+                          .row
+                            .col-md-8
+                              .form-group.shippingContainerCheckbox
+                                .checkbox.vertical-center-sm
+                                  input#gift-wrapping-checkbox(type='checkbox', data-url='/checkout/includes/giftWrapNoteFragBody.jsp')
+                                  label.gift_warping_checkbox_label(for='gift-wrapping-checkbox')
+                                    | Make your present extra special with gift wrapping and a note for only $5.00&nbsp; per item.
+
+                    .row.row--push-30.row--xs-pull-15.row--sm-pull-20.row--xs-push-10
+                      .col-md-6
+                        a#shippingFormSubmit.btn.btn-primary.full-width.collapsed.ladda-button(data-toggle='wizard', role='button', data-parent='#wizardPanels', href='#payment', aria-expanded='true', aria-controls='payment', data-style='expand-left')
+                          | Continue to Payment
+
+                  .hidden-sm.hidden-md.hidden-lg.row--push-20
+                    #shipping_promotion.promotionSectionForMobileShipping
+                      .box-toggle
+                        .box-toggle__header-toggle
+                          .table-cols
+                            .table-cols__col.table-cols__col--text-center
+                              | Apply Promo Code
+                            
+                            .table-cols__col.table-cols__col--text-right.table-cols__col--xs-anchor-right
+                              i.pad-left-3px.icon-open(data-icon-href='#shippingPromotion')
+
+                          a.link--block.js-boxToggle(data-toggle='collapse', href='#shippingPromotion', title='Toggle Promo Code Form')  
+
+                        #shippingPromotion.collapse.form-group
+                          .padded-box.padded-box--border-dark-gold-1.padded-box--sm-skinny
+                            .promoCode
+                            form#orderPromotionFormForMobile.promo-code-form(name='orderPromotionForm', action='/checkout/includes/?_DARGS=/checkout/includes/applyCouponForMobile.jsp#', method='post')
+                              .v-list
+                                .form-group
+                                  .input-validation-container
+                                    i.icon-alert.validation-icon.invalid-input
+
+                                .errorMessageMobile
+                                input#claimCode.btn.btn-primary.full-width(type='submit', value='Apply')
+
+                .panel-body.complete
+                  .padded-content.shipping-completed
+                    .row
+                      .col-md-12
+                        p.h4
+                          | Shipping Address
+                    
+                    block shipping_address
+                      | shipping address here      
+                    address.capitalize
+                      br
+                      br
+                      |  ,
+                    address.no-text-transform.phone --
+                    hr.no-print
+                    p.h4
+                      | Shipping Method
+                    ul.no-text-transform.shipping-method
+                      li Ground Shipping - $0.00
+            
+            block billing_content
+              | billing content here
+            
+            
+            #reviewContainer.panel.panel-default(data-submitvalidate='false')
+              #headingThree.panel-heading.hidden-xs(role='tab')
+                h2.element-invisible
+                  | Step 3 of 3 - Review
+                
+                .panel-title.h4
+                  a.js-tab-index-focus(href='#', title='Step 3: Review')
+                  a.step-link-click(role='button', data-toggle='wizard', data-parent='#wizardPanels', href='#review', aria-expanded='false', aria-controls='review')
+                    | 3. REVIEW
+                  h3.h4.step-link-no-click.ckout_headingthree
+                    | 3. REVIEW
+                  a.pull-right.step-number.no-text-transform(href='#')
+                    | Step 3 of 3
+                
+              #review-step.kor-panel-collapse.hidden(role='tabpanel', aria-labelledby='headingThree', aria-expanded='true')
+                .panel-body
+                  form#order-review(action='/checkout/includes/?_DARGS=/checkout/includes/containerReviewForm.jsp#', method='post')
+                    .row.row--small-margin
+                      .col-md-12
+                        p
+                        p.p--no-margin
+                          span.hidden-xs
+                            | By clicking PLACE ORDER you agree to the Michael Kors 
+                            a.hidden-xs.link-primary(href='https://www.michaelkors.com/browse/common/staticContent.jsp?slotId=2000006', target='_blank') Terms &amp; Conditions
+                            span.hidden-xs
+                              | and
+                            a.hidden-xs.link-primary(href='https://www.michaelkors.com/browse/common/staticContent.jsp?slotId=2200002', target='_blank') Privacy Policy.
+                          
+                          span.hidden-sm.hidden-md.hidden-lg
+                            | By clicking PLACE ORDER you agree to the Michael Kors 
+                            a.hidden-sm.hidden-md.hidden-lg.link-primary(href='/mobile/browse/common/staticContent.jsp?slotId=1400501', target='_blank') Terms &amp; Conditions
+                            span.hidden-sm.hidden-md.hidden-lg
+                              | and
+                            a.hidden-sm.hidden-md.hidden-lg.link-primary(href='/mobile/browse/common/staticContent.jsp?slotId=1400501', target='_blank') Privacy Policy.
+                        
+                        p
+                        .hidden-xs
+                          .row--last-extra-margin.row--push-20
+                            .gift-reciept-container
+                              .form-group
+                                .checkbox.vertical-center
+                                  input#review-gift-checkbox(name='/atg/commerce/order/purchase/SubmitOrderFormHandler.giftReceiptSelected', value='true', type='checkbox')
+                                  label(for='review-gift-checkbox')
+                                    | Yes, I would like a gift receipt with this order.
+                        
+                          .row
+                            .col-md-12
+                              .bottom-divider
+
+                    .row.top-buffer.row--sm-pull-40
+                      .col-md-8
+                        .row
+                          .col-md-8
+                            a#place-order-button.btn.btn-primary.full-width.ladda-button.wizard-complete(data-toggle='wizard', role='button', data-parent='#wizardPanels', href='#review', aria-expanded='true', aria-controls='confirm', data-style='expand-left')
+                              | Place Order
+                      
+                      .pull-right.hidden-xs.col-md-3.orderReviewAmount
+                        p.p--no-margin
+                          span.pull-right.total.font-7r-14px
+                            | $223.50
+                          span.total.font-5r-14px
+                            | You will be charged :
+
+                    .row.hidden-sm.hidden-md.hidden-lg.row--big-margin
+                      .col-md-12
+                        .v-list--lg-all
+                          .padded-box
+                            .row--table
+                              .col--table.col--table-md-10
+                                h3.h2.h--no-margin.h--inline
+                                  | Shipping
+                              .col--table.col--table-md-2.text-right
+                                a.link-primary.wizard-step-link(data-step='0')
+                                  | Edit
+
+                            .row.row--push-10
+                              .col-xs-12.shipping-completed
+                                .row
+                                  .col-md-12
+                                    p.h4
+                                      | Shipping Address
+                                
+                                block shipping_address
+                                  | shipping address here
+
+                          .padded-box
+                            .row--table
+                              .col--table.col--table-md-10
+                                h3.h2.h--no-margin.h--inline
+                                  | payment
+                              
+                              .col--table.col--table-md-2.text-right
+                                a.link-primary.wizard-step-link(data-step='1')
+                                  | Edit
+
+                            .row.row--push-10
+                              .col-xs-12.billing-completed
+                                p.h4
+                                  | Payment Method
+                                
+                                ul.no-text-transform
+                                  li  Ending in **************
+                                
+                                hr.no-print
+                                p.h4
+                                  | Billing Address
+                                
+                                address.capitalize.address-no-margin
+                                  br
+                                  br
+                                  |  ,
+                                
+                                address.no-text-transform.phone --
+                                address.no-text-transform
+
+      #checkOutOrderSummary.col-sm-3
+        .v-list--lg
+          .hidden-xs
+            .payment-methods
+              #payment-methods.padded-box.padded-box--no-border.padded-box--short.padded-box--sm-skinny.anchorjs-link
+                .text-center.font-3r-15px-uppercase
+                  | Accepted Payment Methods
+                
+                .text-center.cc-icons
+                  span.icon-xs.icon-visa
+                  span.icon-xs.icon-mastercard
+                  span.icon-xs.icon-american-express
+                  span.icon-xs.icon-discover
+                  span.icon-xs.icon-gift-card
+                
+                ul.hidden
+                  li Visa
+                  li Mastercard
+                  li American Express
+                  li Discover
+                  li Michael Kors
+
+          #apply-promo-container.hidden-xs
+            .row
+              .col-sm-12
+                #applyPromotion
+                  .box-toggle
+                    .box-toggle__header-toggle
+                      .table-cols
+                        .table-cols__col.table-cols__col--text-center
+                          | Apply Promo Code
+                        .table-cols__col.table-cols__col--text-right.table-cols__col--xs-anchor-right
+                          i.pad-left-3px.icon-open(data-icon-href='#checkoutPromotion')
+                    
+                      a.link--block.js-boxToggle(data-toggle='collapse', href='#checkoutPromotion', title='Toggle Promo Code Form')  
+                             
+                    #checkoutPromotion.collapse.form-group
+                      .padded-box.padded-box--border-dark-gold-1.padded-box--sm-skinny
+                        .promoCode
+                        form#orderPromotionForm.promo-code-form(name='orderPromotionForm', action='/checkout/includes/?_DARGS=/checkout/includes/applyCoupon.jsp#', method='post')
+                          .v-list
+                            .form-group
+                              .input-validation-container
+                                input#shopping-bag-promo.form-control(data-parsley-required-message='Promo Code is missing.', data-parsley-trigger='blur', title='Enter Promo Code', placeholder='Promo Code', name='couponCode', value='', type='text', data-parsley-required='true')
+                                i.icon-alert.validation-icon.invalid-input
+                    
+                            #errorMessage
+                            input#claimCode.btn.btn-primary.full-width(type='submit', value='Apply')
+
+          .row.row--xs-push-10
+            .col-md-12
+              .order-summary
+                #totalOrderSummary
+                  .padded-box.padded-box--sm-skinny
+                    .order-summary__prices
+                      .hidden-sm.hidden-md.hidden-lg
+                        .row.row--border-bottom.row--border-light-grey-2.row--pad-bottom-20
+                          .col-md-12
+                            .order-summary__prices-toggle
+                              .h-list--sm.h-list--center
+                                h2.h2.h--inline.h--no-margin
+                                  | Order Summary
+                                i.icon-expand(data-icon-href='.js-orderSummaryToggle')
+                              
+                              a.link--block(href='.js-orderSummaryToggle', data-toggle='collapse', title='Order Summary')
+
+                        .js-orderSummaryToggle.collapse.in
+                          .row--extra-margin.row--last-skinny-margin
+                            .col-md-12.order-summary-items-count
+                              .h-list.h-list--center
+                                span.h2.h--inline.h--no-margin
+                                  | 1 Items
+                                span.h2.h--inline.h--no-margin
+                                  | $223.50
+
+                      .hidden-xs
+                        h2.element-invisible
+                          | Order Summary
+                        h2.h2.hidden-xs.print-h3.print-text-left
+                          | Order Summary
+
+                      #order-summary.collapse.js-orderSummaryToggle
+                        ul
+                          li.row--extra-margin
+                            p.product-values
+                              span.pull-right $223.50
+                              |  Item Subtotal
+                          
+                          li.row--normal-margin
+                            p.product-values
+                              span.pull-right
+                                | $0.00
+                              | Shipping
+                          
+                          li.row--normal-margin
+                            p.product-values
+                              span.pull-right
+                                | $0.00
+                              | Tax
+                          
+                          li.row--normal-margin.top-divider-light-grey-2
+                          li.row--normal-margin.row--last-skinny-margin
+                            p.product-values.p--no-margin
+                              span.pull-right.total.font-7r-14px
+                                | $223.50
+                              
+                              span.total.font-7r-14px
+                                | Order Total
+                    
+                .hidden-sm.hidden-md.hidden-lg
+                  .js-orderSummaryToggle.collapse
+                    .row.row--no-gutter-margin.row--border-bottom.row--border-light-grey-2.row--pad-bottom-05.row--push-20
+                      .col-xs-12.col--no-gutters
+                        .row--table
+                          .col--table.col--table-md-10
+                            .h-list--right
+                              p.h2.h--no-margin.h--inline
+                                | In This Order
+                              p.h2.h--no-margin.h--inline
+                                | 1
+                                | Items
+
+                          .col--table.col--table-md-2.text-right
+                            a.link-primary(href='/checkout/shoppingCart.jsp')
+                              | Edit
+
+                    .row
+                      #miniCartSectionMobile.col-xs-12
+                        .shopping-bag-box__summary-items
+                          .shopping-bag-item
+                            .row.row--no-gutter-margin
+                              .col-md-12
+                                .row
+                                  .col-md-12.col--no-gutters
+                                    a(href='/ava-medium-saffiano-leather-satchel/_/R-US_30T5GAVS3L?color=0205', onclick="return updatedtmSessionVariables('atgcart');")
+                                      img.shopping-bag-item__product-img(alt='Ava Medium Saffiano Leather Satchel', src='https://michaelkors.scene7.com/is/image/MichaelKors/30T5GAVS3L-0205_IS?$categorySmall$')
+                                  
+                                  .col-md-12.col--no-gutters
+                                    .row.row--push-20
+                                      .col-md-12
+                                        .v-list
+                                          .row
+                                            .col-sm-12
+                                              h3.h2.h--no-margin
+                                                a.link--clean-h2(href='/ava-medium-saffiano-leather-satchel/_/R-US_30T5GAVS3L?color=0205', onclick="return updatedtmSessionVariables('atgcart');")
+                                                  | Ava Medium Saffiano Leather Satchel
+                                          
+                                          .shopping-bag-item__description
+                                            .row
+                                              .col-sm-12
+                                                p.p--no-margin
+                                                  | Store Style # 30T5GAVS3L
+
+                                        .v-list--top-lg
+                                          .shopping-bag-item__style
+                                            .row
+                                              .col-xs-6
+                                                p.p--no-margin.labels
+                                                  | Store Style #
+                                            
+                                              .col-xs-6
+                                                p.p--no-margin.product-values.text-right
+                                                  | 30T5GAVS3L
+
+                                          .shopping-bag-item__color
+                                            .row
+                                              .col-xs-6
+                                                p.p--no-margin.labels
+                                                  | Color
+                                              
+                                              .col-xs-6
+                                                p.p--no-margin.product-values.text-right
+                                                  | BLUSH
+
+                                          .shopping-bag-item__style
+                                            .row
+                                              .col-xs-6
+                                                p.p--no-margin.labels
+                                                  | Quantity
+                                              
+                                              .col-xs-6
+                                                p.p--no-margin.product-values.text-right
+                                                  | 1
+
+                                          .row
+                                            .v-list
+                                              .col-xs-12.shopping-bag-item__col--price-qty
+                                                .v-list--lg
+                                                  .shopping-bag-item__qty
+                                                    .row--table
+                                                      .col--table
+                                                        p.p--no-margin.labels
+                                                          | Quantity
+                                                      .col--table
+                                                        p.p--no-margin.product-values.text-right
+                                                          | 1
+
+                                              .col-xs-12.shopping-bag-item__col--total
+                                                .row.row--no-gutter-margin.row--pad-top-20.row--border-top
+                                                  .col-xs-6.col--no-gutters
+                                                    p.h2.h--no-margin
+                                                      | Item Total
+                                              
+                                                  .col-xs-6.col--no-gutters
+                                                    p.h2.h--no-margin.text-right
+                                                      | $223.50
+                                              
+                            
+                            .row
+                              .col-md-12.col-sm-12
+                                .row.row--no-gutter-margin.row--push-20
+                                  .col-sm-12.col--no-gutters
+                                    ul
+                                      li
+                                        p
+                                          a.link-secondary(href="/checkout/shoppingCart.jsp") Edit
+          
+          .hidden-xs
+            .shopping-bag-box
+              .padded-box.padded-box--sm-skinny
+                h2.element-invisible
+                  Shopping Bag -
+                  span.js-shoppingBagCount 1
+                    | Items
+                
+                .shopping-bag-box__header-toggle
+                  .table-cols
+                    .table-cols__col
+                      .table-cols__col-table
+                        .table-cols__col.table-cols__col--narrow.table-cols__col--text-center.table-cols__col--sm-full-width
+                          h2.h2.h--no-margin
+                            | Shopping Bag
+                        
+                        .table-cols__col.table-cols__col--sm-full-width.table-cols__col--sm-text-center.table-cols__col--text-left
+                          p.h2.h--no-margin
+                            span.js-shoppingBagCount 1
+                            | Items
+                    
+                    .table-cols__col.table-cols__col--text-right
+                      i.icon-expand(data-icon-href='#shopping-bag-box__summary')
+                    
+                    a.link--block(data-toggle='collapse', href='#shopping-bag-box__summary', title='Toggle Shopping Bag Summary')
+
+                #shopping-bag-box__summary.collapse
+                  .row
+                    #miniCartSection.col-xs-12
+                      .shopping-bag-box__summary-items
+                        .shopping-bag-item
+                          .row.row--no-gutter-margin
+                            .col-md-12
+                              .row
+                                .col-md-12.col--no-gutters
+                                  a(href='/ava-medium-saffiano-leather-satchel/_/R-US_30T5GAVS3L?color=0205', onclick="return updatedtmSessionVariables('atgcart');")
+                                    img.shopping-bag-item__product-img(alt='Ava Medium Saffiano Leather Satchel', src='https://michaelkors.scene7.com/is/image/MichaelKors/30T5GAVS3L-0205_IS?$categorySmall$')
+                                
+                                .col-md-12.col--no-gutters
+                                  .row.row--push-20
+                                    .col-md-12
+                                      .v-list
+                                        .row
+                                          .col-sm-12
+                                            h3.h2.h--no-margin
+                                              a.link--clean-h2(href='/ava-medium-saffiano-leather-satchel/_/R-US_30T5GAVS3L?color=0205', onclick="return updatedtmSessionVariables('atgcart');")
+                                                | Ava Medium Saffiano Leather Satchel
+                                
+                                        .shopping-bag-item__description
+                                          .row
+                                            .col-sm-12
+                                              p.p--no-margin
+                                                | Store Style # 30T5GAVS3L
+                                
+                                      .v-list--top-lg
+                                        .shopping-bag-item__style
+                                          .row
+                                            .col-xs-6
+                                              p.p--no-margin.labels
+                                                | Store Style #
+                                
+                                            .col-xs-6
+                                              p.p--no-margin.product-values.text-right
+                                                | 30T5GAVS3L
+                                
+                                        .shopping-bag-item__color
+                                          .row
+                                            .col-xs-6
+                                              p.p--no-margin.labels
+                                                | Color
+                                
+                                            .col-xs-6
+                                              p.p--no-margin.product-values.text-right
+                                                | BLUSH
+                                
+                                        .shopping-bag-item__style
+                                          .row
+                                            .col-xs-6
+                                              p.p--no-margin.labels
+                                                | Quantity
+                                
+                                            .col-xs-6
+                                              p.p--no-margin.product-values.text-right
+                                                | 1
+                                
+                                        .row
+                                          .v-list
+                                            .col-xs-12.shopping-bag-item__col--price-qty
+                                              .v-list--lg
+                                                .shopping-bag-item__qty
+                                                  .row--table
+                                                    .col--table
+                                                      p.p--no-margin.labels
+                                                        | Quantity
+                                    
+                                                    .col--table
+                                                      p.p--no-margin.product-values.text-right
+                                                        | 1
+                                    
+                                            .col-xs-12.shopping-bag-item__col--total
+                                              .row.row--no-gutter-margin.row--pad-top-20.row--border-top
+                                                .col-xs-6.col--no-gutters
+                                                  p.h2.h--no-margin
+                                                    | Item Total
+                                    
+                                                .col-xs-6.col--no-gutters
+                                                  p.h2.h--no-margin.text-right
+                                                    | $223.50
+
+                          .row
+                            .col-md-12.col-sm-12
+                              .row.row--no-gutter-margin.row--push-20
+                                .col-sm-12.col--no-gutters
+                                  ul
+                                    li
+                                      p
+                                        a.link-secondary(href='/checkout/shoppingCart.jsp')
+                                          | Edit
+
+          #mobile-place-order.hidden-sm.hidden-md.hidden-lg.hidden.hidable-place-order
+            .row.row--normal-margin
+              .col-md-12.orderReviewAmount
+                p.p--no-margin
+                  span.pull-right.total.font-7r-14px
+                    | $223.50
+                  span.total.font-5r-14px
+                    | You will be charged :
+
+            .row.row--normal-margin
+              .col-md-12
+                p.p--no-margin
+                  span.hidden-sm.hidden-md.hidden-lg
+                    | By clicking PLACE ORDER you agree to the Michael Kors 
+                    a.hidden-sm.hidden-md.hidden-lg.link-primary(href='/mobile/browse/common/staticContent.jsp?slotId=1400501', target='_blank') Terms &amp; Conditions
+                    span.hidden-sm.hidden-md.hidden-lg
+                      | and
+                    a.hidden-sm.hidden-md.hidden-lg.link-primary(href='/mobile/browse/common/staticContent.jsp?slotId=1400501', target='_blank') Privacy Policy.
+
+            .row.row--big-margin
+              .col-md-12
+                .gift-reciept-container
+                  .form-group
+                    .checkbox.vertical-center
+                      input#mobile-gift-checkbox(type='checkbox')
+                      label(for='mobile-gift-checkbox')
+                        | Yes, I would like a gift receipt with this order.
+
+            .row.row--big-margin.row--last-big-margin
+              .col-xs-12
+                a.btn.btn-primary.full-width.ladda-button.order-review-dummy-button(href='#')
+                  | Place Order
+
+          .row
+            .col-md-12
+              .hidden-xs
+                .padded-box.padded-box--sm-skinny
+                  h2.h--no-margin.text-center Need Help?
+                  .row.row--push-25
+                    .col-sm-12.text-center
+                      span.needhelpNum 1-866-709-KORS (5677)
+                  
+                  .row.row--push-15
+                    .col-sm-12
+                      p.p--no-margin.uppercase.text-center or
+                  
+                  .row.row--push-15.row--pull-25
+                    .col-sm-12.text-center
+                      a.link-primary.link-primary--large.link--uppercase(href='/browse/common/contactUs.jsp', target='_blank') Email us
+                  
+                  .row.row--no-gutter-margin.row--xs-pad-top-25.row--sm-pad-top-15.row--border-top.row--border-light-grey-1.row--pad-bottom-05
+                    .col-xs-6.col-sm-6.col-md-6.col--no-gutters.col--border-right.col--border-light-grey-1.text-center
+                      a.link-primary.link-primary--large.link--uppercase(href='/browse/common/staticContent.jsp?slotId=2200017', target='_blank') Shipping
+                    
+                    .col-xs-6.col-sm-6.col-md-6.col--no-gutters.text-center
+                      a.link-primary.link-primary--large.link--uppercase(href='/browse/common/staticContent.jsp?slotId=400008', target='_blank') Returns
+
+          .visible-xs.row--last-extra-margin
+            .payment-methods
+              #payment-methods.padded-box.padded-box--no-border.padded-box--short.padded-box--sm-skinny.anchorjs-link
+                .text-center.font-3r-15px-uppercase
+                  | Accepted Payment Methods
+                .text-center.cc-icons
+                  span.icon-xs.icon-visa
+                  span.icon-xs.icon-mastercard
+                  span.icon-xs.icon-american-express
+                  span.icon-xs.icon-discover
+                  span.icon-xs.icon-gift-card
+                ul.hidden
+                  li Visa
+                  li Mastercard
+                  li American Express
+                  li Discover
+                  li Michael Kors
+
+  // sample modal content
+  #checkout-sign-in-modal.kor-modal.modal.fade.js-korModal(tabindex='-1', role='dialog', aria-labelledby='checkout-sign-in-modal__label', style='display: none;')
+    .modal-dialog.kor-modal__dialog(role='document')
+      .modal-content.kor-modal__content
+        .modal-header.kor-modal__content-header
+          button.close.kor-modal__content-header-close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          
+          p#checkout-sign-in-modal__label.modal-title.kor-modal__content-header-title.h2.h--no-margin.half-title.pull-left
+            | Sign in to your Michael Kors account
+
+        .modal-body.kor-modal__content-body
+          .two-col
+            .two-col__col
+              form#sign-in-form(name='sign-in-form', action='/checkout?user=shane', method='get')
+                .v-list--all
+                  label.globalError.error.hiddenErrorMsg
+                  // <dattaprasad> GWSIT-550 fixed on 03-11-2015
+                  .form-group
+                    label(for='', name='')
+                      span.asterisk
+                        | *
+                      | Email Address
+                    .input-validation-container
+                      input#sign-in-email-address.form-control(data-parsley-required-message='Email is missing.', data-parsley-validation-threshold='0', placeholder='Email Address', name='login', data-parsley-type='email', value='shane.shelley@michaelkors.com', type='text', data-parsley-required='true')
+                      i.icon-checkmark.validation-icon.valid-input
+                      i.icon-alert.validation-icon.invalid-input
+                      label.loginError.error.hiddenErrorMsg
+                  
+                  .form-group
+                    label(for='', name='')
+                      span.asterisk
+                        | *
+                      | Password
+                    
+                    .input-validation-container
+                      input#sign-in-password.form-control(data-parsley-required-message='Password is missing.', maxlength='25', placeholder='Password', name='password', value='', type='password', autocomplete='off', data-parsley-required='0')
+                      i.icon-alert.validation-icon.invalid-input
+                      label.passwordError.error.hiddenErrorMsg
+                  
+                  .row
+                    .col-xs-6
+                      .form-group
+                        .checkbox
+                          input#sign-in-remember(name='autoLogin', value='true', type='checkbox', checked='')
+                          label(for='sign-in-remember')
+                            | Remember Me
+                    
+                    .col-xs-6.text-right
+                      a.link-primary.forgotpass_resp(title='forgot password', href='/myaccount/resetPassword.jsp')
+                        | Forgot Password?
+                  
+                  input#sign-in-submit.btn.btn-disabled.btn--full-width(type='submit', name='sign-in-submit', value='Sign In', title='Sign In')
+
+            .two-col__col.vertical-top
+              .v-list
+                .row.hidden-sm.hidden-md.hidden-lg
+                  .col-md-12
+                    .text-divider
+                      .text-divider__text-wrapper
+                        .text-divider__text-wrapper-fixer
+                          p.text-divider__text-wrapper-text.p--no-margin.uppercase or
+                
+                .row
+                  .col-md-12
+                    a.btn.btn--facebook-sign-in.btn--full-width(title='Sign In with Facebook', onclick="socialLogin('facebook', false, false)", href='javascript:void(0);')
+                      | Sign In with Facebook
+                
+                .row
+                  .col-md-12
+                    a.btn.btn--twitter-sign-in.btn--full-width(title='Sign In with Twitter', onclick="socialLogin('twitter', false, false)", href='javascript:void(0);')
+                      | Sign In with Twitter
+  
+  #gift-wrap-modal.kor-modal.modal.fade.js-korModal(tabindex='-1', role='dialog', aria-labelledby='gift-wrap-modal-modal__label', style='display: none;')
+    .modal-dialog.kor-modal__dialog(role='document')
+      .modal-content.kor-modal__content
+        .modal-header.kor-modal__content-header
+          button#js-giftwrap-cancel.close.kor-modal__content-header-close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+          
+          p#checkout-sign-in-modal__label.modal-title.kor-modal__content-header-title.h2.h--no-margin
+            | Gift Wrap &amp; Notes
+        
+        .modal-body.kor-modal__content-body
+  
+  #apply-gift-card-modal.kor-modal.kor-modal--thin.modal.fade.js-korModal(tabindex='-1', role='dialog', aria-labelledby='apply-gift-card-modal__label', style='display: none;')
+    .modal-dialog.kor-modal__dialog(role='document')
+      .modal-content.kor-modal__content
+        .modal-header.kor-modal__content-header
+          button#js-applygiftCard-cancel.close.kor-modal__content-header-close(type='button', data-dismiss='modal', aria-label='Close')
+            span(aria-hidden='true') &times;
+    
+          h1#apply-gift-card-modal__label.modal-title.kor-modal__content-header-title.h2.h--no-margin
+            | Apply A GiftCard
+    
+        .modal-body.kor-modal__content-body
+          form#apply-giftcard-form.submitFormAjaxForCheckout(name='apply-giftcard-form', action='/checkout/includes/?_DARGS=/checkout/includes/applyGiftCard.jsp#', method='post')
+            .v-list
+              #apply-giftcard-error-container.row(style='display:none')
+                .col-xs-12.col-sm-11
+                  .alert-message.alert-message--error(role='alert')
+                    .alert-message__icon
+                      i.icon-alert
+                    
+                    .alert-message__text
+                      p#apply-giftcard-error-message.p--no-margin
+    
+              #apply-giftcard-success-container.row(style='display:none')
+                .col-xs-12.col-sm-11
+                  .alert-message.alert-message--success(role='alert')
+                    .alert-message__icon
+                      i.icon-checkmark
+                    .alert-message__text
+                      p.p--no-margin
+                        | Your gift card has been applied. The balance will be adjusted once your order is complete.
+              
+              .row
+                .col-xs-12.col-sm-11
+                  .form-group
+                    label(for='gift-card', name='gift-card')
+                      span.asterisk *
+                      | Gift Card
+                    
+                    .input-validation-container
+                      input.form-control(data-parsley-required-message='Gift Card is missing.', data-parsley-trigger='blur', maxlength='40', data-parsley-validation-threshold='0', placeholder='Gift Card', name='gift-card', data-parsley-type='number', value='', data-parsley-type-message='Gift Card input must be a number.', data-parsley-required='true', data-parsley-maxlength-message='Gift Card number is too long.', data-parsley-maxlength='40')
+                      i.icon-checkmark.validation-icon.valid-input
+                      i.icon-alert.validation-icon.invalid-input
+    
+              .row
+                .col-xs-12.col-sm-11
+                  .form-group
+                    label(for='pin', name='pin')
+                      span.asterisk *
+                      | PIN
+                    .input-validation-container
+                      input.form-control(data-parsley-required-message='PIN is missing.', data-parsley-trigger='blur', maxlength='4', data-parsley-validation-threshold='0', placeholder='PIN', name='pin', data-parsley-type='number', value='', type='password', data-parsley-type-message='PIN input must be a number.', data-parsley-required='true', data-parsley-maxlength-message='PIN is too long.', data-parsley-maxlength='4')
+                      i.icon-alert.validation-icon.invalid-input
+    
+              .row
+                .col-xs-12.col-sm-11
+                  input.btn.btn-primary.btn--full-width(name='/atg/store/order/purchase/BillingFormHandler.applyGiftCard', value='Use It', type='submit')
+
+  #gift-card-balance-modal.kor-modal.kor-modal--thin.modal.fade.js-korModal(tabindex="-1", role="dialog", aria-labelledby="gift-card-balance-modal__label", style="display: none;")
+    .modal-dialog.kor-modal__dialog(role="document")
+      .modal-content.kor-modal__content
+        .modal-header.kor-modal__content-header
+          button.close.kor-modal__content-header-close#js-giftcardBalance-cancel(type="button", data-dismiss="modal", aria-label="Close")
+            span(aria-hidden="true") &#215;
+          
+          h1.modal-title.kor-modal__content-header-title.h2.h--no-margin#gift-card-balance-modal__label
+            Check Gift Card Balance
+    
+        .modal-body.kor-modal__content-body
+          form#gitcard-balance-form.submitFormAjaxForCheckout(name='giftcard-balance-form', action='/checkout/includes/?_DARGS=/checkout/includes/giftCardBalance.jsp#', method='post')
+            .v-list
+              #giftcard-error-container.row(style='display:none')
+                .col-xs-12.col-sm-11
+                  .alert-message.alert-message--error(role='alert')
+                    .alert-message__icon
+                      i.icon-alert
+                    .alert-message__text
+                      p#giftcard-error-message.p--no-margin
+
+              // GIFT CARD BALANCE MESSAGE, SHOW AFTER SUCCESS
+              .row
+                .col-xs-12.col-sm-11
+                  p#giftcard-message.p--no-margin.product-values
+
+              .row
+                .col-xs-12.col-sm-11
+                  .form-group
+                    label(for='gift-card', name='gift-card')
+                      span.asterisk *
+                      | Gift Card
+                    .input-validation-container
+                      input.form-control(data-parsley-required-message='Gift Card is missing.', data-parsley-trigger='blur', maxlength='40', data-parsley-validation-threshold='0', placeholder='Gift Card', name='gift-card', data-parsley-type='number', value='', data-parsley-type-message='Gift Card input must be a number.', data-parsley-required='true', data-parsley-maxlength-message='Gift Card number is too long.', data-parsley-maxlength='40')
+                      i.icon-checkmark.validation-icon.valid-input
+                      i.icon-alert.validation-icon.invalid-input
+
+              .row
+                .col-xs-12.col-sm-11
+                  .form-group
+                    label(for='pin', name='pin')
+                      span.asterisk *
+                      | PIN
+                    .input-validation-container
+                      input.form-control(data-parsley-required-message='PIN is missing.', data-parsley-trigger='blur', maxlength='4', data-parsley-validation-threshold='0', placeholder='PIN', name='pin', data-parsley-type='number', value='', type='password', data-parsley-type-message='PIN input must be a number.', data-parsley-required='true', data-parsley-maxlength-message='PIN is too long.', data-parsley-maxlength='4')
+                      i.icon-alert.validation-icon.invalid-input
+
+              .row
+                .col-xs-12.col-sm-11
+                  input.btn.btn-primary.btn--full-width(name='/atg/store/order/purchase/BillingFormHandler.giftCardBalance', value='Check Balance', type='submit')

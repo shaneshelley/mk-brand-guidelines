@@ -1,0 +1,55 @@
+/*
+*	Table Columns layout object
+*
+*	Use this class to handle multiple horizontal columns
+* in a table structure
+*/
+.table-cols {
+	display: table;
+  width: 100%;
+}
+
+.table-cols__col {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table-cols__col-table {
+  display: table;
+  width: 100%;
+}
+
+.table-cols__col--narrow {
+  width: 65%;
+}
+
+.table-cols__col--text-center {
+  text-align: center;
+}
+
+.table-cols__col--text-right {
+  text-align: right;
+}
+
+.table-cols__col--text-left {
+  text-align: left;
+}
+
+@media (max-width: $screen-xs-max) {
+  .table-cols__col--xs-anchor-right {
+    position: absolute;
+    right: 12px;
+  }
+}
+
+@media (max-width: $screen-1279-max){
+  .table-cols__col--sm-full-width {
+    display: block;
+    width: 100%;
+    padding: 2px 0;
+  }
+
+  .table-cols__col--sm-text-center {
+    text-align: center;
+  }
+}

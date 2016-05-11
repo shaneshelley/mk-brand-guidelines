@@ -1,0 +1,41 @@
+/**
+* ## Two Column Layout
+*
+* ### General Notes
+*
+* The Two Column Layout object is used for positioning two adjacent vertically-aligned containers side-by-side with a line and even spacing between them. The columns break down to two full-width rows at mobile viewport width
+*
+*   @example
+*   div.two-col
+*      div.two-col__col
+*         h2.h--no-margin Heading in column 1
+*         p Paragraph in column 1
+*      div.two-col__col
+*         h2.h--no-margin Heading in column 2
+*         p Paragraph in column 2
+*/
+
+.two-col {
+	display: block;
+  width: 100%;
+}
+
+@media (min-width: $screen-sm-min){
+  .two-col {
+  	display: table;
+  }
+
+  .two-col__col {
+  	width: 50%;
+  	display: table-cell;
+  	vertical-align: middle;
+
+  	&:first-child {
+  		padding-right: 35px;
+  		border-right: 1px solid $light-grey-2;
+  	}
+  	&:last-child {
+  		padding-left: 35px;
+  	}
+  }
+}

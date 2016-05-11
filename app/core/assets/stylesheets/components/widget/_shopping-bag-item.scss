@@ -1,0 +1,66 @@
+.shopping-bag-item {
+  margin-top: 50px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid $light-grey-1;
+
+  /* Remove the bottom border and padding for last child of summary box items */
+  .shopping-bag-box & {
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }
+
+  /* condense the item listing in the shopping bag box for tablet and above */
+  .shopping-bag-box__summary-items &,
+  .order-summary & {
+
+    .shopping-bag-item__description,
+    .shopping-bag-item__price,
+    .shopping-bag-item__qty,
+    .shopping-bag-item__col--price-qty,
+    .shopping-bag-item__notes {
+      display: none;
+    }
+
+    .shopping-bag-item__col--total {
+      .row--border-top {
+        border-top: 0 !important;
+      }
+      .row--pad-top-20 {
+        padding-top: 0 !important;
+      }
+    }
+
+    .v-list--top-lg {
+      > * {
+        margin-top: 15px !important;
+      }
+    }
+
+    .shopping-bag-item__product-img {
+      max-width: 50%;
+    }
+  }
+
+}
+
+.shopping-bag-item__product-img {
+  display: block;
+  max-width: 80%;
+  margin: 0 auto;
+  max-height: 170px;
+}
+
+.shopping-bag-item__footer {
+  margin-top: 40px;
+}
+
+@media (max-width: $screen-xs-max){
+  .shopping-bag-item {
+    &:last-child {
+      margin-bottom: 20px;
+    }
+  }
+}

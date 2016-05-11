@@ -1,0 +1,519 @@
+extends _layout.jade
+
+block header_content
+  .col-sm-9
+    h1 Checkout
+    p
+      | Continue below as a guest. You can create an account at checkout for a faster experience next time.
+
+  .col-sm-3.col--justify-right
+    button.btn.btn-primary.btn--full-width.btn--taller.sign-in-button(data-toggle="modal", data-target="#checkout-sign-in-modal", onclick="checkoutSignIn()")
+      | Sign In
+
+block shipping_content
+  #shipping-step.kor-panel-collapse(role="tabpanel", aria-labelledby="headingOne", aria-expanded="false")
+    .panel-body.editable
+      .row.row--xs-push-10.hidden-sm.hidden-md.hidden-lg
+        .col-md-12
+          .padded-box
+            .row
+              .col-xs-8
+                p.p--no-margin 
+                  | Continue below as a guest. You can create an account at checkout for a faster experience next time.
+              
+              .col-xs-4
+                a.btn.btn-primary.full-width(data-toggle="modal", data-target="#checkout-sign-in-modal")
+                  | Sign In
+              
+block shipping_form
+  .row.row--tiny-margin
+    .col-md-12
+      .shipping-country
+        span.icon-usa.shipping-country-flag.pull-left
+        label United States
+  
+  .row.row--extra-margin
+    .col-md-8
+      .form-group.select-container
+        label(for="title", name="title") Title
+        .input-validation-container
+          select#gender-select.form-control.selectpicker(placeholder="Select Your Title", name="title")
+            +titles
+            
+          i.icon-checkmark.validation-icon.valid-input
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-8
+      .form-group
+        label(for="first-name", name="first-name")
+          span.asterisk * 
+          | First Name        
+        .input-validation-container
+          input.form-control#first_name(data-parsley-trigger="blur", data-parsley-minlength="2", placeholder="First Name", data-parsley-pattern="^[a-zA-Z0-9\s]*$", type="text", data-parsley-pattern-message="Please enter a valid First Name.", data-parsley-required-message="First Name is missing." title="First Name", maxlength="20", data-parsley-validation-threshold="0", data-parsley-minlength-message="Please enter a valid First Name.", name="first-name", value="", data-parsley-required="true")
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-8
+      .form-group
+        label(for="last-name", name="last-name")
+          span.asterisk *
+          | Last Name        
+        .input-validation-container
+          input.form-control#last_name(data-parsley-minlength="2", data-parsley-trigger="blur", placeholder="Last Name", data-parsley-pattern="^[a-zA-Z0-9\s]*$", type="text", data-parsley-pattern-message="Please enter a valid Last Name.", data-parsley-required-message="Last Name is missing.", title="Last Name", maxlength="40", data-parsley-validation-threshold="0", data-parsley-minlength-message="Please enter a valid Last Name.", name="last-name", value="", data-parsley-required="true")
+          i.icon-alert.validation-icon.invalid-input
+  
+  // country select starts here
+  .row.row--extra-margin.hidden
+    .col-md-8
+      .form-group.select-container
+        label(for="country-select", name="country-select")
+          span.asterisk *
+          Country
+        .input-validation-container
+          select.form-control.selectpicker#country-select(name="title")
+            +countries
+          i.icon-checkmark.validation-icon.valid-input
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-8
+      .form-group
+        label(for="addr-1", name="addr-1")
+          span.asterisk *
+          | Address Line 1
+        
+        .input-validation-container
+          input.form-control#addr-1(data-parsley-trigger="change blur", data-parsley-error-message="Address Line 1 is missing.", title="Street Address", maxlength="40", data-parsley-validation-threshold="0", placeholder="Street Address", name="addr-1", value="", onfocus="geolocateAdd()", type="text", data-parsley-required="true")
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--push-10
+    .col-md-8
+      .form-group
+        label(for="addr-2", name="addr-2") 
+          | Address Line 2 (apt, floor, etc.)
+        .input-validation-container
+          input.form-control#addr-2(data-parsley-trigger="keyup", maxlength="40", data-parsley-validation-threshold="0", placeholder="Apt, Unit, Floor (optional)", name="addr-2", value="", type="text")
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-4.col-xs-6
+      .form-group
+        label(for="zip-code", name="zip-code")
+          span.asterisk *
+          | Zip Code
+        .input-validation-container
+          input.form-control#zip-code(data-parsley-trigger="change blur", data-parsley-required-message="Zip Code is missing.", maxlength="15", data-parsley-validation-threshold="0", placeholder="5-Digit Zip Code", name="zip-code", data-parsley-pattern="^([0-9]{5}|([0-9]{5}[\-][0-9]{4}))$|^[a-zA-Z][0-9][a-zA-Z] ?[0-9][a-zA-Z][0-9]$", value="", onfocus="geolocate()", type="text", data-parsley-required="true", data-parsley-pattern-message="Please enter a valid Zip Code.")
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-8
+      .form-group
+        label(for="city", name="city")
+          span.asterisk *
+          | City
+        .input-validation-container
+          input.form-control#locality(data-parsley-trigger="change blur", data-parsley-error-message="City is missing.", maxlength="20", data-parsley-validation-threshold="0", placeholder="Your City", name="city", value="", type="text", data-parsley-required="true")
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-8.col-xs-7
+      .form-group.select-container
+        label(for="state", name="state")
+          span.asterisk *
+          | State
+        .input-validation-container
+          select.form-control.selectpicker#state(data-parsley-trigger="focusout", data-parsley-error-message="State is missing.", placeholder="Select State", name="state", data-parsley-required="true")
+            +states
+          i.icon-checkmark.validation-icon.valid-input
+          i.icon-alert.validation-icon.invalid-input
+  
+  .row.row--extra-margin
+    .col-md-4.col-xs-7
+      .form-group
+        label(for="phone", name="phone")
+          span.asterisk *
+          |Phone
+        
+        .input-validation-container
+          input.form-control#shipping-phone(data-parsley-trigger="blur", data-parsley-required-message="Phone Number is missing.", maxlength="15", data-parsley-validation-threshold="0", placeholder="XXX-XXX-XXXX", name="phone", data-parsley-pattern="^\d{3}\-\d{3}\-\d{4}$", value="", type="tel", data-parsley-required="true", data-parsley-pattern-message="Please enter a valid Phone Number.")
+          i.icon-alert.validation-icon.invalid-input
+    
+    .col-md-4.col-xs-5
+      .input-detail.dark-grey
+        p 
+          | In case your carrier
+          br
+          | needs to reach you.
+
+block shipping_address
+  address.capitalize
+    br
+    br
+    |  ,
+  address.no-text-transform.phone --
+  hr.no-print
+  p.h4
+    | Shipping Method
+  ul.no-text-transform.shipping-method
+    li Ground Shipping - $0.00
+              
+block billing_content
+  #billingContainer.panel.panel-default(data-submitvalidate='false')
+    #headingTwo.panel-heading.hidden-xs(role='tab')
+      h2.element-invisible
+        | Step 2 of 3 - payment
+      .panel-title.h4
+        a.js-tab-index-focus(href='#', title='Step 2: Payment')
+        a.step-link-click(data-toggle='wizard', role='button', data-parent='#wizardPanels', href='#payment', aria-expanded='false', aria-controls='payment')
+          | 2. Payment
+        h3.h4.step-link-no-click.ckout_headingthree
+          | 2. Payment
+        a.pull-right.step-number.no-text-transform(href='#')
+          | Step 2 of 3
+
+    #payment-step.kor-panel-collapse.hidden(role='tabpanel', aria-labelledby='headingTwo', aria-expanded='false')
+      .panel-body.editable
+        .row.row--push-15.row--xs-push-10
+          .col-md-12
+            form#payment-form(name='payment_form', action='/checkout/includes/?_DARGS=/checkout/includes/containerBillingForm.jsp#', method='post')
+              h1.h2.row--pull-20.row--xs-pull-15
+                | Payment Method
+              
+              #gift-cards-container.row.row--push-40.row--xs-push-30
+                .col-md-12
+                  .row
+                    .col-md-12
+                      .icon-gift-card.icon-xs-xs.icon-sm-sm.pull-left
+                      a.gift-card-link.pull-left(data-toggle='modal', data-target='#apply-gift-card-modal', href='#')
+                        span.icon-open
+                        | Apply A GiftCard
+                      a.gift-card-link.check-balance-link.pull-left.underline(data-toggle='modal', data-target='#gift-card-balance-modal', href='#')
+                        | Check Balance
+
+              .row.row--push-40.row--xs-push-30
+                .col-md-12
+                  div
+                    .radio
+                      input#cc-payment(type='radio', name='checkout-payment-methods', checked='true')
+                      label(for='cc-payment')
+                        ul
+                          li
+                            | Credit Card
+                          
+                          li.credit-cards
+                            span.icon-xs-xs.icon-sm-sm.icon-visa
+                            span.icon-xs-xs.icon-sm-sm.icon-mastercard
+                            span.icon-xs-xs.icon-sm-sm.icon-american-express
+                            span.icon-xs-xs.icon-sm-sm.icon-discover
+
+              hr.no-print.hr--no-margin
+
+              #credit-card-form.row.collapse.in
+                div
+                  .col-sm-8.col-md-8
+                    .row.row--big-margin
+                      .col-md-8
+                        .form-group
+                          label(for='card-name', name='card-name')
+                            span.asterisk *
+                            | Name On Card
+                          
+                          .input-validation-container
+                            input#card-name.form-control(value='', name='card-name', type='text', maxlength='80', placeholder='Name On Card', data-parsley-validation-threshold='0', data-parsley-pattern='^[A-Za-z\d\s]+$', data-parsley-pattern-message='Please enter a valid Name On Card.', data-parsley-required-message='Name On Card is missing.', data-parsley-trigger='blur', data-parsley-required='true')
+                            i.icon-checkmark.validation-icon.valid-input
+                            i.icon-alert.validation-icon.invalid-input
+
+                    .row.credit-card-input-group.row--big-margin
+                      .col-md-8.col-xs-9
+                        .form-group
+                          label(for='card-number', name='card-number')
+                            span.asterisk *
+                            | Card Number
+                          
+                          .input-validation-container
+                            input#payment-card-number.form-control.kor-disablePaste(value='', name='card-number', type='tel', maxlength='20', autocomplete='off', data-parsley-validation-threshold='0', data-parsley-ccard='#payment-card-number', data-parsley-required-message='Card Number is missing.', placeholder='Card Number', data-parsley-trigger='blur', data-parsley-required='true')
+                            i.icon-checkmark.validation-icon.valid-input
+                            i.icon-alert.validation-icon.invalid-input
+                      
+                      .col-sm-1.col-xs-3
+                        span.card-type-icon.icon-xs-xs.icon-sm-sm.icon-generic-card
+
+                    .row.form-group.row--big-margin
+                      .col-xs-12
+                        label(for='', name='')
+                          span.asterisk *
+                          | Security Code
+                      
+                      .col-xs-5.col-sm-4
+                        .input-validation-container
+                          input.form-control.payment-card-ccv(data-parsley-validation-threshold='0', type='tel', data-parsley-pattern-message='Please enter a valid Security Code.', pattern='^[0-9]{3,4}$', data-parsley-required-message='Security Code is missing.', placeholder='CVV', data-parsley-trigger='blur', name='cvv', data-parsley-required='true')
+                          // <dattaprasad> GWSIT-433 Fixed on 04-11-2015 commented the below input
+                          input#creditCardCVV.form-control.hidden.payment-card-ccv-ie(data-parsley-validation-threshold='0', type='password', data-parsley-pattern-message='Please enter a valid Security Code.', data-parsley-pattern='^[0-9]{3,4}$', data-parsley-required-message='Security Code is missing.', placeholder='CVV', data-parsley-trigger='blur', name='cvv', data-parsley-required='true')
+                          i.icon-checkmark.validation-icon.valid-input
+                          i.icon-alert.validation-icon.invalid-input
+                      
+                      .col-xs-6.securityTooltip
+                        span.icon-more-info.input-info-icon(data-toggle='tooltip', title='The Card Verification Number is a 3 or 4 digit code on the front of American Express cards and on the back of Visa and MasterCard cards.This is a security measure to ensure that you have possession of the credit card itself in order to make a purchase. Please note: The card security code is not the last 3 or 4 digits of your credit card number.')
+
+                    .row.form-group.row--big-margin
+                      .col-xs-12
+                        label(for='', name='')
+                          span.asterisk *
+                          | Expiration Date
+                      
+                      .col-xs-5.col-sm-4
+                        .input-validation-container
+                          input#payment-card-expiration.form-control(value='', name='expirationDate', type='tel', maxlength='20', data-parsley-validation-threshold='0', data-parsley-pattern-message='Please enter a valid Expiration Date.', data-parsley-pattern='^((0[1-9]|1[0-2])[\/][2][0][1-2][0-9])$', data-parsley-required-message='Expiration Date is missing.', placeholder='MM/YYYY', data-parsley-trigger='blur', data-parsley-required='true')
+                          i.icon-checkmark.validation-icon.valid-input
+                          i.icon-alert.validation-icon.invalid-input
+
+                    .row.row--big-margin
+                      .col-md-12
+                        h3
+                          | Billing Address
+                        .form-group
+                          .checkbox.vertical-center
+                            input#use-shipping-checkbox(data-target='#payment-shipping-form, #payment-shipping-info', name='/atg/store/order/purchase/BillingFormHandler.sameAsShipping', value='true', data-toggle='collapse', type='checkbox', checked='')
+                            label(for='use-shipping-checkbox')
+                              | Use my shipping address
+
+                    #payment-shipping-form.row.collapse.row--last-extra-margin
+                      .col-md-12
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group.select-container
+                              label(for='title', name='title') Title
+                              .input-validation-container
+                                select#gender-select.form-control.selectpicker(placeholder='Select Your Title', name='title')
+                                  | +titles
+                                i.icon-checkmark.validation-icon.valid-input
+                                i.icon-alert.validation-icon.invalid-input
+                        
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group
+                              label(for='first-name', name='first-name')
+                                span.asterisk *
+                                | First Name
+                              .input-validation-container
+                                input#first-name.form-control(data-parsley-trigger='blur', data-parsley-minlength='2', placeholder='First Name', data-parsley-pattern='^[a-zA-Z0-9\s]*$', type='text', data-parsley-pattern-message='Please enter a valid First Name.', data-parsley-required-message='First Name is missing.', maxlength='20', data-parsley-validation-threshold='0', data-parsley-minlength-message='Please enter a valid First Name.', name='first-name', value='', data-parsley-required='true')
+                                i.icon-alert.validation-icon.invalid-input
+                        
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group
+                              label(for='last-name', name='last-name')
+                                span.asterisk *
+                                | Last Name
+                              .input-validation-container
+                                input#last-name.form-control(data-parsley-minlength='2', data-parsley-trigger='blur', placeholder='Last Name', data-parsley-pattern='^[a-zA-Z0-9\s]*$', type='text', data-parsley-pattern-message='Please enter a valid Last Name.', data-parsley-required-message='Last Name is missing.', maxlength='40', data-parsley-validation-threshold='0', data-parsley-minlength-message='Please enter a valid Last Name.', name='last-name', value='', data-parsley-required='true')
+                                i.icon-alert.validation-icon.invalid-input
+
+                        // country select starts here
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group.select-container
+                              label(for='country-select', name='country-select')
+                                span.asterisk *
+                                | Country
+                              .input-validation-container
+                                select#country-select.form-control.selectpicker(name='country')
+                                  | +countries
+                                i.icon-checkmark.validation-icon.valid-input
+                                i.icon-alert.validation-icon.invalid-input
+
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group
+                              label(for='addr-1', name='addr-1')
+                                span.asterisk *
+                                | Address Line 1
+                              .input-validation-container
+                                input#addr-1.form-control(data-parsley-trigger='change blur', data-parsley-error-message='Address Line 1 is missing.', maxlength='40', data-parsley-validation-threshold='0', placeholder='Street Address', name='addr-1', value='', onfocus='geolocateBillAdd()', type='text', data-parsley-required='true')
+                                i.icon-alert.validation-icon.invalid-input
+                        
+                        .row.row--push-10
+                          .col-md-8
+                            .form-group
+                              label(for='addr-2', name='addr-2') Address Line 2 (apt, floor, etc.)
+                              .input-validation-container
+                                input#addr-2.form-control(data-parsley-trigger='keyup', maxlength='40', data-parsley-validation-threshold='0', placeholder='Apt, Unit, Floor (optional)', name='addr-2', value='', type='text')
+                                i.icon-alert.validation-icon.invalid-input
+                        
+                        .row.row--extra-margin
+                          .col-md-4.col-xs-6
+                            .form-group
+                              label(for='zip-code', name='zip-code')
+                                span.asterisk *
+                                | Zip Code
+                              .input-validation-container
+                                input#zip-code.form-control(data-parsley-trigger='change blur', data-parsley-required-message='Zip Code is missing.', maxlength='15', data-parsley-validation-threshold='0', placeholder='5-Digit Zip Code', name='zip-code', data-parsley-pattern='^[A-Za-z\d\s]+$', value='', onfocus='geolocateBillZip()', type='text', data-parsley-required='true', data-parsley-pattern-message='Please enter a valid Zip Code.')
+                                i.icon-alert.validation-icon.invalid-input
+
+                        .row.row--extra-margin
+                          .col-md-8
+                            .form-group
+                              label(for='city', name='city')
+                                span.asterisk *
+                                | City
+                              .input-validation-container
+                                input#locality.form-control(data-parsley-trigger='change blur', data-parsley-error-message='City is missing.', maxlength='20', data-parsley-validation-threshold='0', placeholder='Your City', name='city', value='', type='text', data-parsley-required='true')
+                                i.icon-alert.validation-icon.invalid-input
+
+                        #statedropdown.row.row--extra-margin
+                          .col-md-8.col-xs-7
+                            .form-group.select-container
+                              label(for='state', name='state')
+                                span.asterisk *
+                                | State
+                              .input-validation-container
+                                select#state.form-control.selectpicker(data-parsley-trigger='focusout', data-parsley-error-message='State is missing.', placeholder='Select State', name='state', data-parsley-required='true')
+                                  | +states
+                                i.icon-checkmark.validation-icon.valid-input
+                                i.icon-alert.validation-icon.invalid-input
+
+                        #custStateText.row.row--extra-margin.hidden-field
+                          .col-md-8
+                            .form-group
+                              label(for='custState', name='custState')
+                                span.asterisk *
+                                | State
+                              .input-validation-container
+                                input#custState.form-control(data-parsley-trigger='change blur', data-parsley-error-message='State is missing', maxlength='20', data-parsley-validation-threshold='0', placeholder='Your State', name='state', value='', type='text', data-parsley-required='true', disabled='')
+                                i.icon-alert.validation-icon.invalid-input
+
+                        .row.row--extra-margin
+                          .col-md-4.col-xs-7
+                            .form-group
+                              label(for='phone', name='phone')
+                                span.asterisk *
+                                | Phone
+                              .input-validation-container
+                                input#shipping-phone.form-control(data-parsley-trigger='blur', data-parsley-required-message='Phone Number is missing.', maxlength='15', data-parsley-validation-threshold='0', placeholder='XXX-XXX-XXXX', name='phone', data-parsley-pattern='^\d{3}\-\d{3}\-\d{4}$', value='', type='tel', data-parsley-required='true', data-parsley-pattern-message='Please enter a valid Phone Number.')
+                                i.icon-alert.validation-icon.invalid-input
+
+                    // <dattaprasad> GWSIT-383 Remove class row--sm-pad-bottom-40 on 02-11-2015
+                    #payment-shipping-info.row.collapse.in.row--push-25
+                      .col-md-12
+                        address.no-text-transform
+                          br
+                          br
+                          br
+                          |  , &nbsp;
+                          br
+                          | --
+
+                    .row.row--extra-margin
+                      .col-md-8.col-xs-9
+                        .form-group
+                          label(for='email', name='email')
+                            span.asterisk
+                              | *
+                            | Email Address
+                          .input-validation-container
+                            input#email.form-control(data-parsley-required-message='Email is missing.', data-parsley-trigger='blur', maxlength='65', data-parsley-validation-threshold='0', placeholder='you@example.com', name='email', value='', type='email', data-parsley-type-message='Please enter a valid Email.', data-parsley-required='true')
+                            i.icon-alert.validation-icon.invalid-input
+
+                    .row.row--extra-margin
+                      .col-md-8.col-xs-9
+                        .form-group
+                          label(for='confirmEmail', name='confirmEmail')
+                            span.asterisk
+                              | *
+                            | Confirm Email
+                          .input-validation-container
+                            input#confirmEmail.form-control(data-parsley-trigger='blur', data-parsley-required-message='Confirm email is missing.', maxlength='65', data-parsley-validation-threshold='0', placeholder='you@example.com', name='confirmEmail', value='', type='email', data-parsley-required='true', data-parsley-type-message='Please enter a valid Email.', data-parsley-equalto='#email')
+                            i.icon-alert.validation-icon.invalid-input
+                    
+                    .row.row--last-extra-margin.row--sm-push-25.row--xs-push-10
+                      .col-md-8.checkbox-no-margin
+                        .form-group
+                          .checkbox
+                            input#mailing-list(name='subscribeEmails', value='true', type='checkbox', checked='')
+                            label(for='mailing-list')
+                              | Yes, sign me up! I want to receive news, style tips and more, including by email, phone and mail, from Michael Kors. To see how we may use your information or how to unsubscribe, see our
+                              a.hidden-xs.link-primary(target='_blank', href='/browse/common/staticContent.jsp?slotId=2200002') privacy policy.
+                              a.hidden-sm.hidden-md.hiddden-lg.link-primary(target='_blank', href='/mobile/browse/common/staticContent.jsp?slotId=1700017') privacy policy.
+
+                  #cc-continue-container.col-sm-12.col-md-12
+                    .row
+                      .col-md-12
+                        .bottom-divider
+                    
+                    .row.row--big-margin.row--sm-pull-25.row--xs-pull-15
+                      .col-md-5
+                        a#cc-continue-button.btn.btn-primary.full-width.ladda-button(data-style='expand-left', data-toggle='wizard', role='button', data-parent='#wizardPanels', href='#review', aria-expanded='false', aria-controls='review')
+                          | Continue To Order Review
+
+              #paypal-form.row.collapse
+                .col-md-8
+                  .row.row--push-25
+                    .col-xs-12.col-md-8
+                      p
+                        | When you click Continue to PayPal you will be redirected to the PayPal website to enter your information. Afterwards, you will be directed to Michael Kors to complete your order.
+                  
+                  .row.hidden-sm.hidden-md.hidden-lg
+                    .col-xs-12
+                      .box-toggle
+                        .box-toggle__header-toggle
+                          .table-cols
+                            .table-cols__col.table-cols__col--text-center
+                              | Apply Promo Code
+                            .table-cols__col.table-cols__col--text-right.table-cols__col--xs-anchor-right
+                              i.icon-open.pad-left-3px(data-icon-href='#mobile-promo-paypal')
+                  
+                          a.link--block.js-boxToggle(data-toggle='collapse', href='#mobile-promo-paypal', title='Toggle Promo Code Form')
+                  
+                        #mobile-promo-paypal.collapse.form-group
+                          .padded-box.padded-box--border-dark-gold-1.padded-box--sm-skinny
+                            .v-list
+                              .form-group
+                                .input-validation-container
+                                  input#mobile-promo-paypal.form-control(data-parsley-validation-threshold='0', data-parsley-required-message='Promo Code is missing.', data-parsley-trigger='blur', data-parsley-required='true', placeholder='Promo Code')
+                                  i.icon-checkmark.validation-icon.valid-input
+                                  i.icon-alert.validation-icon.invalid-input
+                              
+                              button.btn.btn-primary.full-width(type='submit')
+                                | Apply
+
+            .row.hidden-sm.hidden-md.hidden-lg.billingForm
+              .col-xs-12.promotionSectionForMobileBilling
+                .box-toggle
+                  .box-toggle__header-toggle
+                    .table-cols
+                      .table-cols__col.table-cols__col--text-center
+                        | Apply Promo Code
+                      .table-cols__col.table-cols__col--text-right.table-cols__col--xs-anchor-right
+                        i.pad-left-3px.icon-open(data-icon-href='#billingPromotion')
+
+                    a.link--block.js-boxToggle(data-toggle='collapse', href='#billingPromotion', title='Toggle Promo Code Form')  
+
+                  #billingPromotion.collapse.form-group
+                    .padded-box.padded-box--border-dark-gold-1.padded-box--sm-skinny
+                      .promoCode
+                      form#orderPromotionFormForMobile.promo-code-form(name='orderPromotionForm', action='/checkout/includes/?_DARGS=/checkout/includes/applyCouponForMobile.jsp#', method='post')
+                        .v-list
+                          .form-group
+                            .input-validation-container
+                              input#shopping-bag-promo.form-control(data-parsley-required-message='Promo Code is missing.', data-parsley-trigger='blur', title='Enter Promo Code', placeholder='Promo Code', name='couponCode', value='', type='text', data-parsley-required='true')
+                              i.icon-alert.validation-icon.invalid-input
+
+                          .errorMessageMobile
+                          input#claimCode.btn.btn-primary.full-width(type='submit', value='Apply')
+
+      .panel-body.complete
+        .padded-content.billing-completed
+          p.h4
+            | Payment Method
+          ul.no-text-transform
+            li  Ending in **************
+          hr.no-print
+          p.h4
+            | Billing Address
+          address.capitalize.address-no-margin
+            br
+            br
+            |  ,
+          address.no-text-transform.phone --
+          address.no-text-transform

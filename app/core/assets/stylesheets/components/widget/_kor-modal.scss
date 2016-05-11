@@ -1,0 +1,90 @@
+/**
+* ## Kors Modal
+*
+* ### General Notes
+*
+* The Kors Modal object is an extension of the Bootstrap JS Modal.  Documentation here: <a href="http://getbootstrap.com/javascript/#modals" target="_blank">http://getbootstrap.com/javascript/#modals</a>
+*
+* To create a modal window, first add a button or link with the `data-toggle` attribute equal to `modal` and the `data-target` attribute equal to the #id of the modal window element.
+*
+* To create the window object, add the `.kor-modal` class to a div element, also give this element an #id for targetting from the button to launch the window.  The hierarchy of elements in the window goes in this order: `.kor-modal__dialog` class, then `.kor-modal__content` class, then side-by-side elements for the header: `.kor-modal__content-header` and body: `.kor-modal__content-body`
+*
+*   @example
+*   a.btn.btn-primary(data-toggle='modal',data-target='#modal-id') Launch Modal Window
+*   div#modal-id.kor-modal.modal.fade(tabindex='-1',role='dialog',aria-labelledby='modal-id__label')
+*      div.modal-dialog.kor-modal__dialog(role='document')
+*         div.modal-content.kor-modal__content
+*            div.modal-header.kor-modal__content-header
+*               button.close.kor-modal__content-header-close(type='button',data-dismiss='modal',aria-label='Close')
+*                  span(aria-hidden='true') x
+*               p.modal-title.kor-modal__content-header-title.h2.h--no-margin#modal-id__label This is a Modal Window
+*            div.modal-body.kor-modal__content-body
+*               p.p--no-margin This is content within a modal window!!
+*/
+.kor-modal {
+    background-color: $camel-transparent;
+}
+
+.kor-modal__dialog {
+    width: 700px;
+}
+
+.kor-modal--thin {
+    .kor-modal__dialog {
+        width: 500px;
+    }
+}
+
+.kor-modal__content {
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25) !important;
+}
+
+.kor-modal__content-header {
+    border: 0 !important;
+    padding: 40px 40px 0 40px;
+    .half-title:last-child {
+        padding-left: 35px;
+    }
+}
+
+.kor-modal__content-header-title {
+    width: 80%;
+    &.half-title {
+        @media (min-width: $screen-sm-min){
+            width: 50%;
+        }
+    }
+}
+
+.kor-modal__content-header-close {
+    position: absolute;
+    top: 6px;
+    right: 15px;
+    color: $dark-gold-2 !important;
+    font-size: 34px;
+    opacity: 1 !important;
+}
+
+.kor-modal__content-body {
+    padding: 20px 40px 40px;
+}
+
+@media screen and (max-width: $screen-xs-max) {
+    .kor-modal__dialog {
+        width: auto;
+
+        .kor-modal--thin & {
+            width: auto;
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max){
+    .modal-open-fix {
+        oveflow: hidden;
+        position: fixed;
+        width: 100%;
+    }
+}

@@ -1,0 +1,274 @@
+@import "./app/core/assets/stylesheets/variables";
+/**
+* ## Typography
+*/
+body {
+    font-family: $font-family-sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+}
+
+input::-webkit-input-placeholder {
+  @include placeholder-font;
+}
+
+input:-moz-placeholder {
+  @include placeholder-font;
+}
+input::-moz-placeholder {
+  @include placeholder-font;
+}
+input:-ms-input-placeholder  {
+  @include placeholder-font;
+}
+
+.placeholdersjs {
+  @include placeholder-font;
+}
+
+/**
+* ### Headings
+*
+* Use native heading tags - `<h1>` through `<h5>` or the CSS classes of the same name - `.h1` through `.h5` for the same styled element.
+*
+*   @example
+*   h1 Heading Level 1
+*   p.h1 Paragraph H1
+*   h2 Heading Level 2
+*   p.h2 Paragraph H2
+*   h3 Heading Level 3
+*   p.h3 Paragraph H3
+*   h4 Heading Level 4
+*   p.h4 Paragraph H4
+*   h5 Heading Level 5
+*   p.h5 Paragraph H5
+*/
+h1,
+.h1 {
+    @include font-size($h1-font-sizes);
+    font-family: $font-family-sans-serif-heavy;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .5px;
+    margin: 0 0 10px 0;
+}
+
+h2,
+.h2 {
+    @include font-size($h2-font-sizes);
+    font-family: $font-family-sans-serif-heavy;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin: 0 0 20px 0;
+}
+
+@media (max-width: $screen-xs-max){
+  h2,
+  .h2 {
+    line-height: 18px;
+  }
+}
+
+h3,
+.h3 {
+    @include font-size($h3-font-sizes);
+    font-family: $font-family-sans-serif;
+    text-transform: none;
+    font-weight: normal;
+    letter-spacing: .5px;
+    margin: 0 0 10px 0;
+}
+
+h4,
+.h4 {
+    @include font-size($h4-font-sizes);
+    font-family: $font-family-sans-serif-heavy;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .5px;
+}
+
+.h4-light {
+    @include font-size($h4-font-sizes);
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .5px;
+}
+
+h5,
+.h5 {
+    @include font-size($h5-font-sizes);
+    font-family: $font-family-sans-serif-heavy;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: .5px;
+}
+
+.calson-italic {
+  font-family: $font-family-serif-italic;
+  font-weight: normal;
+  text-transform: none;
+}
+
+.font-3r-15px-uppercase {
+  font-family: $font-family-sans-serif-light;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.font-7r-12px-uppercase {
+  font-family: $font-family-sans-serif-heavy;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.font-3r-14px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 14px;
+}
+
+.font-3r-13px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 14px;
+}
+
+.font-7r-14px {
+  font-family: $font-family-sans-serif-heavy;
+  font-size: 14px;
+}
+
+.font-3r-15px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 15px;
+}
+
+.font-3r-12px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 12px;
+}
+
+.font-4r-15px {
+  font-family: $font-family-sans-serif;
+  font-size: 15px;
+}
+
+
+.font-3r-12px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 12px;
+}
+
+.font-3r-10px {
+  font-family: $font-family-sans-serif-light;
+  font-size: 10px;
+}
+
+.font-7r-15px {
+  font-family: $font-family-sans-serif-heavy;
+  font-size: 15px;
+}
+
+.labels {
+  color: $black;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.product-values {
+  color: $black;
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/**
+* ### Inline Text
+*
+* Add the class `.h--inline` or `.p--inline` to make the `<h>` or `<p>` tag inline with adjacent elements
+*
+*   @example
+*   h1.h--inline Inline header
+*   p.p--inline inline paragraph of text
+*/
+.h--inline,
+.p--inline {
+  display: inline-block;
+}
+
+/**
+* ### No Margin
+*
+* Add the class `.h--no-margin` or `.p--no-margin` to clear any vertical spacing from the `<h>` or `<p>` tag
+*
+*   @example
+*   h1.h--no-margin Header Without Spacing
+*   p.p--no-margin Paragraph Without Spacing
+*/
+.h--no-margin,
+.p--no-margin {
+  margin: 0;
+}
+
+.h--less-margin {
+  margin: 5px 0;
+}
+
+.p--less-margin {
+  margin: 0 0 5px 0 ;
+}
+
+.p--huge-text {
+  font-size: 24px;
+}
+
+@media screen and (min-width: $screen-md-min) {
+  .uppercase-md{
+    text-transform: uppercase;
+  }
+
+  .bold-md {
+    font-weight: $bold;
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .uppercase-sm{
+    text-transform: uppercase;
+  }
+
+  .bold-sm {
+    font-weight: $bold;
+  }
+}
+
+@media screen and (max-width: $screen-xs-max) {
+  .capitalize-xs {
+    text-transform: capitalize;
+  }
+
+  .lowercase-xs {
+    text-transform: lowercase;
+  }
+
+  .font-3r-17px-sm {
+    font-family: $font-family-sans-serif-light;
+    font-size: 17px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.no-text-transform {
+  text-transform: none;
+}

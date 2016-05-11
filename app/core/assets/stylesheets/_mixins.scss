@@ -1,0 +1,38 @@
+@mixin promoHeadline($font-family: $font-family-serif, $spacing: 1px) {
+  font-family: $font-family;
+  letter-spacing: $spacing;
+}
+
+@mixin headlineSizes($headlineSizeBase: 3.0) {
+  font-size: $headlineSizeBase + em;
+
+  &.x-small {
+    font-size: ($headlineSizeBase - 1) + em;
+  }
+
+  &.small {
+    font-size: ($headlineSizeBase - .5) + em;
+  }
+
+  &.medium {
+    font-size: $headlineSizeBase + em;
+  }
+
+  &.large {
+    font-size: ($headlineSizeBase + .5) + em;
+  }
+
+  &.x-large {
+    font-size: ($headlineSizeBase + 1.5) + em;
+  }
+}
+
+@mixin caret {
+  content: ' ';
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #000;
+}

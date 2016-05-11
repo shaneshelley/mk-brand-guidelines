@@ -1,0 +1,79 @@
+/*
+*   Shopping Bag - Cart Section
+*/
+.shopping-bag-cart {
+  padding: 0px 0 25px;
+
+  .shopping-bag-cart-header {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid $light-grey-1;
+    border-top: 1px solid $light-grey-1;
+
+    .shopping-bag-cart-total {
+      margin-left: 3px;
+    }
+  }
+
+  .shopping-bag-cart-body {
+
+    .shopping-bag-order-summary-details {
+      > * {
+        margin-top: 15px;
+
+        &.row--less-margin {
+          margin-top: 7px;
+        }
+      }
+    }
+
+    .shopping-bag-order-summary-totals {
+      border-top: 1px solid $light-grey-1;
+      padding-top: 15px;
+    }
+
+    .quantity-container {
+      max-width: 80px;
+      margin: 0 auto;
+    }
+  }
+
+  .shopping-bag-action-links {
+    @media (max-width: 500px){
+      a {
+        font-size: 12px;
+      }
+    }
+    .remove {
+      float: left;
+      width: 25%;
+    }
+
+    .edit {
+      float: left;
+      width: 20%;
+    }
+
+    .add {
+      float: left;
+      width: 55%;
+      a {
+        text-align: right;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $screen-sm-min) {
+  .shopping-bag-cart {
+    .shopping-bag-cart-header {
+      padding-bottom: 5px;
+    }
+  }
+}
+
+@media (max-width: $screen-xs-max){
+  #summary{
+    margin-top: -10px !important;
+  }
+}

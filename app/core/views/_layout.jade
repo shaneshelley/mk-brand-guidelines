@@ -1,0 +1,31 @@
+doctype html
+html.no-js
+  head
+    meta(charset='utf-8')
+    meta(name='description', content='Michael Kors')
+    meta(name='robots', content='noindex,nofollow')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='format-detection', content='telephone=no')
+    title Michael Kors
+    link(rel='apple-touch-icon', href='apple-touch-icon.png')
+    link(rel='shortcut icon', type='image/x-icon', href='/img/checkout/favicon.ico')
+  
+    block head
+  
+  body
+    include /modules/checkout/views/head.jade
+  
+    block body
+      div text here
+    
+    block footer_content
+      include /core/views/footer.jade
+    
+    block footer_scripts
+      script(src='/js/vendor.min.js')
+      script(src='/js/plugins.min.js')
+      script(src='/js/main.min.js')
+      script(src='https://michaelkors.scene7.com/s7viewers/html5/js/FlyoutViewer.js')
+      script(src='https://michaelkors.scene7.com/s7sdk/2.9/js/s7sdk/utils/Utils.js')
+    
+    

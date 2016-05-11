@@ -1,0 +1,265 @@
+/**
+* ## Wizard
+*
+* ### HTML structure
+*
+* The full html markup for a wizard is shown here.  This markup presents a slider wizard to mobile users and an accordion collapse wizard to desktop and tablet users.
+*
+* For the mobile navigation bar, include a `.mobile-nav` component as shown here.
+*
+* A wizard is a collection of `.panels` inside a `.panel-group`. these `.panels` have a `.panel-heading`, which houses the title of the panel (when in desktop mode only, on mobile the `.mobile-nav` shows the panel heading.
+*
+* These `.panels` also have a `.kor-panel-collapse` container.  This container must have an `id` in the format `some-step-identifier-step`, that is, some id, and then `-step`.
+*
+* Elements that move the user forward or backward in the wizard must have an attribute of `data-toggle="wizard"`, and an `href="some-id"`.  A link with an href of `some-id` will show a corresponding `.kor-panel-collapse` with an `id` of `some-id-step`.
+*
+*   @example
+*   <script>setTimeout(function(){$('.wizard').wizard({steps:[{ onStepComplete: function(){var deferred = $.Deferred();deferred.resolve();return deferred.promise();}, onStepShown: function(){var deferred = $.Deferred();deferred.resolve();return deferred.promise();}},{ onStepComplete: function(){var deferred = $.Deferred();deferred.resolve();return deferred.promise();}, onStepShown: function(){var deferred = $.Deferred();deferred.resolve();return deferred.promise();}}]})}, 1000);</script>
+*  <div class="wizard">
+*  <div class="mobile-nav visible-xs" role="group">
+*    <div class="row row--push-25">
+*      <div class="col-xs-4 relative arrow-container">
+*        <button type="button" class="btn btn-default pull-left full-width first" data-toggle="wizard" href="#one">
+*          <span class="num">1</span>
+*          <span class="underline-complete">ONE </span>
+*        </button>
+*        <div class="arrow"></div>
+*      </div>
+*      <div class="col-xs-4 relative arrow-container">
+*        <div class="arrow-tail-top"></div>
+*        <div class="arrow-tail-bottom"></div>
+*        <button type="button" class="btn btn-default pull-left" data-toggle="wizard" href="#two">
+*          <span class="num">2</span>
+*          <span class="underline-complete">TWO</span>
+*        </button>
+*        <div class="arrow"></div>
+*      </div>
+*    </div>
+*  </div>
+*  <div class="panel-group" id="wizardPanels" role="tablist" aria-multiselectable="true">
+*    <div class="panel panel-default">
+*      <div class="panel-heading hidden-xs" role="tab" id="headingOne">
+*        <p class="panel-title h4">
+*          <!-- Here for taborder purposes -->
+*          <a class="js-tab-index-focus" href="#" title="Step 1"></a>
+*          <a data-toggle="wizard" role="button" data-parent="#wizardPanels" href="#one" aria-expanded="true" aria-controls="shipping">1. Shipping</a>
+*          <a class="pull-right step-number no-text-transform" href="#">Step 1 of 2</a>
+*        </p>
+*      </div>
+*      <div id="one-step" class="kor-panel-collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+*        <div class="panel-body editable">
+*          Editable step
+*        </div>
+*        <div class="panel-body complete">
+*          All done
+*        </div>
+*      </div>
+*    </div>
+*    <div class="panel panel-default">
+*      <div class="panel-heading hidden-xs" role="tab" id="headingOne">
+*        <p class="panel-title h4">
+*          <!-- Here for taborder purposes -->
+*          <a class="js-tab-index-focus" href="#" title="Step 2"></a>
+*          <a data-toggle="wizard" role="button" data-parent="#wizardPanels" href="#two" aria-expanded="true" aria-controls="shipping">2. Two</a>
+*          <a class="pull-right step-number no-text-transform" href="#">Step 2 of 2</a>
+*        </p>
+*      </div>
+*      <div id="two-step" class="kor-panel-collapse hidden" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false">
+*        <div class="panel-body editable">
+*          Editable step
+*        </div>
+*        <div class="panel-body complete">
+*          All done
+*        </div>
+*      </div>
+*    </div>
+*  </div>
+*</div>
+**/
+
+.wizard {
+  .slick-slide:focus {
+    outline: none;
+  }
+
+  .step-link-no-click {
+    display: inline;
+  }
+
+  .step-link-click {
+    display: none;
+  }
+
+  .panel {
+    border: 0;
+    box-shadow: none;
+  }
+
+  .step-number {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+      cursor: default;
+    }
+  }
+
+  @media (max-width: $screen-xs-max){
+    border-top: 1px solid $light-grey-1;
+    .panel {
+      //for slick carousel overflowing issues
+      border: 1px solid white;
+    }
+  }
+
+  @media (min-width: $screen-sm-min){
+    .panel {
+      margin-top: 0px;
+      margin-bottom: 30px;
+
+      &.current, &.complete {
+        margin-bottom: 0px;
+      }
+    }
+  }
+
+  .panel, .arrow-container {
+    padding-right: 1.5em;
+
+    .arrow {
+      font-family: 'icomoon';
+      font-size: .92em;
+
+      &::after {
+        content: '\e611';
+        display: block;
+        position: absolute;
+        right: 0;
+      }
+    }
+    &.complete {
+      .panel-heading, .mobile-nav-button {
+        color: $black;
+      }
+
+      .step-link-no-click {
+        display: none;
+      }
+
+      .step-link-click {
+        display: inline;
+      }
+
+      .step-number {
+        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+
+    }
+
+    &.current {
+      .panel-heading, .mobile-nav-button {
+        background-color: $black;
+        color: $white;
+        &:hover {
+          background-color: $black;
+          color: $white;
+        }
+      }
+    }
+
+    .slick-bottom-item-container {
+      padding-bottom: 10px;
+    }
+  }
+  .panel-default > .panel-heading {
+    background: transparent;
+    border: 0;
+    padding: 00;
+  }
+
+  .panel-default > .panel-heading + .kor-panel-collapse > .panel-body {
+    border: 0;
+    padding: 15px 0px 15px 0px;
+    &.complete {
+      padding-bottom: 0px;
+      margin-bottom: 25px;
+    }
+  }
+
+  @media (min-width: $screen-sm-min){
+    .panel:not(.complete) {
+      .panel-body.complete {
+        display: none;
+      }
+      .panel-body.editable {
+        display: block;
+      }
+    }
+
+    .panel.complete {
+      .panel-body.editable {
+        display: none;
+      }
+      .panel-body.complete {
+        display: block;
+      }
+    }
+
+    .panel-title {
+      font-size: 14px;
+      span {
+        text-transform: none;
+      }
+    }
+  }
+
+  @media(max-width: $screen-xs-max){
+    .panel-body.complete {
+      display: none;
+    }
+  }
+}
+
+.mobile-nav {
+ .btn {
+   color: $black;
+ }
+}
+
+@media (max-width: $screen-sm-min) {
+  .wizard {
+    .panel + .panel {
+      margin: 0;
+    }
+    .panel-body {
+      padding: 0;
+    }
+    .panel-heading + .kor-panel-collapse > .panel-body {
+      border: 0;
+    }
+    .kor-panel-collapse {
+      height: auto !important;
+    }
+  }
+
+  .show {
+    display: none;
+  }
+}
+
+.step-link-no-click {
+  @extend .h4;
+  display: inline;
+  font-size: 1.7em;
+  text-transform: uppercase !important;
+}
+
+/* temporary overrides */
+@media (min-width: $screen-md-min) {
+  .wizard {
+
+  }
+}

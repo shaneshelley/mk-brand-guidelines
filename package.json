@@ -1,0 +1,88 @@
+{
+  "name": "mk-ui-prototypes",
+  "version": "1.0.0",
+  "description": "A destination for viewing new UI/UX development initiatives.",
+  "main": "index.js",
+  "scripts": {
+    "start"       : "node index",
+    "postinstall" : "gulp staging"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/michaelkors/mk-project-boilerplate.git"
+  },
+  "keywords": [
+    "Michael Kors"
+  ],
+  "author": "Shane Shelley",
+  "license": "ISC",
+  "browser": {
+    "cycle2" : "./app/assets/js/plugins/jquery.cycle2.min.js",
+    "affix"  : "./app/assets/js/plugins/bootstrap.js",
+    "bootstrap" : "./bower_components/bootstrap/dist/js/bootstrap.js",
+    "bootstrapSelect" : "./bower_components/bootstrap-select/dist/js/bootstrap-select.js"
+
+  },
+  "aliasify": {
+    "aliases": {
+      "underscore": "lodash"
+    }
+  },
+  "browserify": {
+    "transform": [
+      "browserify-shim",
+      "jadeify",
+      "aliasify"
+    ]
+  },
+  "browserify-shim": {
+    "jquery"    : "global:$",
+    "bootstrapSelect" : "bootstrapSelect"
+  },
+  "devDependencies": {
+    "aliasify": "^1.4.0",
+    "browser-sync": "~2.10.0",
+    "browserify": "^13.0.0",
+    "browserify-shim": "~3.8.9",
+    "connect-modrewrite": "*",
+    "del": "^1.1.1",
+    "event-stream": "3.3.2",
+    "express": "^4.12.4",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-bower": "*",
+    "gulp-concat" : "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-filesize": "0.0.6",
+    "gulp-filter": "3.0.1",
+    "gulp-uglifycss": "~1.0.5",
+    "gulp-nodemon": "^2.0.3",
+    "gulp-notify": "^2.2.0",
+    "gulp-print" : "1.2.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "~2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.4",
+    "gulp-watch": "^4.2.4",
+    "gulp-wrap": "^0.11.0",
+    "install": "^0.1.8",
+    "jade"    : "1.11.0",
+    "jadeify" : "~4.6.0",
+    "path": "^0.11.14",
+    "pretty-hrtime": "~1.0.0",
+    "require-dir": "^0.3.0",
+    "resolve": "^1.0.0",
+    "through2": "^2.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "~1.0.0"
+  },
+  "dependencies": {
+    "jquery"  : "^2.1.1",
+    "lodash"  : "^3.10.1",
+    "backbone": "^1.1.2"
+  },
+  "engines" : {
+    "node": "5.1.0"
+  }
+}

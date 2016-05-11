@@ -1,0 +1,90 @@
+/**
+* ## Horizontal List
+*
+* ### General Notes
+*
+* The Horizontal List object is used to add horizontal spacing on a set of elements
+*
+*   @example
+*   div.h-list
+*		p.p--no-margin.p--inline Paragraph item 1
+*		h2.h--no-margin.h--inline Heading item 2
+*		button.btn.btn-primary Button item 3
+*/
+.h-list {
+	> * {
+		margin-left: 10px;
+		margin-right: 10px;
+	}
+}
+
+/**
+* ### Horizontal List Sizing
+*
+* Use the `.h-list--sm` class on a parent object to decrease the spacing between child elements
+*
+*   @example
+*   div.h-list--sm
+*		p.p--no-margin.p--inline Paragraph item 1
+*		h2.h--no-margin.h--inline Heading item 2
+*		button.btn.btn-primary Button item 3
+*/
+.h-list--sm {
+	> * {
+		margin-left: 6px;
+		margin-right: 6px;
+	}
+}
+
+/**
+* ### Horizontal List - Push Right
+*
+* Use the `.h-list--right` class to apply margins only to the right of each object.  Allowing the left-most object to stay flush with the left side of the containing element.
+*
+*   @example
+*   div.h-list--right
+*		p.p--no-margin.p--inline Paragraph item 1
+*		h2.h--no-margin.h--inline Heading item 2
+*		button.btn.btn-primary Button item 3
+*/
+.h-list--right {
+	> * {
+		margin-right: 10px;
+
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+}
+
+/**
+* ### Centered Horizontal List
+*
+* Add the `.h-list--center` modifier to center align all child elements within the parent element
+*
+*   @example
+*   div.h-list.h-list--center
+*		p.p--no-margin.p--inline Paragraph item 1
+*		h2.h--no-margin.h--inline Heading item 2
+*		button.btn.btn-primary Button item 3
+*/
+.h-list--center {
+	text-align: center;
+}
+
+/**
+* ### Inline Horizontal List
+*
+* Add the `.h-list--inline` modifier to automatically apply `display:inline-block` to all child elements within the parent element
+*
+*   @example
+*   ul.h-list.h-list--inline
+*		p.p--no-margin Paragraph item 1
+*		h2.h--no-margin Heading item 2
+*		button.btn.btn-primary Button item 3
+*/
+.h-list--inline {
+	> * {
+		display: inline-block;
+	}
+}

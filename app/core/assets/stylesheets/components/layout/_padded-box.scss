@@ -1,0 +1,128 @@
+/**
+* ## Padded Box
+*
+* ### General Notes
+*
+* The padded box object is used to add general four-sided padding and border to a container element
+*
+*   @example
+*   div.padded-box
+*		h2.h--no-margin H2 inside a standard padded-box
+*/
+.padded-box {
+	padding: 20px;
+	border: 1px solid $black;
+}
+
+/**
+*
+* ### Padded Box Sizes
+*
+* Use `.padded-box--huge`, `.padded-box--tall`, or `.padded-box--short` modifiers to change the padding on a padded box object
+*
+*   @example
+*	div.padded-box.padded-box--huge
+*		h2.h--no-margin Huge padded box
+*	div.padded-box.padded-box--tall
+*		h3.h--no-margin Tall Padded Box
+*	div.padded-box.padded-box--short
+*		h3.h--no-margin Short Padded Box
+*	div.padded-box.padded-box--tiny
+*		h3.h--no-margin Tiny Padded Box
+*
+*/
+.padded-box--huge {
+	padding: 80px;
+}
+
+.padded-box--tall {
+	padding: 40px 20px;
+}
+
+.padded-box--short {
+  padding: 10px 20px;
+}
+
+.padded-box--tiny {
+	padding: 4px;
+}
+
+/**
+*
+* ### Borderless Padded Box
+*
+* Use `.padded-box--no-border` modifier to remove the border from a padded-box object
+*
+*   @example
+*   div.padded-box.padded-box--no-border
+*      h2.h--no-margin Padded Box with no border
+*/
+.padded-box--no-border {
+	border: 0 !important;
+}
+
+/**
+*
+* ### Padded Box with Gold Border
+*
+* Use `.padded-box--border-dark-gold-1` to change the border color to Dark Gold 1
+*
+*   @example
+*   div.padded-box.padded-box--border-dark-gold-1
+*      h2.h--no-margin Padded Box with Dark Gold Border
+*/
+.padded-box--border-dark-gold-1 {
+	border-color: $dark-gold-1;
+}
+.padded-box--border-light-grey-2 {
+	border-color: $light-grey-2;
+}
+
+/**
+*
+* ### Padded Box - Top Border Only
+*
+* Use `.padded-box-top-border` to only show a border on the top edge of the padded box
+*
+*   @example
+*   div.padded-box.padded-box-top-border
+*      h2.h--no-margin Padded Box with Top Border ONLY
+*/
+.padded-box-top-border {
+  border-top: 1px solid $black;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+/**
+*
+* ### Padded Box - Fill Colors
+*
+* Use `.padded-box--bg-light-grey-2`, `.padded-box--bg-white`, or `.padded-box--bg-camel` modifiers to fill the padded box element with Light Grey 2, White, or Camel background colors respectively
+*
+*   @example
+*   div.padded-box.padded-box--bg-light-grey-2
+*      h2.h--no-margin Padded Box With Light Grey 2 Fill
+*   div.padded-box.padded-box--bg-white
+*      h2.h--no-margin Padded Box With White Fill
+*   div.padded-box.padded-box--bg-camel
+*      h2.h--no-margin Padded Box With Camel Fill
+*/
+.padded-box--bg-light-grey-2 {
+	background-color: $light-grey-2;
+}
+
+.padded-box--bg-white {
+	background-color: $white;
+}
+
+.padded-box--bg-camel {
+	background-color: $camel;
+}
+
+@media (max-width: $screen-sm-max) and (min-width: $screen-sm-min){
+  .padded-box--sm-skinny {
+  	padding: 10px 4%;
+  }
+}

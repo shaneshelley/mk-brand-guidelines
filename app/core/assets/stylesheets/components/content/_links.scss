@@ -1,0 +1,150 @@
+
+/**
+* ## Links
+*
+* ### Primary Link
+*
+* Use the `.link-primary` class to style any item as a Primary Link.  Include the `.link-primary--large` modifier to style an item as a large Primary Link.
+*
+*   @example
+*   a.link-primary(href='#') Primary Link
+*   a.link-primary.link-primary--large(href='#') Large Primary Link
+*/
+.link-primary {
+    font-size: 12px;
+    color: $black;
+    font-family: $font-family-sans-serif-heavy;
+    text-decoration: underline;
+
+    &:hover {
+        color: $grey;
+        text-decoration: underline;
+    }
+
+    &:active,
+    &:focus {
+        color: $black;
+        text-decoration: underline;
+    }
+    &.link-primray--no-underline {
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+}
+
+.link-primary--large {
+    font-size: 14px;
+    font-family: $font-family-sans-serif;
+    font-weight: bold;
+}
+
+
+@media (max-width: $screen-sm-max) and (min-width: $screen-sm-min){
+    /* Reduce the link-primary--large text by one pixel at small screen resolution */
+    .link-primary--large {
+        font-size: 13px;
+        font-weight: 400;
+    }
+}
+
+.link-primary--normal-weight {
+    font-family: $font-family-sans-serif;
+}
+
+/**
+*
+* ### Secondary Link
+*
+* Use the `.link-secondary` class to style any item as a Secondary Link.
+*
+*   @example
+*   a.link-secondary(href='#') Secondary Link
+*/
+.link-secondary {
+    font-family: $font-family-sans-serif-heavy;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+}
+
+/**
+*
+* ### Uppercase Link
+*
+* Add the `.link--uppercase` modifier class to any link to style the font to uppercase.
+*
+*   @example
+*   a.link-primary.link--uppercase(href='#') Uppercase Primary Link
+*   a.link-secondary.link--uppercase(href='#') Uppercase Secondary Link
+*/
+.link--uppercase {
+    text-transform: uppercase;
+}
+
+/**
+*
+* ### Clean h2 Link
+*
+* Add the `.link--clean-h2` modifier class to any link to style the font to an `<h2>` element
+*
+*   @example
+*   a.link--clean-h2(href='#') Clean h2 link
+*/
+.link--clean-h2 {
+    @extend .h2;
+    color: $black;
+    &:hover,
+    &:link,
+    &:active,
+    &:visited {
+        @extend .h2;
+        color: $black;
+        text-decoration: none !important;
+    }
+}
+
+/**
+*
+* ### Block Link
+*
+* Add the `.link--block` modifier class to any link object inside a position:relative element to cover the entire element as a link.
+*
+*   @example
+*   div(style='position:relative; height:200px; width: 200px; background-color: #8a734a;')
+*       p.p--no-margin(style='color:#fff;') This is text within a block link!
+*       a.link--block(href='#',title='This is the block link title')
+*/
+.link--block {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/**
+*
+* ### Box Link
+*
+* Use the `.link-padded-box` class to create a link object to with a small padded border box around the element
+*
+*   @example
+*   a.link-padded-box(href='#') Padded Box Link
+*/
+.link-padded-box {
+    @extend .padded-box;
+    @extend .padded-box--tiny;
+    @extend .padded-box--border-light-grey-2;
+    display: inline-block;
+}
+.link-padded-box--active {
+    border: 1px solid $black !important;
+}

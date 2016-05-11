@@ -1,0 +1,65 @@
+/**
+* ## Alerts
+*
+* ### Alert Message
+*
+* Alert Message objects are used for notifications on the page, such as form validation summaries.  Use the `.alert-message` class to style an alert.
+*
+* 	@example
+* 	div.alert-message.alert-message--error(role='alert')
+* 		div.alert-message__icon
+* 			i.icon-alert
+* 		div.alert-message__text
+* 			p.p--no-margin This is an error message because you did something terribly wrong!
+* 	div.alert-message.alert-message--success(role='alert')
+* 		div.alert-message__icon
+* 			i.icon-checkmark
+* 		div.alert-message__text
+* 			p.p--no-margin This is a success message because you did a lot of things right.
+*/
+
+.alert-message {
+	border: 2px solid $black;
+	padding: 12px 20px;
+	display: table;
+	width: 100%;
+
+	p {
+		@include font-size($h3-font-sizes);
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+
+	i {
+		font-size: 20px;
+	}
+}
+
+.alert-message__icon {
+	width: 40px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.alert-message__text {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.alert-message--error {
+	border-color: $red;
+
+	.alert-message__icon,
+	.alert-message__text {
+		color: $red;
+	}
+}
+
+.alert-message--success {
+	border-color: $green;
+
+	.alert-message__icon,
+	.alert-message__text {
+		color: $green;
+	}
+}
