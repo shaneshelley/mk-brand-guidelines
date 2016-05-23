@@ -4,12 +4,11 @@
   "description": "A destination for viewing new UI/UX development initiatives.",
   "main": "index.js",
   "scripts": {
-    "start"       : "node index",
-    "postinstall" : "gulp staging"
+    "start"       : "node index"
   },
   "repository": {
     "type": "git",
-    "url": "https://bitbucket.org/michaelkors/mk-project-boilerplate.git"
+    "url": "https://bitbucket.org/michaelkors/mk-brand-guidelines.git"
   },
   "keywords": [
     "Michael Kors"
@@ -19,8 +18,7 @@
   "browser": {
     "cycle2" : "./app/assets/js/plugins/jquery.cycle2.min.js",
     "affix"  : "./app/assets/js/plugins/bootstrap.js",
-    "bootstrap" : "./bower_components/bootstrap/dist/js/bootstrap.js",
-    "bootstrapSelect" : "./bower_components/bootstrap-select/dist/js/bootstrap-select.js"
+    "bootstrap" : "./bower_components/bootstrap/dist/js/bootstrap.js"
 
   },
   "aliasify": {

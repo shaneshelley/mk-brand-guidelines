@@ -22,15 +22,11 @@ module.exports = {
     ghostMode   : false,
     open        : false
   },
-  data: {
-    src: src + "/data/**",
-    dest: dest + "/data/"
-  },
   js: {
     src: src + "/modules/**/*.js"
   },
   sass: {
-    src: [src + "/core/assets/stylesheets/*.scss", src + "/modules/**/assets/stylesheets/**/*.scss"],
+    src: [src + "/modules/brand-guidelines/assets/stylesheets/**/*.scss"],
     dest: dest + "/css",
     settings: {
       indentedSyntax: false,
@@ -39,12 +35,12 @@ module.exports = {
     }
   },
   fonts: {
-    src: src + "/core/assets/stylesheets/_fonts/**",
+    src: src + "/modules/brand-guidelines/assets/stylesheets/_fonts/**",
     dest: dest + "/css/fonts"
   },
   images: {
-    src: src + "/core/assets/images/**",
-    dest: dest + "/img"
+    src: src + "/modules/brand-guidelines/assets/images/**",
+    dest: dest + "/images"
   },
   views: {
     src: src + "/modules/views/**/*.jade",

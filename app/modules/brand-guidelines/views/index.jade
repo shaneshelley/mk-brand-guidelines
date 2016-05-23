@@ -1,0 +1,147 @@
+doctype html
+html
+  head
+    title Michael Kors UI/UX Prototypes
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+    meta(name='description', content='')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300', rel='stylesheet')
+    link(rel='stylesheet', href='/css/mk-bootstrap.css')
+    link(rel='stylesheet', href='/css/brand-guidelines.css')
+  body
+    .container
+      // Sidebar
+      #sidebar-wrapper
+        .sidebar-brand
+          a(href='#')
+            img(src='images/mk-guidelines-logo.png')
+        ul#main-nav.sidebar-nav(role='tablist')
+          li.category
+            a(data-toggle='collapse', data-parent='main-nav', href='#identity', role='tab')
+              | IDENTITY
+            ul#identity.collapse.in(role='tabpanel')
+              li.subcategory
+                a.collapsed(href='#brand-descriptions')
+                  | Brand Descriptions
+              li.subcategory
+                a(data-toggle='collapse', data-parent='identity', href='#logos', role='tab')
+                  | Logos
+                ul#logos.collapse.in(role='tabpanel')
+                  li.section
+                    a(href='#') Michael Kors
+                  li.section
+                    a(href='#') Michael Michael Kors (MMK)
+                  li.section
+                    a(href='#') Michael Kors Collection
+                  li.section
+                    a(href='#') Michael Kors Access
+                  li.section
+                    a(href='#') MichaelKors.com
+                  li.section
+                    a(href='#') Exclusively Ours
+                  li.section
+                    a(href='#') Michael&apos;s Must-Haves
+                  li.section
+                    a(href='#') Jet Set 6
+              li.subcategory
+                a.collapsed(href='#colors') Colors
+              li.subcategory
+                a.collapsed(href='#typography') Typography
+              li.subcategory
+                a.collapsed(href='#photography') Photography
+              li.subcategory
+                a.collapsed(href='#copy') Copy
+          li.category
+            a.collapsed(data-toggle='collapse', data-parent='main-nav', href='#templates', role='tab') TEMPLATES
+            //
+              <ul id="templates" class="collapse in" role="tabpanel">
+              <li class="subcategory"><a href="#website">Website</a></li>
+              <li class="subcategory"><a href="#email">Email</a></li>
+              <li class="subcategory"><a href="#digital-advertising">Digital Advertising</a></li>
+              <li class="subcategory"><a href="#social">Social</a></li>
+              </ul>
+          li.category
+            a.collapsed(data-toggle='collapse', data-parent='main-nav', href='#user-interface', role='tab') USER INTERFACE
+            //
+              <ul id="user-interface" class="collapse in" role="tabpanel">
+              <li class="subcategory"><a href="#navigation">Navigation</a></li>
+              <li class="subcategory"><a href="#buttons-links-icons">Buttons, Links, Icons</a></li>
+              <li class="subcategory"><a href="#forms">Forms</a></li>
+              <li class="subcategory"><a href="#modals-dropdowns">Modals, Dropdowns</a></li>
+              <li class="subcategory"><a href="#animations-interactions">Animations/Interactions</a></li>
+              </ul>
+      // Content
+      #style-guide-content(role='main')
+        article#identity
+          article#logos.subcategory
+            .row
+              .col-md-8
+                h2 Disclaimer
+                p
+                  | All graphics on the MichaelKors.com website are property of Michael Kors, USA. Please do not take
+                  | logos, photographs or any other artwork from the Michael Kors website. Michael Kors, USA reserves
+                  | the right to decline usage of the Michael Kors name or brand representation in any situation the
+                  | company deems inappropriate for any reason even if it meets these guidelines. Please remember that
+                  | anything Michael Kors doesn&rsquo;t expressly approve in writing is considered not approved. If final
+                  | designs are not submitted for review or are used without our approval, you will be responsible for
+                  | removing unauthorized materials or correcting any mistakes at your own cost.
+            article#logo-michael-kors
+              h1 Michael Kors
+              section#clearspace
+                .row
+                  .col-md-6
+                    h2 Clearspace
+                    p
+                      | The minimum clear space around the logotype is 
+                      strong ideally
+                      |  equivalent to the cap-height
+                      |                     all the way around. If necessary, half the cap-height can be used.
+                  .col-md-6
+                    img(src='images/mk-logo-clearspace-1.png', alt='')
+                .row
+                  .col-md-6
+                    p
+                      | In some cases, half the cap-height can also be used.
+                  .col-md-6
+                    img(src='images/mk-logo-clearspace-2.png', alt='')
+              section#smallest-size-use
+                .row
+                  .col-md-6
+                    h2 Smallest Size Use
+                    p
+                      | For digital applications, the minimum size is 10 pixels high.&#x2028;Michael Kors logo is an original artwork.
+                      | Do not attempt to alter or recreate.
+                  .col-md-6
+                    img(src='images/mk-logo-smallest.png', alt='')
+              section#positive-logo
+                .row
+                  .col-md-6
+                    h2 Positive Logo
+                    p
+                      | For use on white and light backgrounds.
+                  .col-md-6
+                    .col-md-6
+                      img(src='images/mk-logo-positive-1.png', alt='')
+                    .col-md-6
+                      img(src='images/mk-logo-positive-2.png', alt='')
+              section#knock-out-logo
+                .row
+                  .col-md-6
+                    h2 Knock Out Logo
+                    p
+                      | For use on colored background and images.
+                  .col-md-6
+                    .col-md-6
+                      img(src='images/mk-logo-knockout-1.png', alt='')
+                    .col-md-6
+                      img(src='images/mk-logo-knockout-2.png', alt='')
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.js')
+    // Menu Toggle Script
+    script.
+      $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+      });

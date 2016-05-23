@@ -18,7 +18,7 @@ app.set('view cache', false);
 app.locals.basedir = app.get('views');
 
 app.get('/brand-guidelines', function(request, response){
-  response.render('modules/brand-guidelines');
+  response.render('modules/brand-guidelines/views');
 });
 
 app.get('/', function(request, response){
