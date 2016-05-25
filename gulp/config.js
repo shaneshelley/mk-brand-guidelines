@@ -23,7 +23,8 @@ module.exports = {
     open        : false
   },
   js: {
-    src: src + "/modules/**/*.js"
+    src: src + "/modules/**/*.js",
+    dest: dest + "/js"
   },
   sass: {
     src: [src + "/modules/brand-guidelines/assets/stylesheets/**/*.scss"],

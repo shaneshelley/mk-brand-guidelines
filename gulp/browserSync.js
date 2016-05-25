@@ -19,14 +19,10 @@ gulp.task('browser-sync', ['nodemon'], function () {
 
     ghostMode: false,
     files: [
-      './app/views/**/*.jade',
+      './app/modules/**/views/**/*.jade',
       './public/js/*.js'
     ]
   });
-});
-
-gulp.task('bs-reload', function() {
-  browserSync.reload({ stream: true });
 });
 
 // we'd need a slight delay to reload browsers
