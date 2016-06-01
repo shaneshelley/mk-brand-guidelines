@@ -1,3 +1,7 @@
+@mixin box-shadow($inset) {
+  box-shadow: unquote($inset) -2px 9px 6px -7px #ccc;
+}
+
 /* Left Nav */
 #sidebar-wrapper {
 	background: #000;
@@ -86,13 +90,16 @@
 				width: 16px;
 			}
 
-			& > a.toggle.open:after {
-				background: url('/images/icon-minus-light.png') no-repeat center center;
+			& > a.toggle.open {
+				&:after {
+					background: url('/images/icon-minus-light.png') no-repeat center center;
+				}
 			}
 
 			& > ul {
 				background: #fff;
 				list-style: none;
+				@include box-shadow($inset: 'inset');
 
 				a {
 					color: #000;
