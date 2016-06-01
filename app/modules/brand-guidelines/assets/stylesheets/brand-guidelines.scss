@@ -1,21 +1,10 @@
-@import "fonts";
-
-/* Brand Guidelines Typography */
-$font-guide-light		: 'Roboto Light', Helvetica, Arial, sans-serif;
-$font-guide-normal	: 'Roboto Regular', Helvetica, Arial, sans-serif;
-$font-guide-heavy		: 'Roboto Bold', Helvetica, Arial, sans-serif;
-
-/* MK Typography */
-$font-mk-light	: 'Gotham 3r', Helvetica, Arial, sans-serif;
-$font-mk-normal	: 'Gotham 4r', Helvetica, Arial, sans-serif;
-$font-mk-heavy	: 'Gotham 7r', Helvetica, Arial, sans-serif;
-
-/* Colors */
-$color-divider: rgba(138, 138, 138, 0.1);
+@import 'fonts';
+@import 'variables';
 
 html, body {
   font-family: $font-guide-normal;
   font-size: 11px;
+  -webkit-font-smoothing: antialiased;
 }
 
 @import "nav";
@@ -65,17 +54,44 @@ html, body {
 	}
 }
 
-article {
-	section {
-	  margin-bottom: 2em;
+.section-content {
+  margin-left: 6.5%;
+  margin-top: 5.25em;
 
-		p {
-			line-height: 1.727272em;
-		}
+  .row {
+    margin-bottom: 58px;
+  }
 
-		img {
+  .card {
+    width: 80%;
+    
+    img {
+      margin-bottom: 20px;
 			max-width: 100%;
 		}
-	}
+  }
 
+  h2 {
+    font-family: $font-guide-heavy;
+    font-size: 1.275em;
+    text-transform: none;
+    margin-bottom: 1em;
+  }
+
+  p {
+    font-family: $font-guide-normal;
+    font-size: 1.275em;
+  }
+
+  .section-intro {
+    line-height: 1.63em;
+  }
+
+  a.download {
+    background: url('/images/icon-download.png') no-repeat;
+    color: #000;
+    display: block;
+    padding-left: 20px;
+    text-transform: uppercase;
+  }
 }

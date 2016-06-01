@@ -10,7 +10,8 @@ html
     
     link(rel='stylesheet', href='/css/mk-bootstrap.css')
     link(rel='stylesheet', href='/css/brand-guidelines.css')
-  body
+  
+  body(data-spy='scroll', data-target='#main-nav')
     .container
       // Sidebar
       include _nav.jade
@@ -36,6 +37,45 @@ html
             
             article#logo-michael-kors
               h1 Michael Kors - Core Brand Logo
+              
+              .section-content
+                .row
+                  p.section-intro.col-sm-12
+                    | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt 
+                    | ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+                    | laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in 
+                    | voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat 
+                  
+                .row
+                  .col-sm-6
+                    .card.card-block
+                      img(src='/images/logos-mk-core-1.png')
+                      h2.card-title Positive
+                      p.card-text With supporting text below as a natural lead-in to additional content.
+                      
+                  .col-sm-6
+                    .card.card-block
+                      img(src='/images/logos-mk-core-2.png')
+                      h2.card-title Negative
+                      p.card-text With supporting text below as a natural lead-in to additional content.
+                
+                .row
+                  .col-sm-6
+                    .card.card-block
+                      img(src='/images/logos-mk-core-3.png')
+                      h2.card-title Clear Space
+                      p.card-text With supporting text below as a natural lead-in to additional content.
+                      
+                  .col-sm-6
+                    .card.card-block
+                      img(src='/images/logos-mk-core-4.png')
+                      h2.card-title Minimum Size
+                      p.card-text With supporting text below as a natural lead-in to additional content.
+                
+                .row
+                  .col-sm-12
+                    a.download Download PNG
+                    a.download Download Vector
               
             article#logo-mmk
               h1 Michael Michael Kors
@@ -123,13 +163,33 @@ html
     // Bootstrap Core JavaScript and dependencies
     script(src='js/tether.min.js')  
     script(src='js/bootstrap.js')
-      
+        
+        
+    script.
+      $('.toggle').click(function(e) {
+        e.preventDefault();
+        var $this = $(this);
+        if ($this.next().hasClass('show')) {
+          console.log("$this: " + $this.text());
+          $this.removeClass('open');
+          $this.next().removeClass('show');
+          $this.next().slideUp(350);
+        } else {
+          $this.parent().parent().find('li .toggle').removeClass('open');
+          $this.parent().parent().find('li .inner').removeClass('show');
+          $this.parent().parent().find('li .inner').slideUp(350);
+          $this.toggleClass('open');
+          $this.next().toggleClass('show');
+          $this.next().slideToggle(350);
+        }
+      });
+        
     script.
       $(function() {
         $('a[href*="#"]:not([role="tab"])').click(function() {
           if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            target = target.length ? target : $("[name='" + this.hash.slice(1) +"']");
             if (target.length) {
               $('html, body').animate({
                 scrollTop: target.offset().top

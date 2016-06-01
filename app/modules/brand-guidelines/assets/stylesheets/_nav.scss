@@ -9,6 +9,11 @@
 
 	#sidebar-brand {
 		margin: 33px 40px 82px 39px;
+		text-align: center;
+
+		#main-logo {
+			margin-bottom: 17px;
+		}
 	}
 }
 
@@ -41,11 +46,13 @@
 				padding: 0;
 			}
 
-			& > a:after {
-				content: '-';
+			& > a.toggle:after {
+				background: url('/images/icon-plus-heavy.png') no-repeat center center;
+				content: ' ';
 				display: inline-block;
 				position: absolute;
 				right: 40px;
+				height: 16px;
 				width: 16px;
 			}
 
@@ -53,15 +60,14 @@
 				display: none;
 			}
 
-			& > a.collapsed:after {
-				content: '+';
-			  display: inline-block;
+			& > a.toggle.open:after {
+				background: url('/images/icon-minus-heavy.png') no-repeat center center;
 			}
 		}
 
 		&.category {
 			font-family: $font-guide-heavy;
-		  font-size: 1rem;
+		  font-size: 1.18rem;
 		  margin-bottom: 34px;
 
 			& > ul {
@@ -70,6 +76,20 @@
 		}
 
 		&.subcategory {
+			& > a.toggle:after {
+				background: url('/images/icon-plus-light.png') no-repeat center center;
+				content: ' ';
+				display: inline-block;
+				position: absolute;
+				right: 40px;
+				height: 50px;
+				width: 16px;
+			}
+
+			& > a.toggle.open:after {
+				background: url('/images/icon-minus-light.png') no-repeat center center;
+			}
+
 			& > ul {
 				background: #fff;
 				list-style: none;
@@ -87,7 +107,7 @@
 		&.section {
 		  text-transform: none;
 
-			a.selected,
+			a.active,
 			a:hover {
 				background: #e2dfda;
 			}
@@ -101,6 +121,18 @@
 
 .sidebar-nav li.subcategory,
 .sidebar-nav li.section {
-  font-size: 1rem;
+  font-size: 1.18rem;
   line-height: 50px;
+}
+
+ul {
+	.inner {
+		display: none;
+
+		&.show {
+			/*display: block;*/
+		}
+	}
+
+
 }

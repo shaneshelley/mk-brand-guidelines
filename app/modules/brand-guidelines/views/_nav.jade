@@ -1,19 +1,17 @@
 #sidebar-wrapper
   #sidebar-brand
     a(href='#')
-      img(src='images/digital-guide-logo.png')
+      img#main-logo(src='images/logo-mk.png')
+      img(src='images/logo-digital-guide.png')
   ul#main-nav.sidebar-nav(role='tablist')
-    li.category#intro
-      a(href='#introduction')
-        | Introduction
     li.category
-      a.collapsed(data-toggle='collapse', data-parent='main-nav', href='#identity', role='tab')
+      a.toggle(href='#')
         | IDENTITY
-      ul#identity.collapse(role='tabpanel')
+      ul#identity.inner
         li.subcategory
-          a.collapsed(href='#logos', data-toggle='collapse', data-parent='identity', role='tab')
+          a.toggle(href='#')
             | Logos
-          ul#logos.panel-collapse.collapse(role='tabpanel')
+          ul#logos.inner
             li.section
               a(href='#logo-michael-kors') Michael Kors
             li.section
@@ -22,64 +20,74 @@
               a(href='#logo-collection') Michael Kors Collection
             li.section
               a(href='#logo-dot-com') MichaelKors.com
+              
         li.subcategory
-          a.collapsed(href='#branded-elements', data-toggle='collapse', data-parent='identity', role='tab')
+          a.toggle(href='#')
             | Branded Elements
-          ul#branded-elements.panel-collapse.collapse(role='tabpanel')
+          ul#branded-elements.inner
             li.section
               a(href='#branded-signatures') Signatures (3X)
             li.section
               a(href='#branded-exclusively-ours') Exclusively Ours / badge
             li.section
               a(href='#branded-mmh') Michael's Must Haves / badge
+              
         li.subcategory
-          a.collapsed(href='#color', data-toggle='collapse', data-parent='identity', role='tab') Color
-          ul#color.panel-collapse.collapse(role='tabpanel')
+          a.toggle(href='#')
+            | Color
+          ul#color.inner
             li.section
               a(href='#color-primary') Primary
             li.section
               a(href='#color-secondary') Secondary
             li.section
               a(href='#color-background') Background Colors
+
         li.subcategory
-          a.collapsed(href='#typography', data-toggle='collapse', data-parent='identity', role='tab') Typography
-          ul#typography.panel-collapse.collapse(role='tabpanel')
+          a.toggle(href='#')
+            | Typography
+          ul#typography.inner
             li.section
               a(href='#typography-primary') Primary
+
         li.subcategory
-          a.collapsed(href='#photography', data-toggle='collapse', data-parent='identity', role='tab') Photography
-          ul#photography.panel-collapse.collapse(role='tabpanel')
+          a.toggle(href='#')
+            | Photography
+          ul#photography.inner
             li.section
               a(href='#photography-portraits') Michael's Portraits
             li.section
               a(href='#photography-grid') Grid
+
         li.subcategory
-          a.collapsed(href='#copy') Copy
+          a.toggle(href='#copy') Copy
 
     li.category
-      a.collapsed(data-toggle='collapse', data-parent='main-nav', href='#templates', role='tab') 
+      a.toggle(href='#')
         | TEMPLATES
-      ul#templates.collapse(role='tabpanel')
+      ul#templates.inner
         li.subcategory
-          a.collapsed(href='#desktop', data-toggle='collapse', data-parent='templates', role='tab') 
+          a.toggle(href='#')
             | Desktop
-          ul#desktop.collapse(role='tabpanel')
+          ul#desktop.inner
             li.section
               a(href='#templates-desktop-homepage') Homepage
             li.section
               a(href='#templates-desktop-plp') PLP
+
         li.subcategory
-          a(href='#mobile', data-toggle='collapse', data-parent='templates', role='tab') 
+          a.toggle(href='#')
             | Mobile
-          ul#mobile.collapse(role='tabpanel')
+          ul#mobile.inner
             li.section
               a(href='#templates-mobile-homepage') Homepage
             li.section
               a(href='#templates-mobile-plp') PLP
+
         li.subcategory
-          a(href='#email', data-toggle='collapse', data-parent='templates', role='tab') 
+          a.toggle(href='#')
             | Email
-          ul#email.collapse(role='tabpanel')
+          ul#email.inner
             li.section
               a(href='#templates-email-nav') Nav + Drop Shadow
             li.section
@@ -88,13 +96,13 @@
               a(href='#templates-email-ebm') EBM Templates
 
     li.category
-      a.collapsed(data-toggle='collapse', data-parent='main-nav', href='#user-interface', role='tab')
+      a.toggle(href='#')
         | USER INTERFACE
-      ul#user-interface.collapse(role='tabpanel')
+      ul#user-interface.inner
         li.subcategory
-          a(href='#navigation', data-toggle='collapse', data-parent='user-interface', role='tab')
+          a.toggle(href='#')
             | Navigation
-          ul#navigation.collapse(role='tabpanel')
+          ul#navigation.inner
             li.section
               a(href='#ui-navigation-eu') European Considerations
             li.section
@@ -111,18 +119,20 @@
               a(href='#') Bread Crumbs
             li.section
               a(href='#') Categoryies
+
         li.subcategory
-          a(href='#')
+          a.toggle(href='#')
             | Buttons / Links / Icons
-          ul#buttons  
+          ul#buttons.inner
             li.section
               a(href='#') Desktop
             li.section
               a(href='#') Social
+
         li.subcategory
-          a(href='#')
+          a.toggle(href='#')
             | Selectors
-          ul#selectors
+          ul#selectors.inner
             li.section
               a(href='#') Thumbnails on PDP
             li.section
@@ -133,10 +143,11 @@
               a(href='#') Radio buttons
             li.section
               a(href='#') Dropdowns
+
         li.subcategory
-          a(href='#')
+          a.toggle(href='#')
             | Controls
-          ul#controls
+          ul#controls.inner
             li.section
               a(href='#') Accordions
             li.section
@@ -147,18 +158,20 @@
               a(href='#') Filter / Sort
             li.section
               a(href='#') Back to Top
+
         li.subcategory
-          a(href='#')
+          a.toggle(href='#')
             | App
-          ul#app
+          ul#app.inner
             li.section
               a(href='#') Navigation
             li.section
               a(href='#') App-specific button styles
+
         li.subcategory
-          a(href='#')
+          a.toggle(href='#')
             | Modals / Tooltips
-          ul#modals-tooltips
+          ul#modals-tooltips.inner
             li.section
               a(href='#') Generic option
             li.section
