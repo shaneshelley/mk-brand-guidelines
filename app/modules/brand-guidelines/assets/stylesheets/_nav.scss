@@ -11,12 +11,47 @@
 	position: fixed;
 	width: 325px;
 
-	#sidebar-brand {
-		margin: 33px 40px 82px 39px;
+	#home-logo {
+		display: block;
+		margin: 0 0 78px 0;
 		text-align: center;
 
+		-webkit-transition: margin 0.5s;
+		-moz-transition: margin 0.5s;
+		transition: margin 0.5s;
+
 		#main-logo {
-			margin-bottom: 17px;
+			margin: 32px 0 15px 0;
+			width: 236px;
+
+			-webkit-transition: margin 0.5s, width 0.5s;
+      -moz-transition: margin 0.5s, width 0.5s;
+      transition: margin 0.5s, width 0.5s;
+		}
+
+		#guide-title {
+			height: 15px;
+			opacity: 1;
+			visibility: visible;
+
+			-webkit-transition: height 0.5s, opacity 0.5s, visibility 0s;
+      -moz-transition: height 0.5s, opacity 0.5s, visibility 0s;
+      transition: height 0.5s, opacity 0.5s, visibility 0s;
+		}
+
+		&.small {
+			margin-bottom: 9px;
+
+			#main-logo {
+				margin-top: 23px;
+				width: 169px;
+			}
+
+			#guide-title {
+				height: 0;
+				opacity: 0;
+				visibility: hidden;
+			}
 		}
 	}
 }
@@ -48,6 +83,7 @@
 				list-style: none;
 				background: #5c5754;
 				padding: 0;
+				position: relative;
 			}
 
 			& > a.toggle:after {

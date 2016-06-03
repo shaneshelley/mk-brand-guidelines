@@ -11,7 +11,7 @@ html
     link(rel='stylesheet', href='/css/mk-bootstrap.css')
     link(rel='stylesheet', href='/css/brand-guidelines.css')
   
-  body(data-spy='scroll', data-target='#main-nav')
+  body( )
     .container
       // Sidebar
       include _nav.jade
@@ -88,28 +88,28 @@ html
                           img(src='/images/mk-logos-core-dont-1.png')
                           p.card-text
                             span Do not
-                            | stretch or shrink.
+                            | &nbsp;stretch or shrink.
                             
                       .col-sm-3
                         .card.card-block
                           img(src='/images/mk-logos-core-dont-2.png')
                           p.card-text
                             span Do not
-                            | cut.
+                            | &nbsp;cut.
                       
                       .col-sm-3
                         .card.card-block
                           img(src='/images/mk-logos-core-dont-3.png')
                           p.card-text
                             span Do not
-                            | display in low resolution.
+                            | &nbsp;display in low resolution.
                             
                       .col-sm-3
                         .card.card-block
                           img(src='/images/mk-logos-core-dont-4.png')
                           p.card-text
                             span Do not
-                            | rotate.
+                            | &nbsp;rotate.
                     
                     .row
                       .col-sm-3
@@ -117,7 +117,7 @@ html
                           img(src='/images/mk-logos-core-dont-5.png')
                           p.card-text
                             span Do not
-                            | stack the logo.
+                            | &nbsp;stack the logo.
                             
                       .col-sm-3
                         .card.card-block
@@ -156,6 +156,123 @@ html
             article#color-primary
               h1 Primary
               
+              .section-content
+                .row
+                  p.section-intro.sm-col-12.
+                    The Michael Kors primary palette is comprised of three colors: the signature MK camel, black, and cool gray 7. 
+                    A custom Pantone spot color has been chosen for camel and matched to comparable CMYK and RGB colors to ensure 
+                    consistency across all media. Exact Pantone numbers are provided for printing instances when a spot color is used.
+                    
+                  p.section-intro.sm-col-12.
+                    For printing purposes, Pantone spot colors are preferred because they are the most consistent and reliable color 
+                    system. The CMYK and RGB numerical values for each color are designated as well.
+                  
+                  p.section-intro.sm-col-12.
+                    Digital displays (such as computers, televisions, and projectors) are only able to display colors in RGB modes. 
+                    Printed materials (such as books and brochures) are made using Pantone spot colors and CMYK colors.
+                  
+                .row
+                  .col-sm-6
+                    .color-swatch#camel
+                      h2 Camel
+                      
+                      div.values
+                        div
+                          label Hex
+                          span.value E7D2AC
+                        
+                        div
+                          label RGB
+                          span.value 231 &middot; 210 &middot; 172
+                        
+                        div
+                          label CMYK
+                          span.value 9 &middot; 15 &middot; 34 &middot; 0
+                        
+                        div
+                          label PMS
+                          span.value 467 2X
+                    
+                    p.
+                      Text ipsum dolor sit amet, consectetur adipisicing elit, sed
+                      
+                  .col-sm-6
+                    .color-swatch#gold
+                      h2 Gold
+                      
+                      div.values
+                        div
+                          label Hex
+                          span.value AC8C53
+                        
+                        div
+                          label RGB
+                          span.value 172 &middot; 140 &middot; 83
+                        
+                        div
+                          label CMYK
+                          span.value 32 &middot; 41 &middot; 77 &middot; 6
+                        
+                        div
+                          label PMS
+                          span.value 467 2X
+                          
+                    p.
+                      Text ipsum dolor sit amet, consectetur adipisicing elit, sed
+                
+                .row
+                  .col-sm-6
+                    .color-swatch#black
+                      h2 Black
+                      
+                      div.values
+                        div
+                          label Hex
+                          span.value 000000
+                        
+                        div
+                          label RGB
+                          span.value 0 &middot; 0 &middot; 0
+                        
+                        div
+                          label CMYK
+                          span.value 0 &middot; 0 &middot; 0 &middot; 0
+                        
+                        div
+                          label PMS
+                          span.value 467 2X
+                          
+                    p.
+                      Text ipsum dolor sit amet, consectetur adipisicing elit, sed
+                      
+                  .col-sm-6
+                    .color-swatch#cool-grey
+                      h2 Cool Grey 7
+                      
+                      div.values
+                        div
+                          label Hex
+                          span.value 989798
+                        
+                        div
+                          label RGB
+                          span.value 151 &middot; 152 &middot; 151
+                        
+                        div
+                          label CMYK
+                          span.value 43 &middot; 36 &middot; 35 &middot; 1
+                        
+                        div
+                          label PMS
+                          span.value 467 2X
+
+                    p.
+                      Text ipsum dolor sit amet, consectetur adipisicing elit, sed
+                
+                .row.downloads
+                  .col-sm-12
+                    a(href='#') Download Color Pallete
+
             article#color-secondary
               h1 Secondary
                   
@@ -214,38 +331,53 @@ html
     script(src='js/tether.min.js')  
     script(src='js/bootstrap.js')
         
-        
     script.
-      $('.toggle').click(function(e) {
-        e.preventDefault();
-        var $this = $(this);
-        if ($this.next().hasClass('show')) {
-          console.log("$this: " + $this.text());
-          $this.removeClass('open');
-          $this.next().removeClass('show');
-          $this.next().slideUp(350);
-        } else {
-          $this.parent().parent().find('li .toggle').removeClass('open');
-          $this.parent().parent().find('li .inner').removeClass('show');
-          $this.parent().parent().find('li .inner').slideUp(350);
-          $this.toggleClass('open');
-          $this.next().toggleClass('show');
-          $this.next().slideToggle(350);
-        }
-      });
+      $(document).ready(function(){
         
-    script.
-      $(function() {
-        $('a[href*="#"]:not([role="tab"])').click(function() {
-          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-            var target = $(this.hash);
-            target = target.length ? target : $("[name='" + this.hash.slice(1) +"']");
-            if (target.length) {
-              $('html, body').animate({
-                scrollTop: target.offset().top
-              }, 1000);
-              return false;
+        // Accordion
+        $('.toggle').click(function(e) {
+          e.preventDefault();
+          var $this = $(this);
+          if ($this.next().hasClass('show')) {
+            $this.removeClass('open');
+            $this.next().removeClass('show');
+            $this.next().slideUp(350);
+          } else {
+            $this.parent().parent().find('li .toggle').removeClass('open');
+            $this.parent().parent().find('li .inner').removeClass('show');
+            $this.parent().parent().find('li .inner').slideUp(350);
+            $this.toggleClass('open');
+            $this.next().toggleClass('show');
+            $this.next().slideToggle(350);
+          }
+        });
+        
+        // Smooth Scrolling  
+        $(function() {
+          $('a[href*="#"]:not([role="tab"])').click(function() {
+            if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+              var target = $(this.hash);
+              target = target.length ? target : $("[name='" + this.hash.slice(1) +"']");
+              if (target.length) {
+                $('html, body').animate({
+                  scrollTop: target.offset().top
+                }, 1000);
+                return false;
+              }
             }
+          });
+        });
+        
+        // Logo Scaling
+        var windowPos;
+        $(window).scroll(function(e){
+          windowPos = $(window).scrollTop();
+          
+          if (windowPos >= 520) {
+            $('#home-logo').addClass('small');
+          }
+          else {
+            $('#home-logo').removeClass('small');
           }
         });
       });

@@ -7,6 +7,10 @@ html, body {
   -webkit-font-smoothing: antialiased;
 }
 
+body {
+  position: relative;
+}
+
 @import "nav";
 
 /* Content */
@@ -45,6 +49,7 @@ html, body {
 		> article {
 			border-top: 10px solid $color-divider;
 			margin-bottom: 100px;
+      position: relative;
 
 			& > h1 {
 				line-height: 2em;
@@ -112,6 +117,71 @@ html, body {
 
     h3 {
       background: #f0f0f0;
+      font-family: $font-guide-heavy;
+      font-size: 14px;
+      letter-spacing: 1px;
+      line-height: 34px;
+      padding: 0 18px;
+      text-transform: uppercase;
     }
+  }
+
+  .color-swatch {
+    h2 {
+      border-radius: 3px 3px 0 0;
+      color: #fff;
+      font-size: 11px;
+      margin-bottom: 0;
+      padding: 70px 10px 8px;
+      text-transform: uppercase;
+    }
+
+    &#black {
+      h2 {
+        background-color: $color-black;
+      }
+    }
+
+    &#camel {
+      h2 {
+        background-color: $color-camel;
+        color: $color-black;
+      }
+    }
+
+    &#cool-grey {
+      h2 {
+        background-color: $color-cool-grey;
+      }
+    }
+
+    &#gold {
+      h2 {
+        background-color: $color-gold;
+      }
+    }
+
+    .values {
+      border: 1px solid #ebebeb;
+      border-radius: 0 0 3px 3px;
+      margin-bottom: 1em;
+      padding: 8px 10px 10px 10px;
+
+      & > div {
+        margin-bottom: 2px;
+      }
+    }
+
+    label {
+      color: rgba(51, 51, 51, 0.5);
+      display: inline-block;
+      font-family: $font-guide-heavy;
+      margin-bottom: 0;
+      margin-right: 1em;
+      width: 34px;
+      text-align: right;
+      text-transform: uppercase;
+    }
+
   }
 }

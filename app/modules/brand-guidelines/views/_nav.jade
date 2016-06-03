@@ -1,9 +1,9 @@
 #sidebar-wrapper
-  #sidebar-brand
-    a(href='#')
-      img#main-logo(src='images/logo-mk.png')
-      img(src='images/logo-digital-guide.png')
-  ul#main-nav.sidebar-nav(role='tablist')
+  a#home-logo(href='#')
+    img#main-logo(src='images/logo-mk.png')
+    img#guide-title(src='images/logo-digital-guide.png')
+  
+  ul#main-nav.nav.sidebar-nav
     li.category
       a.toggle(href='#')
         | IDENTITY
@@ -12,43 +12,43 @@
           a.toggle(href='#')
             | Logos
           ul#logos.inner
-            li.section
-              a(href='#logo-michael-kors') Michael Kors
-            li.section
-              a(href='#logo-mmk') Michael Michael Kors
-            li.section
-              a(href='#logo-collection') Michael Kors Collection
-            li.section
-              a(href='#logo-dot-com') MichaelKors.com
+            li.nav-item.section
+              a.nav-link(href='#logo-michael-kors') Michael Kors
+            li.nav-item.section
+              a.nav-link(href='#logo-mmk') Michael Michael Kors
+            li.nav-item.section
+              a.nav-link(href='#logo-collection') Michael Kors Collection
+            li.nav-item.section
+              a.nav-link(href='#logo-dot-com') MichaelKors.com
               
         li.subcategory
           a.toggle(href='#')
             | Branded Elements
           ul#branded-elements.inner
-            li.section
-              a(href='#branded-signatures') Signatures (3X)
-            li.section
-              a(href='#branded-exclusively-ours') Exclusively Ours / badge
-            li.section
-              a(href='#branded-mmh') Michael's Must Haves / badge
+            li.nav-item.section
+              a.nav-link(href='#branded-signatures') Signatures (3X)
+            li.nav-item.section
+              a.nav-link(href='#branded-exclusively-ours') Exclusively Ours / badge
+            li.nav-item.section
+              a.nav-link(href='#branded-mmh') Michael's Must Haves / badge
               
         li.subcategory
           a.toggle(href='#')
             | Color
           ul#color.inner
-            li.section
-              a(href='#color-primary') Primary
-            li.section
-              a(href='#color-secondary') Secondary
-            li.section
-              a(href='#color-background') Background Colors
+            li.nav-item.section
+              a.nav-link(href='#color-primary') Primary
+            li.nav-item.section
+              a.nav-link(href='#color-secondary') Secondary
+            li.nav-item.section
+              a.nav-link(href='#color-background') Background Colors
 
         li.subcategory
           a.toggle(href='#')
             | Typography
           ul#typography.inner
-            li.section
-              a(href='#typography-primary') Primary
+            li.nav-link.section
+              a.nav-item(href='#typography-primary') Primary
 
         li.subcategory
           a.toggle(href='#')
